@@ -1,0 +1,2072 @@
+<!DOCTYPE html><html><head>
+      <title>input-main</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\liuxi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="input-file">INPUT file</h1>
+
+<h2 class="mume-header" id="table-of-contents">Table of contents</h2>
+
+<h3 class="mume-header" id="structure-of-the-filestructure-of-the-file"><a href="#structure-of-the-file">Structure of the file</a></h3>
+
+<h3 class="mume-header" id="list-of-keywordslist-of-keywords"><a href="#list-of-keywords">List of keywords</a></h3>
+
+<ul>
+<li>
+<p><a href="#system-variables">System variables</a></p>
+<p><a href="#suffix">suffix</a> | <a href="#ntype">ntype</a> | <a href="#calculation">calculation</a> | <a href="#symmetry">symmetry</a> | <a href="#kpar">kpar</a> | <a href="#bndpar">bndpar</a> | <a href="#latname">latname</a> | <a href="#init_wfc">init_wfc</a> | <a href="#init_chg">init_chg</a> | <a href="#init_vel">init_vel</a> | <a href="#nelec">nelec</a> | <a href="#tot-magnetization">tot_magnetization</a> | <a href="#dft-functional">dft_functional</a> | <a href="#pseudo-type">pseudo_type</a> |  <a href="#pseudo-rcut">pseudo_rcut</a> | <a href="#pseudo_mesh">pseudo_mesh</a> | <a href="#mem-saver">mem_saver</a> | <a href="#diago_proc">diago_proc</a> | <a href="#nbspline">nbspline</a></p>
+</li>
+<li>
+<p><a href="#variables-related-to-input-files">Variables related to input files</a></p>
+<p><a href="#stru_file">stru_file</a> | <a href="#kpoint-file">kpoint_file</a> | <a href="#pseudo-dir">pseudo_dir</a> | <a href="#orbital-dir">orbital_dir</a> | <a href="#read-file-dir">read_file_dir</a></p>
+</li>
+<li>
+<p><a href="#plane-wave-related-variables">Plane wave related variables</a></p>
+<p><a href="#ecutwfc">ecutwfc</a> | <a href="#nx">nx,ny,nz</a> | <a href="#pw_seed">pw_seed</a> | <a href="#pw_diag_thr">pw_diag_thr</a> | <a href="#diago-cg-maxiter">pw_diag_nmax</a> | <a href="#pw_diag_ndim">pw_diag_ndim</a></p>
+</li>
+<li>
+<p><a href="#numerical-atomic-orbitals-related-variables">Numerical atomic orbitals related variables</a></p>
+<p><a href="#nb2d">nb2d</a> | <a href="#lmaxmax">lmaxmax</a> | <a href="lcao-ecut">lcao_ecut</a> | <a href="#lcao-dk">lcao_dk</a> | <a href="#lcao-dr">lcao_dr</a> | <a href="#lcao-rmax">lcao_rmax</a> | <a href="#search-radius">search_radius</a> | <a href="#search-pbc">search_pbc</a></p>
+</li>
+<li>
+<p><a href="#electronic-structure">Electronic structure</a></p>
+<p><a href="#basis-type">basis_type</a> | <a href="#ks-solver">ks_solver</a> | <a href="#nbands">nbands</a> | <a href="#nbands-istate">nbands_istate</a> | <a href="#nspin">nspin</a> | <a href="#occupations">occupations</a> | <a href="#smearing_method">smearing_method</a> | <a href="#smearing_sigma">smearing_sigma</a> | <a href="#mixing-type">mixing_type</a> | <a href="#mixing-beta">mixing_beta</a> | <a href="#mixing-ndim">mixing_ndim</a> | <a href="#mixing-gg0">mixing_gg0</a> | <a href="#gamma-only">gamma_only</a> | <a href="#printe">printe</a> | <a href="#scf_nmax">scf_nmax</a> | <a href="#scf_thr">scf_thr</a> | <a href="#chg_extrap">chg_extrap</a></p>
+</li>
+<li>
+<p><a href="#electronic-structure-sdft">Electronic structure (SDFT)</a></p>
+<p><a href="#nbands_sto">nbands_sto</a> | <a href="#nche_sto">nche_sto</a> | <a href="#emin_sto">emin_sto</a> | <a href="#emax_sto">emax_sto</a> | <a href="#seed_sto">seed_sto</a></p>
+</li>
+<li>
+<p><a href="#geometry-relaxation">Geometry relaxation</a></p>
+<p><a href="#relax_nmax">relax_nmax</a> | <a href="#relax_method">relax_method</a> | <a href="#relax_cg_thr">relax_cg_thr</a> | <a href="#bfgs-w1">relax_bfgs_w1</a> | <a href="#bfgs-w2">relax_bfgs_w2</a> | <a href="#relax_bfgs_rmax">relax_bfgs_rmax</a> | <a href="#relax_bfgs_rmin">relax_bfgs_rmin</a> | <a href="#relax_bfgs_init">relax_bfgs_init</a> | <a href="#cal_force">cal_force</a> | <a href="#force-thr">force_thr</a> | <a href="#force-thr-ev">force_thr_ev</a> | <a href="#cal_stress">cal_stress</a> | <a href="#stress-thr">stress_thr</a> | <a href="#press">press1, press2, press3</a> | <a href="#fixed-axes">fixed_axes</a> | <a href="#cell-factor">cell_factor</a></p>
+</li>
+<li>
+<p><a href="#variables-related-to-output-information">Variables related to output information</a></p>
+<p><a href="#out_force">out_force</a> | <a href="#out_mul">out_mul</a> | <a href="#out_freq_elec">out_freq_elec</a> | <a href="#out_freq_ion">out_freq_ion</a> | <a href="#out_chg">out_chg</a> | <a href="#out_pot">out_pot</a> | <a href="#out-dm">out_dm</a> | <a href="#out_wfc_pw">out_wfc_pw</a> | <a href="#out_wfc_r">out_wfc_r</a> | <a href="#out_wfc_lcao">out_wfc_lcao</a> | <a href="#out-dos">out_dos</a> | <a href="#out-band">out_band</a> | <a href="#out-proj-band">out_proj_band</a> | <a href="#out-stru">out_stru</a> | <a href="#out_level">out_level</a> | <a href="#out-alllog">out_alllog</a> | <a href="#out_mat_hs">out_mat_hs</a> | <a href="#out_mat_r">out_mat_r</a> | <a href="#out_mat_hs2">out_mat_hs2</a> | <a href="#out-element-info">out_element_info</a> | <a href="#restart_save">restart_save</a> | <a href="#restart_load">restart_load</a></p>
+</li>
+<li>
+<p><a href="#density-of-states">Density of states</a></p>
+<p><a href="#dos-edelta-ev">dos_edelta_ev</a> | <a href="#dos-sigma">dos_sigma</a> | <a href="#dos-scale">dos_scale</a></p>
+</li>
+<li>
+<p><a href="#exact-exchange">Exact exchange</a> (Under tests)</p>
+<p><a href="#exx-hybrid-type">exx_hybrid_type</a> | <a href="#exx-hybrid-alpha">exx_hybrid_alpha</a> | <a href="#exx-hse-omega">exx_hse_omega</a> | <a href="#exx-separate-loop">exx_separate_loop</a> | <a href="#exx-hybrid-step">exx_hybrid_step</a> | <a href="#exx-lambda">exx_lambda</a> | <a href="#exx-pca-threshold">exx_pca_threshold</a> | <a href="#exx-c-threshold">exx_c_threshold</a> | <a href="#exx-v-threshold">exx_v_threshold</a> | <a href="#exx-dm-threshold">exx_dm_threshold</a> | <a href="#exx-schwarz-threshold">exx_schwarz_threshold</a> | <a href="#exx-cauchy-threshold">exx_cauchy_threshold</a> | <a href="#exx-ccp-threshold">exx_ccp_threshold</a> | <a href="#exx-ccp-rmesh-times">exx_ccp_rmesh_times</a> | <a href="#exx-distribute-type">exx_distribute_type</a> | <a href="#exx-opt-orb-lmax">exx_opt_orb_lmax</a> | <a href="#exx-opt-orb-ecut">exx_opt_orb_ecut</a> | <a href="#exx-opt-orb-tolerence">exx_opt_orb_tolerence</a></p>
+</li>
+<li>
+<p><a href="#molecular-dynamics">Molecular dynamics</a></p>
+<p><a href="#md-type">md_type</a> | <a href="#md_nstep">md_nstep</a> | <a href="#md-ensolver">md_ensolver</a> | <a href="#md-restart">md_restart</a> | <a href="#md-dt">md_dt</a> | <a href="#md-t">md_t</a> | <a href="#md-dumpfreq">md_dumpfreq</a> | <a href="#md-restartfreq">md_restartfreq</a> | <a href="#md-tfreq">md_tfreq</a> | <a href="#md-mnhc">md_mnhc</a> | <a href="#lj-rcut">lj_rcut</a> | <a href="#lj-epsilon">lj_epsilon</a> | <a href="#lj-sigma">lj_sigma</a> | <a href="#msst-direction">msst_direction</a> | <a href="#msst-vel">msst_vel</a> | <a href="#msst-vis">msst_vis</a> | <a href="#msst-tscale">msst_tscale</a> | <a href="#msst-qmass">msst_qmass</a> | <a href="#md-damp">md_damp</a></p>
+</li>
+<li>
+<p><a href="#vdw-correction">vdW correction</a></p>
+<p><a href="#vdw-method">vdw_method</a> | <a href="#vdw-s6">vdw_s6</a> | <a href="#vdw-s8">vdw_s8</a> | <a href="#vdw-a1">vdw_a1</a> | <a href="#vdw-a2">vdw_a2</a> | <a href="#vdw-d">vdw_d</a> | <a href="#vdw-abc">vdw_abc</a> | <a href="#vdw-C6-file">vdw_C6_file</a> | <a href="#vdw-C6-unit">vdw_C6_unit</a> | <a href="#vdw-R0-file">vdw_R0_file</a> | <a href="#vdw-R0-unit">vdw_R0_unit</a> | <a href="#vdw-model">vdw_model</a> | <a href="#vdw-radius">vdw_radius</a> | <a href="#vdw-radius-unit">vdw_radius_unit</a> | <a href="#vdw-cn-radius">vdw_cn_radius</a> | <a href="#vdw-cn-radius-unit">vdw_cn_radius_unit</a> | <a href="#vdw-period">vdw_period</a></p>
+</li>
+<li>
+<p><a href="#berry-phase-and-wannier90-interface">Berry phase and wannier90 interface</a></p>
+<p><a href="#berry-phase">berry_phase</a> | <a href="#gdir">gdir</a> | <a href="#towannier90">towannier90</a> | <a href="#nnkpfile">nnkpfile</a> | <a href="#wannier-spin">wannier_spin</a></p>
+</li>
+<li>
+<p><a href="#TDDFT-doc">TDDFT: time dependent density functional theory</a> (Under tests)</p>
+<p><a href="#tddft">tddft</a> | <a href="#td_scf_thr">td_scf_thr</a> | <a href="#td_dt">td_dt</a> | <a href="#td_force_dt">td_force_dt</a> | <a href="#td_vext">td_vext</a> | <a href="#td_vext_dire">td_vext_dire</a> | <a href="#td_timescale">td_timescale</a> | <a href="#td_vexttype">td_vexttype</a> | <a href="#td_vextout">td_vextout</a> | <a href="#td_dipoleout">td_dipoleout</a> | <a href="#ocp">ocp</a> | <a href="#ocp_set">ocp_set</a></p>
+</li>
+<li>
+<p><a href="#DFT_U-correction">DFT+U correction</a> (Under tests)</p>
+<p><a href="#dft_plus_u">dft_plus_u</a> | <a href="#orbital_corr">orbital_corr</a> | <a href="#hubbard_u">hubbard_u</a> | <a href="#hund_j">hund_j</a> | <a href="#yukawa_potential">yukawa_potential</a> | <a href="#omc">omc</a></p>
+</li>
+<li>
+<p><a href="#variables-useful-for-debugging">Variables useful for debugging</a></p>
+<p><a href="#nurse">nurse</a> | <a href="#t-in-h">t_in_h</a> | <a href="#vl-in-h">vl_in_h</a> | <a href="#vnl-in-h">vnl_in_h</a> | <a href="#test-force">test_force</a> | <a href="#test-stress">test_stress</a> | <a href="#colour">colour</a> | <a href="#test-just-neighbor">test_just_neighbor</a></p>
+</li>
+<li>
+<p><a href="#deepks">DeePKS</a></p>
+<p><a href="#out-descriptor">deepks_out_labels</a> | <a href="#lmax-descriptor">deepks_descriptor_lmax</a> | <a href="#deepks-scf">deepks_scf</a> | <a href="#model-file">deepks_model</a></p>
+</li>
+<li>
+<p><a href="#Electric-field-and-dipole-correction">Electric field and dipole correction</a></p>
+<p><a href="#efield_flag">efield_flag</a> | <a href="#dip_cor_flag">dip_cor_flag</a> | <a href="#efield_dir">efield_dir</a> | <a href="#efield_pos_max">efield_pos_max</a> | <a href="#efield_pos_dec">efield_pos_dec</a> | <a href="#efield_amp">efield_amp </a></p>
+</li>
+</ul>
+<p><a href="../README.html">back to main page</a></p>
+<h2 class="mume-header" id="structure-of-the-file">Structure of the file</h2>
+
+<p>Below is an example INPUT file with some of the most important parameters that need to be set:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>INPUT_PARAMETERS
+#Parameters (General)
+ntype 1
+nbands 4
+#Parameters (Accuracy)
+ecutwfc 60
+</code></pre><p>Parameters list starts with key word <code>INPUT_PARAMETERS</code>. Any content before <code>INPUT_PARAMETERS</code> will be ignored.</p>
+<p>Any line starting with <code>#</code> or <code>/</code> will also be ignored.</p>
+<p>Each parameter value is provided by specifying the name of the input variable<br>
+and then putting the value after the name, separated by one or more blank characters(space<br>
+or tab). The following characters(&#x2264; 150) in the same line will be neglected.</p>
+<p>Depending on the input variable, the value may be an integer, a real number or a string. The parameters can be given in any order, but only one parameter should be given per line.</p>
+<p>Furthermore, if a given parameter name appeared more than once in the input file, only the last value will be taken.</p>
+<blockquote>
+<p>Note: if a parameter name is not recognized by the program, the program will stop with an error message.</p>
+</blockquote>
+<p>In the above example, the meanings of the parameters are:</p>
+<ul>
+<li><code>ntype</code> : how many types of elements in the unit cell</li>
+<li><code>nbands</code> : the number of bands to be calculated</li>
+<li><code>ecutwfc</code> : the plane-wave energy cutoff for the wave function expansion (UNIT: Rydberg)</li>
+</ul>
+<h2 class="mume-header" id="list-of-keywords">List of keywords</h2>
+
+<h3 class="mume-header" id="system-variables">System variables</h3>
+
+<p>This part of variables are used to control general system parameters.</p>
+<h4 class="mume-header" id="suffix">suffix</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: In each run, ABACUS will generate a subdirectory in the working directory. This subdirectory contains all the information of the run. The subdirectory name has the format: OUT.suffix, where the <code>suffix</code> is the name you can pick up for your convenience.</li>
+<li><strong>Default</strong>: ABACUS</li>
+</ul>
+<h4 class="mume-header" id="ntype">ntype</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Number of different atom species in this calculations. This value must be set. If the number you set is smaller than the atom species in the STRU file, ABACUS only read the <code>wrong number</code> of atom information. If the number is larger than the atom species in the STRU file, ABACUS may stop and quit.</li>
+<li><strong>Default</strong>: <em><strong>No default value</strong></em></li>
+</ul>
+<h4 class="mume-header" id="calculation">calculation</h4>
+
+<ul>
+<li>
+<p><strong>Type</strong>: String</p>
+</li>
+<li>
+<p><strong>Description</strong>: Specify the type of calculation.</p>
+<ul>
+<li><em>scf</em>: do self-consistent electronic structure calculation</li>
+<li><em>relax</em>: do structure relaxation calculation, one can ues <code>relax_nmax</code> to decide how many ionic relaxations you want.</li>
+<li><em>cell-relax</em>: do cell relaxation calculation.</li>
+<li><em>nscf</em>: do the non self-consistent electronic structure calculations. For this option, you need a charge density file. For nscf calculations with planewave basis set, pw_diag_thr should be &lt;= 1d-3.</li>
+<li><em>istate</em>: Please see the explanation for variable <code>nbands_istate</code>.</li>
+<li><em>ienvelope</em>: Please see the explanation for variable <code>nbands_istate</code>.</li>
+<li><em>md</em>: molecular dynamics</li>
+</ul>
+<blockquote>
+<p>Note: <em>istate</em> and <em>ienvelope</em> only work for LCAO basis set and are not working right now.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Default</strong>: scf</p>
+</li>
+</ul>
+<h4 class="mume-header" id="symmetry">symmetry</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: takes value 0 and 1, if set to 1, symmetry analysis will be performed to determine the type of Bravais lattice and associated symmetry operations.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="kpar">kpar</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: devide all processors into kpar groups, and k points will be distributed among each group. The value taken should be less than or equal to the number of k points as well as the number of MPI threads.</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="bndpar">bndpar</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: devide all processors into bndpar groups, and bands (only stochastic orbitals now) will be distributed among each group. It should be larger than 0.</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="latname">latname</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: Specifies the type of Bravias lattice. When set to <code>test</code>, the three lattice vectors are supplied explicitly in STRU file. When set to certain Bravais lattice type, there is no need to provide lattice vector, but a few lattice parameters might be required. For more information regarding this parameter, consult the <a href="input-stru.html">page on STRU file</a>.<br>
+Available options are:
+<ul>
+<li><code>test</code>: free strcture.</li>
+<li><code>sc</code>: simple cubie.</li>
+<li><code>fcc</code>: face-centered cubic.</li>
+<li><code>bcc</code>: body-centered cubic.</li>
+<li><code>hexagonal</code>: hexagonal.</li>
+<li><code>trigonal</code>: trigonal.</li>
+<li><code>st</code>: simple tetragonal.</li>
+<li><code>bct</code>: body-centered tetragonal.</li>
+<li><code>so</code>: orthorhombic.</li>
+<li><code>baco</code>: base-centered orthorhombic.</li>
+<li><code>fco</code>: face-centered orthorhombic.</li>
+<li><code>bco</code>: body-centered orthorhombic.</li>
+<li><code>sm</code>: simple monoclinic.</li>
+<li><code>bacm</code>: base-centered monoclinic.</li>
+<li><code>triclinic</code>: triclinic.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: <code>test</code></li>
+</ul>
+<h4 class="mume-header" id="init_wfc">init_wfc</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: Only useful for plane wave basis only now. It is the name of the starting wave functions. In the future we should also make this         variable available for localized orbitals set.<br>
+Available options are:
+<ul>
+<li><code>atomic</code>: from atomic pseudo wave functions. If they are not enough, other wave functions are initialized with random numbers.</li>
+<li><code>atomic+random</code>: add small random numbers on atomic pseudo-wavefunctions</li>
+<li><code>file</code>: from file</li>
+<li><code>random</code>: random numbers</li>
+</ul>
+</li>
+<li><strong>Default</strong>:<code>atomic</code></li>
+</ul>
+<h4 class="mume-header" id="init_chg">init_chg</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This variable is used for both plane wave set and localized orbitals set. It indicates the type of starting density. If set this to <code>atomic</code>, the density is starting from summation of atomic density of single atoms. If set this to <code>file</code>, the density will be read in from file. Besides, when you do <code>nspin=1</code> calculation, you only need the density file SPIN1_CHGCAR. However, if you do <code>nspin=2</code> calculation, you also need the density file SPIN2_CHGCAR. The density file should be output with these names if you set out_chg = 1 in INPUT file.</li>
+<li><strong>Default</strong>: atomic</li>
+</ul>
+<h4 class="mume-header" id="init_vel">init_vel</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: Read the atom velocity from the atom file (STRU) if set to true.</li>
+<li><strong>Default</strong>: false</li>
+</ul>
+<h4 class="mume-header" id="nelec">nelec</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: If &gt;0.0, this denotes total number of electrons in the system. Must be less than 2*nbands. If set to 0.0, the total number of electrons will be calculated by the sum of valence electrons (i.e. assuming neutral system).</li>
+<li><strong>Default</strong>: 0.0</li>
+</ul>
+<h4 class="mume-header" id="tot_magnetization">tot_magnetization</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Total magnetization of the system.</li>
+<li><strong>Default</strong>: 0.0</li>
+</ul>
+<h4 class="mume-header" id="dft_functional">dft_functional</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: type of exchange-correlation functional used in calculation. If dft_functional is not set, the program will adopt the functional used to generate pseudopotential files, provided all of them are generated using the same functional. For example, we present a few lines in Si&#x2019;s GGA pseudopotential file Si_ONCV_PBE-1.0.upf:<br>
+<code>... &lt;PP_HEADER generated=&quot;Generated using ONCVPSP code by D. R. Hamann&quot; author=&quot;Martin Schlipf and Francois Gygi&quot; date=&quot;150105&quot; comment=&quot;&quot; element=&quot;Si&quot; pseudo_type=&quot;NC&quot; relativistic=&quot;scalar&quot; is_ultrasoft=&quot;F&quot; is_paw=&quot;F&quot; is_coulomb=&quot;F&quot; has_so=&quot;F&quot; has_wfc=&quot;F&quot; has_gipaw=&quot;F&quot; core_correction=&quot;F&quot; functional=&quot;PBE&quot; z_valence=&quot; 4.00&quot; total_psenergy=&quot; -3.74274958433E+00&quot; rho_cutoff=&quot; 6.01000000000E+00&quot;</code><br>
+According to the information above, this pseudopotential is generated using PBE functional.<br>
+On the other hand, if dft_functional is specified, it will overwrite the functional from pseudopotentials and performs calculation with whichever functional the user prefers. We further offer two ways of supplying exchange-correlation functional. The first is using &apos;short-hand&apos; names such as &apos;LDA&apos;, &apos;PBE&apos;, &apos;SCAN&apos;. A complete list of &apos;short-hand&apos; expressions can be found in <a href="../source/module_xc/xc_functional.cpp">source code</a>. The other way is only available when <em><strong>compiling with LIBXC</strong></em>, and it allows for supplying exchange-correlation functionals as combinations of LIBXC keywords for functional components, joined by plus sign, for example, &apos;dft_functional=&apos;LDA_X_1D_EXPONENTIAL+LDA_C_1D_CSC&apos;. The list of LIBXC keywords can be found on its <a href="https://www.tddft.org/programs/libxc/functionals/">website</a>. In this way, <strong>we support all the LDA,GGA and mGGA functionals provided by LIBXC</strong>.<br>
+We also provides (under test) two hybrid functionals: PBE0 and HSE. For more information about hybrid functionals, refer to the <a href="#exact-exchange">section</a> on its input variables.</li>
+<li><strong>Default</strong>: same as UPF file.</li>
+</ul>
+<h4 class="mume-header" id="pseudo_type">pseudo_type</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: the format of pseudopotential files. Accepted value s are:
+<ul>
+<li>upf : .UPF format</li>
+<li>vwr : .vwr format</li>
+<li>upf201 : the new UPF format</li>
+<li>blps : bulk local pseudopotential</li>
+</ul>
+</li>
+<li><strong>Default</strong> : upf</li>
+</ul>
+<h4 class="mume-header" id="pseudo_rcut">pseudo_rcut</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Cut-off of radial integration for pseudopotentials, in Bohr.</li>
+<li><strong>Default</strong>: 15</li>
+</ul>
+<h4 class="mume-header" id="pseudo_mesh">pseudo_mesh</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If set to 0, then use our own mesh for radial integration of pseudopotentials; if set to 1, then use the mesh that is consistent with quantum espresso.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="mem_saver">mem_saver</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: Used only for nscf calculations. If set to 1, then a memory saving technique will be used for many k point calculations.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="diago_proc">diago_proc</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Descrption</strong>: If set to a positive number, then it specifies the number of threads used for carrying out diagonalization. Must be less than or equal to total number of MPI threads. Also, when cg diagonalization is used, diago_proc must be same as total number of MPI threads. If set to 0, then it will be set to the number of MPI threads. Normally, it is fine just leaving it to default value. Only used for pw base.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="nbspline">nbspline</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Descrption</strong>: If set to a natural number, a Cardinal B-spline interpolation will be used to calculate Structure Factor. <code>nbspline</code> represents the order of B-spline basis and larger one can get more accurate results but cost more.<br>
+It is turned off by default.</li>
+<li><strong>Default</strong>: -1</li>
+</ul>
+<h3 class="mume-header" id="variables-related-to-input-files">Variables related to input files</h3>
+
+<p>This part of variables are used to control input files related parameters.</p>
+<h4 class="mume-header" id="stru_file">stru_file</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This parameter specifies the name of structure file which contains various information about atom species, including pseudopotential files, local orbitals files, cell information, atom positions, and whether atoms should be allowed to move.</li>
+<li><strong>Default</strong>: STRU</li>
+</ul>
+<h4 class="mume-header" id="kpoint_file">kpoint_file</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This parameter specifies the name of k-points file. Note that if you use atomic orbitals as basis, and you only use gamma point, you don&apos;t need to have k-point file in your directory, ABACUS will automatically generate <code>KPT</code> file. Otherwise, if you use more than one k-point, please do remember the algorithm in ABACUS is different for gamma only and various k-point dependent simulations. So first you should turn off the k-point algorithm by set <code>gamma_only = 0</code> in <code>INPUT</code> and then you should setup your own k-points file.</li>
+<li><strong>Default</strong>: KPT</li>
+</ul>
+<h4 class="mume-header" id="pseudo_dir">pseudo_dir</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This parameter specifies pseudopotential directory.</li>
+<li><strong>Default</strong>: ./</li>
+</ul>
+<h4 class="mume-header" id="orbital_dir">orbital_dir</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This parameter specifies orbital file directory.</li>
+<li><strong>Default</strong>: ./</li>
+</ul>
+<h4 class="mume-header" id="read_file_dir">read_file_dir</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: when the program needs to read files such as electron density(<code>SPIN1_CHG</code>) as a starting point, this variables tells the location of the files. For example, &apos;./&apos; means the file is located in the working directory.</li>
+<li><strong>Default</strong>: OUT.$suffix</li>
+</ul>
+<h3 class="mume-header" id="plane-wave-related-variables">Plane wave related variables</h3>
+
+<p>This part of variables are used to control the plane wave related parameters.</p>
+<h4 class="mume-header" id="ecutwfc">ecutwfc</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Energy cutoff for plane wave functions, the unit is <strong>Rydberg</strong>. Note that even for localized orbitals basis, you still need to setup a energy cutoff for this system. Because our local pseudopotential parts and the related force are calculated from plane wave basis set, etc. Also, because our orbitals are generated by matching localized orbitals to a chosen set of wave functions from certain energy cutoff, so this set of localize orbitals are most accurate under this same plane wave energy cutoff.</li>
+<li><strong>Default</strong>: 50</li>
+</ul>
+<h4 class="mume-header" id="nx-ny-nz">nx, ny, nz</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If set to a positive number, then the three variables specify the numbers of FFT grid points in x, y, z directions, respectively. If set to 0, the number will be calculated from ecutwfc.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="pw_seed">pw_seed</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Only useful for plane wave basis only now. It is the random seed to initialize wave functions. Only positive integers are avilable.</li>
+<li><strong>Default</strong>:0</li>
+</ul>
+<h4 class="mume-header" id="pw_diag_thr">pw_diag_thr</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Only used when you use <code>diago_type = cg</code> or <code>diago_type = david</code>. It indicates the threshold for the first electronic iteration, from the second iteration the pw_diag_thr will be updated automatically. <strong>For nscf calculations with planewave basis set, pw_diag_thr should be &lt;= 1d-3.</strong></li>
+<li><strong>Default</strong>: 0.01</li>
+</ul>
+<h4 class="mume-header" id="pw_diag_nmax">pw_diag_nmax</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Only useful when you use <code>ks_solver = cg</code> or <code>ks_solver = dav</code>. It indicates the maximal iteration number for cg/david method.</li>
+<li><strong>Default</strong>: 40</li>
+</ul>
+<h4 class="mume-header" id="pw_diag_ndim">pw_diag_ndim</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Only useful when you use <code>ks_solver = dav</code>. It indicates the maximal dimension for the Davidson method.</li>
+<li><strong>Default</strong>: 10</li>
+</ul>
+<h3 class="mume-header" id="numerical-atomic-orbitals-related-variables">Numerical atomic orbitals related variables</h3>
+
+<p>This part of variables are used to control the numerical atomic orbitals related parameters.</p>
+<h4 class="mume-header" id="nb2d">nb2d</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: In LCAO calculations, we arrange the total number of processors in an 2D array, so that we can partition the wavefunction matrix (number of bands*total size of atomic orbital basis) and distribute them in this 2D array. When the system is large, we group processors into sizes of nb2d, so that multiple processors take care of one row block (a group of atomic orbitals) in the wavefunction matrix. If set to 0, nb2d will be automatically set in the program according to the size of atomic orbital basis:
+<ul>
+<li>if size &lt;= 500 : nb2d = 1</li>
+<li>if 500 &lt; size &lt;= 1000 : nb2d = 32</li>
+<li>if size &gt; 1000 : nb2d = 64;</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="lmaxmax">lmaxmax</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If not equals to 2, then the maximum l channels on LCAO is set to lmaxmax. If 2, then the number of l channels will be read from the LCAO data sets. Normally no input should be supplied for this variable so that it is kept as its default.</li>
+<li><strong>Default</strong>: 2.</li>
+</ul>
+<h4 class="mume-header" id="lcao_ecut">lcao_ecut</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Energy cutoff when calculating LCAO two-center integrals. In Ry.</li>
+<li><strong>Default</strong>: 50</li>
+</ul>
+<h4 class="mume-header" id="lcao_dk">lcao_dk</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Delta k for 1D integration in LCAO</li>
+<li><strong>Default</strong>: 0.01</li>
+</ul>
+<h4 class="mume-header" id="lcao_dr">lcao_dr</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Delta r for 1D integration in LCAO</li>
+<li><strong>Default</strong>: 0.01</li>
+</ul>
+<h4 class="mume-header" id="lcao_rmax">lcao_rmax</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Max R for 1D two-center integration table</li>
+<li><strong>Default</strong>: 30</li>
+</ul>
+<h4 class="mume-header" id="search_radius">search_radius</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Set the search radius for finding neighbouring atoms. If set to -1, then the radius will be set to maximum of projector and orbital cut-off.</li>
+<li><strong>Default</strong>: -1</li>
+</ul>
+<h4 class="mume-header" id="search_pbc">search_pbc</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: In searching for neighbouring atoms, if set to 1, then periodic images will also be searched. If set to 0, then periodic images will not be searched.</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h3 class="mume-header" id="electronic-structure">Electronic structure</h3>
+
+<p>This part of variables are used to control the electronic structure and geometry relaxation<br>
+calculations.</p>
+<h4 class="mume-header" id="basis_type">basis_type</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This is very important parameters to choose basis set in ABACUS.
+<ul>
+<li><em>pw</em>: Using plane-wave basis set only.</li>
+<li><em>lcao_in_pw</em>: Expand the localized atomic set in plane-wave basis.</li>
+<li>lcao: Using localized atomic orbital sets.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: pw</li>
+</ul>
+<h4 class="mume-header" id="ks_solver">ks_solver</h4>
+
+<ul>
+<li>
+<p><strong>Type</strong>: String</p>
+</li>
+<li>
+<p><strong>Description</strong>: It`s about choice of diagonalization methods for hamiltonian matrix expanded in a certain basis set.</p>
+<p>For plane-wave basis,</p>
+<ul>
+<li>cg: cg method.</li>
+<li>dav: the Davidson algorithm. (Currently not working with Intel MKL library).</li>
+</ul>
+<p>For atomic orbitals basis,</p>
+<ul>
+<li>genelpa: This method should be used if you choose localized orbitals.</li>
+<li>hpseps: old method, still used.</li>
+<li>lapack: lapack can be used for localized orbitals, but is only used for single processor.</li>
+<li>cusolver: this method needs building with the cusolver component for lcao and at least one gpu is available.</li>
+</ul>
+<p>If you set ks_solver=<code>hpseps</code> for basis_type=<code>pw</code>, the program will be stopped with an error message:</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt">hpseps can not be used with plane wave basis.
+</pre><p>Then the user has to correct the input file and restart the calculation.</p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>cg</code> (pw) or <code>genelpa</code> (lcao)</p>
+</li>
+</ul>
+<h4 class="mume-header" id="nbands">nbands</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Number of bands to calculate. It is recommended you setup this value, especially when you use smearing techniques, more bands should be included.</li>
+<li><strong>Default</strong>:
+<ul>
+<li>nspin=1: 1.2*occupied_bands, occupied_bands+10)</li>
+<li>nspin=2: max(1.2*nelec, nelec+20)</li>
+</ul>
+</li>
+</ul>
+<h4 class="mume-header" id="nbands_istate">nbands_istate</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Only used when <code>calculation = ienvelope</code> or <code>calculation = istate</code>, this variable indicates how many bands around Fermi level you would like to calculate. <code>ienvelope</code> means to calculate the envelope functions of wave functions <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">&#x3A8;</mi><mi>i</mi></msub><mo>=</mo><msub><mi mathvariant="normal">&#x3A3;</mi><mi>&#x3BC;</mi></msub><msub><mi>C</mi><mrow><mi>i</mi><mi>&#x3BC;</mi></mrow></msub><msub><mi mathvariant="normal">&#x3A6;</mi><mi>&#x3BC;</mi></msub></mrow><annotation encoding="application/x-tex">\Psi_{i}=\Sigma_{\mu}C_{i\mu}\Phi_{\mu}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">&#x3A8;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord">&#x3A3;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">&#x3BC;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">&#x3BC;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord">&#x3A6;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">&#x3BC;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">&#x3A8;</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Psi_{i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">&#x3A8;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is the ith wave function with the band index <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">&#x3A6;</mi><mi>&#x3BC;</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_{\mu}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord">&#x3A6;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">&#x3BC;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> is the localized atomic orbital set. <code>istate</code> means to calculate the density of each wave function <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">&#x2223;</mi><msub><mi mathvariant="normal">&#x3A8;</mi><mi>i</mi></msub><msup><mi mathvariant="normal">&#x2223;</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">|\Psi_{i}|^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">&#x2223;</span><span class="mord"><span class="mord">&#x3A8;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord">&#x2223;</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>. Specifically, suppose we have highest occupied bands at 100th wave functions. And if you set this variable to 5, it will print five wave functions from 96th to 105th. But before all this can be carried out, the wave functions coefficients  should be first calculated and written into a file by setting the flag <code>out_wfc_lcao = 1</code>.</li>
+<li><strong>Default</strong>: 5</li>
+</ul>
+<h4 class="mume-header" id="nspin">nspin</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Number of spin components of wave functions. There are only two choices now: 1 or 2, meaning non spin or collinear spin.</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="occupations">occupations</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: Specifies how to calculate the occupations of bands. Available options are:
+<ul>
+<li>&apos;smearing&apos; : gaussian smearing for metals; see also variables <code>smearing_method</code> and <code>smearing_sigma</code>.</li>
+<li>&apos;tetrahedra&apos; : Tetrahedron method, Bloechl&apos;s version: <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.49.16223">P.E. Bloechl, PRB 49, 16223 (1994)</a>. Requires a uniform grid of k-points that are automatically generated. Well suited for calculation of DOS, less so (because not variational) for force/optimization/dynamics calculations.</li>
+<li>&apos;fixed&apos; : for insulators with a gap</li>
+</ul>
+</li>
+<li><strong>Default</strong>: &apos;smearing&apos;</li>
+</ul>
+<h4 class="mume-header" id="smearing_method">smearing_method</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: It indicates which occupation and smearing method is used in the calculation.
+<ul>
+<li>fixed: use fixed occupations.</li>
+<li>gauss or gaussian: use gaussian smearing method.</li>
+<li>mp: use methfessel-paxton smearing method. The method recommends for metals.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: fixed</li>
+</ul>
+<h4 class="mume-header" id="smearing_sigma">smearing_sigma</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: energy range for smearing, the unit is Rydberg.</li>
+<li><strong>Default</strong>: 0.001</li>
+</ul>
+<h4 class="mume-header" id="mixing_type">mixing_type</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: Charge mixing methods.
+<ul>
+<li>plain: Just simple mixing.</li>
+<li>kerker: Use kerker method, which is the mixing method in G space.</li>
+<li>pulay: Standard Pulay method.</li>
+<li>pulay-kerker:</li>
+</ul>
+</li>
+<li><strong>Default</strong>: pulay</li>
+</ul>
+<h4 class="mume-header" id="mixing_beta">mixing_beta</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: mixing parameter: 0 means no new charge</li>
+<li><strong>Default</strong>: 0.7</li>
+</ul>
+<h4 class="mume-header" id="mixing_ndim">mixing_ndim</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: It indicates the mixing dimensions in Pulay, Pulay method use the density from previous mixing_ndim steps and do a charge mixing based on these density.</li>
+<li><strong>Default</strong>: 8</li>
+</ul>
+<h4 class="mume-header" id="mixing_gg0">mixing_gg0</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: used in pulay-kerker mixing method</li>
+<li><strong>Default</strong>: 1.5</li>
+</ul>
+<h4 class="mume-header" id="gamma_only">gamma_only</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: It is an important parameter <strong>only to be used in localized orbitals set</strong>.<br>
+It you set gamma_only = 1, ABACUS use gamma only, the algorithm is fast and you don&apos;t need to specify the k-points file. If you set gamma_only = 0, more than one k-point is used and the ABACUS is slower compared to gamma only algorithm.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="printe">printe</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Print out energy for each band for every printe steps</li>
+<li><strong>Default</strong>: 100</li>
+</ul>
+<h4 class="mume-header" id="scf_nmax">scf_nmax</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:This variable indicates the maximal iteration number for electronic iterations.</li>
+<li><strong>Default</strong>: 40</li>
+</ul>
+<h4 class="mume-header" id="scf_thr">scf_thr</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: An important parameter in ABACUS. It`s the threshold for electronic iteration. It represents the charge density error between two sequential density from electronic iterations. Usually for local orbitals, usually 1e-6 may be accurate enough.</li>
+<li><strong>Default</strong>:1e-06</li>
+</ul>
+<h4 class="mume-header" id="chg_extrap">chg_extrap</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: Methods to do extrapolation of density when ABACUS is doing geometry relaxations.
+<ul>
+<li>atomic: atomic extrapolation</li>
+<li>first-order: first-order extrapolation</li>
+<li>second-order: second-order extrapolation</li>
+</ul>
+</li>
+<li><strong>Default</strong>:atomic</li>
+</ul>
+<p>by time(NULL).</p>
+<ul>
+<li><strong>Default</strong>:0</li>
+</ul>
+<h3 class="mume-header" id="electronic-structure-sdft">Electronic structure (SDFT)</h3>
+
+<p>This part of variables are used to control the parameters of stochastic DFT (SDFT),  mix stochastic-deterministic DFT (MDFT), or complete-basis Chebyshev method (CT).</p>
+<h4 class="mume-header" id="nbands_sto">nbands_sto</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:
+<ul>
+<li>nbands_sto&gt;0: Number of stochastic orbitals to calculate in SDFT and MDFT.  More bands obtain more precise results or smaller stochastic errors (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x221D;</mo><mn>1</mn><mi mathvariant="normal">/</mi><msqrt><msub><mi>N</mi><mi>&#x3C7;</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">\propto 1/\sqrt{N_{\chi}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mrel">&#x221D;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.3564em;"></span><span class="mord">1/</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8836em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">&#x3C7;</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8436em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.3564em;"><span></span></span></span></span></span></span></span></span>);</li>
+<li>nbands_sto=0: Complete basis will be used to replace stochastic orbitals with the Chebyshev method (CT) and it will get the results the same as KSDFT without stochastic errors.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="nche_sto">nche_sto</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Chebyshev expansion orders for SDFT, MDFT, CT methods.</li>
+<li><strong>Default</strong>:5</li>
+</ul>
+<h4 class="mume-header" id="emin_sto">emin_sto</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Trial energy to guess the lower bound of eigen energies of the Hamitonian Operator <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>H</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{H}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9468em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span>. The unit is Ry.</li>
+<li><strong>Default</strong>:0.0</li>
+</ul>
+<h4 class="mume-header" id="emax_sto">emax_sto</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Trial energy to guess the upper bound of eigen energies of the Hamitonian Operator <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>H</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat{H}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9468em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span>. The unit is Ry.</li>
+<li><strong>Default</strong>:0.0</li>
+</ul>
+<h4 class="mume-header" id="seed_sto">seed_sto</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: The random seed to generate stochastic orbitals.
+<ul>
+<li>seed_sto&gt;=0: Stochastic orbitals have the form of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>exp</mi><mo>&#x2061;</mo><mo stretchy="false">(</mo><mi>i</mi><mn>2</mn><mi>&#x3C0;</mi><mi>&#x3B8;</mi><mo stretchy="false">(</mo><mi>G</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\exp(i2\pi\theta(G))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em;">&#x3C0;</span><span class="mord mathnormal" style="margin-right:0.02778em;">&#x3B8;</span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mclose">))</span></span></span></span>, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>&#x3B8;</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">&#x3B8;</span></span></span></span> is a uniform distribution in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>. If seed_sto=0, the seed is decided by time(NULL).</li>
+<li>seed_sto&lt;=-1: Stochastic orbitals have the form of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#xB1;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\pm1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">&#xB1;</span><span class="mord">1</span></span></span></span> with the equal probability. If seed_sto=-1, the seed is decided</li>
+</ul>
+</li>
+</ul>
+<h3 class="mume-header" id="geometry-relaxation">Geometry relaxation</h3>
+
+<p>This part of variables are used to control the geometry relaxation.</p>
+<h4 class="mume-header" id="relax_nmax">relax_nmax</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: The maximal number of ionic iteration steps, the minimal value is 1.</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="cal_force">cal_force</h4>
+
+<ul>
+<li><strong>Description</strong>: If set to 1, calculate the force at the end of the electronic iteration. 0 means the force calculation is turned off.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="force_thr">force_thr</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: The threshold of the force convergence, it indicates the largest force among all the atoms, the unit is Ry=Bohr</li>
+<li><strong>Default</strong>: 0.000388935 Ry/Bohr = 0.01 eV/Angstrom</li>
+</ul>
+<h4 class="mume-header" id="force_thr_ev">force_thr_ev</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: The threshold of the force convergence, has the same function as force_thr, just the unit is different, it is eV=Angstrom, you can choose either one as you like. The recommendation value for using atomic orbitals is 0:04 eV/Angstrom.</li>
+<li><strong>Default</strong>: 0.01 eV/Angstrom</li>
+</ul>
+<h4 class="mume-header" id="relax_bfgs_w1">relax_bfgs_w1</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This variable controls the Wolfe condition for BFGS algorithm used in geometry relaxation. You can look into paper Phys.Chem.Chem.Phys.,2000,2,2177 for more information.</li>
+<li><strong>Default</strong>: 0.01</li>
+</ul>
+<h4 class="mume-header" id="relax_bfgs_w2">relax_bfgs_w2</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This variable controls the Wolfe condition for BFGS algorithm used in geometry relaxation. You can look into paper Phys.Chem.Chem.Phys.,2000,2,2177 for more information.</li>
+<li><strong>Default</strong>: 0.5</li>
+</ul>
+<h4 class="mume-header" id="relax_bfgs_rmax">relax_bfgs_rmax</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This variable is for geometry optimization. It indicates the maximal movement of all the atoms. The sum of the movements from all atoms can be increased during the optimization steps. However, it will not be larger than relax_bfgs_rmax Bohr.</li>
+<li><strong>Default</strong>: 0.8</li>
+</ul>
+<h4 class="mume-header" id="relax_bfgs_rmin">relax_bfgs_rmin</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This variable is for geometry optimization. It indicates the minimal movement of all the atoms. When the movement of all the atoms is smaller than relax_bfgs_rmin Bohr , and the force convergence is still not achieved, the calculation will break down.</li>
+<li><strong>Default</strong>: 1e-5</li>
+</ul>
+<h4 class="mume-header" id="relax_bfgs_init">relax_bfgs_init</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This variable is for geometry optimization. It indicates the initial movement of all the atoms. The sum of the movements from all atoms is relax_bfgs_init Bohr.</li>
+<li><strong>Default</strong>: 0.5</li>
+</ul>
+<h4 class="mume-header" id="cal_stress">cal_stress</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If set to 1, calculate the stress at the end of the electronic iteration. 0 means the stress calculation is turned off.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="stress_thr">stress_thr</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: The threshold of the stress convergence, it indicates the largest stress among all the directions, the unit is KBar,</li>
+<li><strong>Default</strong>: 0.01</li>
+</ul>
+<h4 class="mume-header" id="press1-press2-press3">press1, press2, press3</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: the external pressures along three axes,the compressive stress is taken to be positive, the unit is KBar.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="fixed_axes">fixed_axes</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>:which axes are fixed when do cell relaxation. Possible choices are:
+<ul>
+<li>None : default; all can relax</li>
+<li>volume : relaxation with fixed volume</li>
+<li>a : fix a axis during relaxation</li>
+<li>b : fix b axis during relaxation</li>
+<li>c : fix c axis during relaxation</li>
+<li>ab : fix both a and b axes during relaxation</li>
+<li>ac : fix both a and c axes during relaxation</li>
+<li>bc : fix both b and c axes during relaxation</li>
+<li>abc : fix all three axes during relaxation</li>
+</ul>
+</li>
+<li><strong>Default</strong>: None</li>
+</ul>
+<h4 class="mume-header" id="relax_method">relax_method</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: The method to do geometry optimizations. If set to bfgs, using BFGS algorithm. If set to cg, using cg algorithm. If set to sd, using steepest-descent lgorithm.</li>
+<li><strong>Default</strong>: cg</li>
+</ul>
+<h4 class="mume-header" id="relax_cg_thr">relax_cg_thr</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: When move-method is set to &apos;cg-bfgs&apos;, a mixed cg-bfgs algorithm is used. The ions first move according to cg method, then switched to bfgs when maximum of force on atoms is reduced below cg-threshold. Unit is eV/Angstrom.</li>
+<li><strong>Default</strong>: 0.5</li>
+</ul>
+<h4 class="mume-header" id="cell_factor">cell_factor</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Used in the construction of the pseudopotential tables. It should exceed the maximum linear contraction of the cell during a simulation.</li>
+<li><strong>Default</strong>: 1.2</li>
+</ul>
+<h3 class="mume-header" id="variables-related-to-output-information">Variables related to output information</h3>
+
+<p>This part of variables are used to control the output of properties.</p>
+<h4 class="mume-header" id="out_force">out_force</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Determines whether to output the out_force into a file named <code>Force.dat</code> or not. If 1, then force will be written; if 0, then the force will not be written.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_mul">out_mul</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If set to 1, ABACUS will output the Mulliken population analysis result. The name of the output file is mulliken.txt</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_freq_elec">out_freq_elec</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If set to &gt;1, it represents the frequency of electronic iters to output charge density (if <a href="#out_chg">out_chg</a> is turned on) and wavefunction (if <a href="#out_wf_pw">out_wfc_pw</a> or <a href="#out_wfc_r">out_wfc_r</a> is turned on). If set to 0, ABACUS will output them only when converged in SCF. Used for the restart of SCF.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_freq_ion">out_freq_ion</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If set to &gt;1, it represents the frequency of ionic steps to output charge density (if <a href="#out_chg">out_chg</a> is turned on) and wavefunction (if <a href="#out_wf_pw">out_wfc_pw</a> or <a href="#out_wfc_r">out_wfc_r</a> is turned on). If set to 0, ABACUS will output them only when ionic steps reach its maximum step. Used for the restart of MD or Relax.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_chg">out_chg</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If set to 1, ABACUS will output the charge density on real space grid. The name of the density file is SPIN1_CHGCAR and SPIN2_CHGCAR (if nspin = 2). Suppose each density on grid has coordinate (x; y; z). The circle order of the density on real space grid is: z is the outer loop, then y and finally x (x is moving fastest).</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_pot">out_pot</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If set to 1, ABACUS will output the local potential on real space grid. The name of the file is SPIN1_POT and SPIN2_POT (if nspin = 2). If set to 2, ABACUS will output the electrostatic potential on real space grid. The name of the file is ElecStaticPot and ElecStaticP ot_AV E (along the z-axis).</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_dm">out_dm</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: If set to 1, ABACUS will output the density matrix of localized orbitals, only useful for localized orbitals set. The name of the output file is SPIN1_DM and SPIN2_DM in the output directory.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_wfc_pw">out_wfc_pw</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Only used in <strong>planewave basis</strong> and <strong>ienvelope calculation in localized orbitals</strong> set. When set this variable to 1, it outputs the coefficients of wave functions into text files. The file names are WAVEFUNC<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mi mathvariant="normal">.</mi><mi>t</mi><mi>x</mi><mi>t</mi><mo separator="true">,</mo><mi>w</mi><mi>h</mi><mi>e</mi><mi>r</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">K.txt, where</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord">.</span><span class="mord mathnormal">t</span><span class="mord mathnormal">x</span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">h</span><span class="mord mathnormal">ere</span></span></span></span>K is the index of k point. When set this variable to 2, results are stored in binary files. The file names are WAVEFUNC$K.dat.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_wfc_r">out_wfc_r</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Only used in <strong>planewave basis</strong> and <strong>ienvelope calculation in localized orbitals</strong> set. When set this variable to 1, it outputs real-space wave functions into  <code>OUT.suffix/wfc_realspace/</code>. The file names are wfc_realspace<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>B, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>x</mi><mi>o</mi><mi>f</mi><mi>k</mi><mi>p</mi><mi>o</mi><mi>i</mi><mi>n</mi><mi>t</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">K is the index of k point,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">in</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">p</span><span class="mord mathnormal">o</span><span class="mord mathnormal">in</span><span class="mord mathnormal">t</span><span class="mpunct">,</span></span></span></span>B is the index of band.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_wfc_lcao">out_wfc_lcao</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: <strong>Only used in localized orbitals set</strong>. If set to 1, ABACUS will output the wave functions coefficients.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_dos">out_dos</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Controls whether to output the density of state (DOS). For more information, refer to the <a href="examples/dos.html">worked example</a>.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_band">out_band</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Controls whether to output the band structure. For mroe information, refer to the <a href="examples/band-struc.html">worked example</a></li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_proj_band">out_proj_band</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Controls whether to output the projected band structure. For mroe information, refer to the <a href="examples/band-struc.html">worked example</a></li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_stru">out_stru</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to 1, then tje structure files will be written after each ion step</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_level">out_level</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: Controls the level of output. <code>ie</code> means write output at electron level; <code>i</code> means write additional output at ions level.</li>
+<li><strong>Default</strong>: ie</li>
+</ul>
+<h4 class="mume-header" id="out_alllog">out_alllog</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: determines whether to write log from all ranks in an MPI run. If set to be 1, then each rank will write detained running information to a file named running_<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>c</mi><mi>a</mi><mi>l</mi><mi>c</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow><mi mathvariant="normal">_</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">{calculation}\_(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.06em;vertical-align:-0.31em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">c</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span></span><span class="mord" style="margin-right:0.02778em;">_</span><span class="mopen">(</span></span></span></span>{rank}+1).log. If set to 0, log will only be written from rank 0 into a file named running_${calculation}.log.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_mat_hs">out_mat_hs</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: Only for LCAO calculations. When set to 1, ABACUS will generate two lists of files <code>data-$k-H</code> and <code>data-$k-S</code> that store the Hamiltonian and S matrix for each k point in k space, respectively.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_mat_r">out_mat_r</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: Only for LCAO and not gamma_only calculations. When set to 1, ABACUS will generate a file with name staring with <code>data-rR-tr</code> which stores overlap matrix as a function of R, in units of lattice vectors.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_mat_hs2">out_mat_hs2</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: Only for LCAO and not gamma_only calculations. When set to 1, ABACUS will generate two files starting with <code>data-HR-sparse</code> and <code>data-SR-sparse</code> that store the Hamiltonian and S matrix in real space, respectively, as functions of R, in units of lattice vectors.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="out_element_info">out_element_info</h4>
+
+<ul>
+<li>
+<p><strong>Type</strong>: Boolean</p>
+</li>
+<li>
+<p><strong>Description</strong>: When set to 1, ABACUS will generate a new directory under OUT.suffix path named as element name such as &apos;Si&apos;, which contained files &quot;Si-d1-orbital-dru.dat  Si-p2-orbital-k.dat    Si-s2-orbital-dru.dat<br>
+Si-d1-orbital-k.dat    Si-p2-orbital-r.dat    Si-s2-orbital-k.dat<br>
+Si-d1-orbital-r.dat    Si-p2-orbital-ru.dat   Si-s2-orbital-r.dat<br>
+Si-d1-orbital-ru.dat   Si-p-proj-k.dat        Si-s2-orbital-ru.dat<br>
+Si.NONLOCAL            Si-p-proj-r.dat        Si-s-proj-k.dat<br>
+Si-p1-orbital-dru.dat  Si-p-proj-ru.dat       Si-s-proj-r.dat<br>
+Si-p1-orbital-k.dat    Si-s1-orbital-dru.dat  Si-s-proj-ru.dat<br>
+Si-p1-orbital-r.dat    Si-s1-orbital-k.dat    v_loc_g.dat<br>
+Si-p1-orbital-ru.dat   Si-s1-orbital-r.dat<br>
+Si-p2-orbital-dru.dat  Si-s1-orbital-ru.dat&quot; for example.</p>
+</li>
+<li>
+<p><strong>Default</strong>: 0</p>
+</li>
+</ul>
+<h4 class="mume-header" id="restart_save">restart_save</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: Only for LCAO, store charge density file and H matrix file every scf step for restart.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="restart_load">restart_load</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: Only for LCAO, used for restart, only if that:
+<ul>
+<li>set restart_save as true and do scf calculation before.</li>
+<li>please ensure suffix is same with calculation before and density file and H matrix file is exist.<br>
+restart from stored density file and H matrix file.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h3 class="mume-header" id="density-of-states">Density of states</h3>
+
+<p>This part of variables are used to control the calculation of DOS.</p>
+<h4 class="mume-header" id="dos_edelta_ev">dos_edelta_ev</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: controls the step size in writing DOS (in eV).</li>
+<li><strong>Default</strong>: 0.1</li>
+</ul>
+<h4 class="mume-header" id="dos_sigma">dos_sigma</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: controls the width of Gaussian factor when obtaining smeared DOS (in eV).</li>
+<li><strong>Default</strong>: 0.07</li>
+</ul>
+<h4 class="mume-header" id="dos_scale">dos_scale</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: the energy range of dos output is given by (emax-emin)*(1+dos_scale), centered at (emax+emin)/2.</li>
+<li><strong>Default</strong>: 0.01</li>
+</ul>
+<h3 class="mume-header" id="deepks">DeePKS</h3>
+
+<p>This part of variables are used to control the usage of DeePKS method (a comprehensive data-driven approach to improve accuracy of DFT).<br>
+Warning: this function is not robust enough for version 2.2.0. Please try these variables in <a href="https://github.com/deepmodeling/abacus-develop/tree/deepks">https://github.com/deepmodeling/abacus-develop/tree/deepks</a> .</p>
+<h4 class="mume-header" id="deepks_out_labels">deepks_out_labels</h4>
+
+<ul>
+<li>
+<p><strong>Type</strong>: Boolean</p>
+</li>
+<li>
+<p><strong>Description</strong>: when set to 1, ABACUS will calculate and output descriptor for DeePKS training. In <code>LCAO</code> calculation, a path of *.orb file is needed to be specified under <code>NUMERICAL_DESCRIPTOR</code>in <code>STRU</code>file. For example:</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt">NUMERICAL_ORBITAL
+H_gga_8au_60Ry_2s1p.orb
+O_gga_7au_60Ry_2s2p1d.orb
+
+NUMERICAL_DESCRIPTOR
+jle.orb
+</pre></li>
+<li>
+<p><strong>Default</strong>: 0</p>
+</li>
+</ul>
+<h4 class="mume-header" id="deepks_descriptor_lmax">deepks_descriptor_lmax</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: control the max angular momentum of descriptor basis.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="deepks_scf">deepks_scf</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: only when deepks is enabled in <code>LCAO</code> calculation can this variable set to 1. Then, a trained, traced model file is needed for self-consistant field iteration in DeePKS method.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="deepks_model">deepks_model</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: the path of the trained, traced NN model file (generated by deepks-kit). used when deepks_scf is set to 1.</li>
+<li><strong>Default</strong>: None</li>
+</ul>
+<h3 class="mume-header" id="electric-field-and-dipole-correction">Electric field and dipole correction</h3>
+
+<p>This part of variables are relevant to electric field and dipole correction</p>
+<h4 class="mume-header" id="efield_flag">efield_flag</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to true, a saw-like potential simulating an electric field<br>
+is added to the bare ionic potential.</li>
+<li><strong>Default</strong>: false</li>
+</ul>
+<h4 class="mume-header" id="dip_cor_flag">dip_cor_flag</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If dip_cor_flag == true and efield_flag == true,  a dipole correction is also<br>
+added to the bare ionic potential. If you want no electric field, parameter efield_amp  should be zero. Must be used ONLY in a slab geometry for surface calculations, with the discontinuity FALLING IN THE EMPTY SPACE.</li>
+<li><strong>Default</strong>: false</li>
+</ul>
+<h4 class="mume-header" id="efield_dir">efield_dir</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: The direction of the electric field or dipole correction is parallel to the reciprocal lattice vector, so the potential is constant in planes defined by FFT grid points, efield_dir = 0, 1 or 2. Used only if efield_flag == true.</li>
+<li><strong>Default</strong>: 2</li>
+</ul>
+<h4 class="mume-header" id="efield_pos_max">efield_pos_max</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Position of the maximum of the saw-like potential along crystal axis efield_dir, within the  unit cell, 0 &lt; efield_pos_max &lt; 1. Used only if efield_flag == true.</li>
+<li><strong>Default</strong>: 0.5</li>
+</ul>
+<h4 class="mume-header" id="efield_pos_dec">efield_pos_dec</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Zone in the unit cell where the saw-like potential decreases, 0 &lt; efield_pos_dec &lt; 1. Used only if efield_flag == true.</li>
+<li><strong>Default</strong>: 0.1</li>
+</ul>
+<h4 class="mume-header" id="efield_amp">efield_amp</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Amplitude of the electric field, in <em><strong>Hartree</strong></em> a.u.; 1 a.u. = 51.4220632*10^10 V/m. Used only if efield_flag == true. The saw-like potential increases with slope efield_amp  in the region from (efield_pos_max+efield_pos_dec-1) to (efield_pos_max), then decreases until (efield_pos_max+efield_pos_dec), in units of the crystal vector efield_dir. Important: the change of slope of this potential must be located in the empty region, or else unphysical forces will result.</li>
+<li><strong>Default</strong>: 0.0</li>
+</ul>
+<h3 class="mume-header" id="exact-exchange">Exact Exchange</h3>
+
+<p>This part of variables are relevant when using hybrid functionals</p>
+<h4 class="mume-header" id="exx_hybrid_type">exx_hybrid_type</h4>
+
+<ul>
+<li>
+<p><strong>Type</strong>: String</p>
+</li>
+<li>
+<p><strong>Description</strong>: Type of hybrid functional used. Options are <code>hf</code> (pure Hartree-Fock), <code>pbe0</code>(PBE0), <code>hse</code> (Note: in order to use HSE functional, LIBXC is required). Note also that HSE has been tested while PBE0 has NOT been fully tested yet, and the maxmum parallel cpus for running exx is Nx(N+1)/2, with N being the number of atoms.</p>
+<p>If set to <code>no</code>, then no hybrid functional is used (i.e.,Fock exchange is not included.)</p>
+<p>If set to <code>opt_orb</code>, the program will not perform hybrid functional calculation. Instead, it is going to generate opt-ABFs as discussed in this <a href="https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.0c00481">article</a>.</p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>no</code></p>
+</li>
+</ul>
+<h4 class="mume-header" id="exx_hybrid_alpha">exx_hybrid_alpha</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: fraction of Fock exchange in hybrid functionals, so that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>X</mi></msub><mo>=</mo><mi>&#x3B1;</mi><msub><mi>F</mi><mi>X</mi></msub><mo>+</mo><mo stretchy="false">(</mo><mn>1</mn><mo>&#x2212;</mo><mi>&#x3B1;</mi><mo stretchy="false">)</mo><msub><mi>E</mi><mrow><mi>X</mi><mo separator="true">,</mo><mi>L</mi><mi>D</mi><mi>A</mi><mi mathvariant="normal">/</mi><mi>G</mi><mi>G</mi><mi>A</mi></mrow></msub></mrow><annotation encoding="application/x-tex">E_{X}=\alpha F_{X}+(1-\alpha)E_{X,LDA/GGA}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">&#x3B1;</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1052em;vertical-align:-0.3552em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">&#x3B1;</span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span><span class="mord mathnormal mtight">A</span><span class="mord mtight">/</span><span class="mord mathnormal mtight">GG</span><span class="mord mathnormal mtight">A</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span></span></span></span></li>
+<li><strong>Default</strong>: 0.25</li>
+</ul>
+<h4 class="mume-header" id="exx_hse_omega">exx_hse_omega</h4>
+
+<ul>
+<li><strong>Type</strong>:</li>
+<li><strong>Description</strong>: range-separation parameter in HSE functional, such that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mi>r</mi><mo>=</mo><mi>e</mi><mi>r</mi><mi>f</mi><mi>c</mi><mo stretchy="false">(</mo><mi>&#x3C9;</mi><mi>r</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>r</mi><mo>+</mo><mi>e</mi><mi>r</mi><mi>f</mi><mo stretchy="false">(</mo><mi>&#x3C9;</mi><mi>r</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">1/r=erfc(\omega r)/r+erf(\omega r)/r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">c</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">&#x3C9;</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">&#x3C9;</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>.</li>
+<li><strong>Default</strong>: 0.11</li>
+</ul>
+<p>adial integration for pseudopotentials, in Bohr.<br>
+@@ -214,6 +279,13 @@ This part of variables are used to control general system para</p>
+<ul>
+<li><strong>Default</strong>: 0.3</li>
+</ul>
+<h4 class="mume-header" id="exx_pca_threshold">exx_pca_threshold</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: To accelerate the evaluation of four-center integrals (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>k</mi><mi mathvariant="normal">&#x2223;</mi><mi>j</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">ik|jl</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">ik</span><span class="mord">&#x2223;</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span></span></span></span>), the product of atomic orbitals are expanded in the basis of auxiliary basis functions (ABF): <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">&#x3A6;</mi><mi>i</mi></msub><msub><mi mathvariant="normal">&#x3A6;</mi><mi>j</mi></msub><mo>&#x223C;</mo><msubsup><mi>C</mi><mrow><mi>i</mi><mi>j</mi></mrow><mi>k</mi></msubsup><msub><mi>P</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_{i}\Phi_{j}\sim C^{k}_{ij}P_{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord">&#x3A6;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord">&#x3A6;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&#x223C;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2439em;vertical-align:-0.3948em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-2.4413em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.3948em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. The size of the ABF (i.e. number of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">P_{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) is reduced using principal component analysis. When a large PCA threshold is used, the number of ABF will be reduced, hence the calculations becomes faster. However this comes at the cost of computational accuracy. A relatively safe choice of the value is 1d-4.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="exx_c_threshold">exx_c_threshold</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: See also the entry <a href="#exx-pca-threshold">exx_pca_threshold</a>. Smaller components (less than exx_c_threshold) of the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mrow><mi>i</mi><mi>j</mi></mrow><mi>k</mi></msubsup></mrow><annotation encoding="application/x-tex">C^{k}_{ij}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2439em;vertical-align:-0.3948em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-2.4413em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.3948em;"><span></span></span></span></span></span></span></span></span></span> matrix is neglected to accelerate calculation. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1d-4.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="exx_v_threshold">exx_v_threshold</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: See also the entry <a href="#exx-pca-threshold">exx_pca_threshold</a>. With the approximation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">&#x3A6;</mi><mi>i</mi></msub><msub><mi mathvariant="normal">&#x3A6;</mi><mi>j</mi></msub><mo>&#x223C;</mo><msubsup><mi>C</mi><mrow><mi>i</mi><mi>j</mi></mrow><mi>k</mi></msubsup><msub><mi>P</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_{i}\Phi_{j}\sim C^{k}_{ij}P_{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord">&#x3A6;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord">&#x3A6;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&#x223C;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2439em;vertical-align:-0.3948em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-2.4413em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.3948em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, the four-center integral in Fock exchange is expressed as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>i</mi><mi>k</mi><mi mathvariant="normal">&#x2223;</mi><mi>j</mi><mi>l</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi mathvariant="normal">&#x3A3;</mi><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><msubsup><mi>C</mi><mrow><mi>i</mi><mi>j</mi></mrow><mi>a</mi></msubsup><msub><mi>V</mi><mrow><mi>a</mi><mi>b</mi></mrow></msub><msubsup><mi>C</mi><mrow><mi>k</mi><mi>l</mi></mrow><mi>b</mi></msubsup></mrow><annotation encoding="application/x-tex">(ik|jl)=\Sigma_{a,b}C^{a}_{ij}V_{ab}C^{b}_{kl}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">ik</span><span class="mord">&#x2223;</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2439em;vertical-align:-0.3948em;"></span><span class="mord"><span class="mord">&#x3A3;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-2.4413em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">ij</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.3948em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ab</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-2.4169em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2831em;"><span></span></span></span></span></span></span></span></span></span>, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>a</mi><mi>b</mi></mrow></msub><mo>=</mo><mo stretchy="false">(</mo><msub><mi>P</mi><mi>a</mi></msub><mi mathvariant="normal">&#x2223;</mi><msub><mi>P</mi><mi>b</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">V_{ab}=(P_{a}|P_{b})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ab</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">&#x2223;</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> is a double-center integral. Smaller values of the V matrix can be truncated to accelerate calculation. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 0, i.e. no truncation.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="exx_dm_threshold">exx_dm_threshold</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: The Fock exchange can be expressed as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">&#x3A3;</mi><mrow><mi>k</mi><mo separator="true">,</mo><mi>l</mi></mrow></msub><mo stretchy="false">(</mo><mi>i</mi><mi>k</mi><mi mathvariant="normal">&#x2223;</mi><mi>j</mi><mi>l</mi><mo stretchy="false">)</mo><msub><mi>D</mi><mrow><mi>k</mi><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\Sigma_{k,l}(ik|jl)D_{kl}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord">&#x3A3;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">ik</span><span class="mord">&#x2223;</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> where D is the density matrix. Smaller values of the density matrix can be truncated to accelerate calculation. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1d-4.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="exx_schwarz_threshold">exx_schwarz_threshold</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: In practice the four-center integrals are sparse, and using Cauchy-Schwartz inequality, we can find an upper bound of each integral before carrying out explicit evaluations. Those that are smaller than exx_schwarz_threshold will be truncated. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1d-5.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="exx_cauchy_threshold">exx_cauchy_threshold</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: In practice the Fock exchange matrix is sparse, and using Cauchy-Schwartz inequality, we can find an upper bound of each matrix element before carrying out explicit evaluations. Those that are smaller than exx_cauchy_threshold will be truncated. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1d-7.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="exx_ccp_threshold">exx_ccp_threshold</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: It is related to the cutoff of on-site Coulomb potentials, currently not used.</li>
+<li><strong>Default</strong>: 1e-8</li>
+</ul>
+<h4 class="mume-header" id="exx_ccp_rmesh_times">exx_ccp_rmesh_times</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This parameter determines how many times larger the radial mesh required for calculating Columb potential is to that of atomic orbitals. For HSE1, setting it to 1 is enough. But for PBE0, a much larger number must be used.</li>
+<li><strong>Default</strong>: 10</li>
+</ul>
+<h4 class="mume-header" id="exx_distribute_type">exx_distribute_type</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: When running in parallel, the evaluation of Fock exchange is done by distributing atom pairs on different threads, then gather the results. exx_distribute_type governs the mechanism of distribution. Available options are <code>htime</code>, <code>order</code>, <code>kmean1</code> and <code>kmeans2</code>. <code>order</code> is where atom pairs are simply distributed by their orders. <code>hmeans</code> is a distribution where the balance in time is achieved on each processor, hence if the memory is sufficient, this is the recommended method. <code>kmeans1</code> and <code>kmeans2</code> are two methods where the k-means clustering method is used to reduce memory requirement. They might be necessary for very large systems.</li>
+<li><strong>Default</strong>: <code>htime</code></li>
+</ul>
+<h4 class="mume-header" id="exx_opt_orb_lmax">exx_opt_orb_lmax</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: See also the entry <a href="#exx-hybrid-type">exx_hybrid_type</a>. This parameter is only relevant when exx_hybrid_type=<code>opt_orb</code>. The radial part of opt-ABFs are generated as linear combinations of spherical Bessel functions. exx_opt_orb_lmax gives the maximum l of the spherical Bessel functions. A reasonable choice is 2.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="exx_opt_orb_ecut">exx_opt_orb_ecut</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: See also the entry <a href="#exx-hybrid-type">exx_hybrid_type</a>. This parameter is only relevant when exx_hybrid_type=<code>opt_orb</code>. A plane wave basis is used to optimize the radial ABFs. This parameter thus gives the cut-off of plane wave expansion, in Ry. A reasonable choice is 60.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="exx_opt_orb_tolerence">exx_opt_orb_tolerence</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: See also the entry <a href="#exx-hybrid-type">exx_hybrid_type</a>. This parameter is only relevant when exx_hybrid_type=<code>opt_orb</code>. exx_opt_orb_tolerence determines the threshold when solving for the zeros of spherical Bessel functions. A reasonable choice is 1e-12.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h3 class="mume-header" id="molecular-dynamics">Molecular dynamics</h3>
+
+<p>This part of variables are used to control the molecular dynamics calculations.</p>
+<h4 class="mume-header" id="md_type">md_type</h4>
+
+<ul>
+<li>
+<p><strong>Type</strong>: Integer</p>
+</li>
+<li>
+<p><strong>Description</strong>: control the ensemble to run md.</p>
+<ul>
+<li>-1: FIRE method to relax;</li>
+<li>0: NVE ensemble;</li>
+<li>1: NVT ensemble with Nose Hoover Chain;</li>
+<li>2: NVT ensemble with Langevin method;</li>
+<li>3: NVT ensemble with Anderson thermostat;</li>
+<li>4: MSST method;</li>
+</ul>
+<p><em><strong>Note: when md_type is set to 1, md_tfreq is required to stablize temperature. It is an empirical parameter whose value is system-dependent, ranging from 1/(40*md_dt) to 1/(100*md_dt). An improper choice of its value might lead to failure of job.</strong></em></p>
+</li>
+<li>
+<p><strong>Default</strong>: 1</p>
+</li>
+</ul>
+<h4 class="mume-header" id="md_nstep">md_nstep</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: the total number of md steps.</li>
+<li><strong>Default</strong>: 10</li>
+</ul>
+<h4 class="mume-header" id="md_ensolver">md_ensolver</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: choose the energy solver for MD.
+<ul>
+<li>FP: First-Principles MD;</li>
+<li>LJ: Leonard Jones potential;</li>
+<li>DP: DeeP potential;</li>
+</ul>
+</li>
+<li><strong>Default</strong>: FP</li>
+</ul>
+<h4 class="mume-header" id="md_restart">md_restart</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: to control whether restart md.
+<ul>
+<li>0: When set to 0, ABACUS will calculate md normolly.</li>
+<li>1: When set to 1, ABACUS will calculate md from last step in your test before.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="md_dt">md_dt</h4>
+
+<ul>
+<li><strong>Type</strong>: Double</li>
+<li><strong>Description</strong>: This is the time step(fs) used in md simulation .</li>
+<li><strong>Default</strong>: 1.0</li>
+</ul>
+<h4 class="mume-header" id="md_tfirst-md_tlast">md_tfirst &amp; md_tlast</h4>
+
+<ul>
+<li><strong>Type</strong>: Double</li>
+<li><strong>Description</strong>: This is the temperature (K) used in md simulation, md_tlast`s default value is md_tfirst. If md_tlast is set to be different from md_tfirst, ABACUS will automatically change the temperature from md_tfirst to md_tlast.</li>
+<li><strong>Default</strong>: No default</li>
+</ul>
+<h4 class="mume-header" id="md_dumpfreq">md_dumpfreq</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:This is the frequence to dump md information.</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="md_restartfreq">md_restartfreq</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:This is the frequence to output restart information.</li>
+<li><strong>Default</strong>: 5</li>
+</ul>
+<h4 class="mume-header" id="md_tfreq">md_tfreq</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>:
+<ul>
+<li>When md_type = 1, md_tfreq controls the frequency of the temperature oscillations during the simulation. If it is too large, the<br>
+temperature will fluctuate violently; if it is too small, the temperature will take a very long time to equilibrate with the atomic system.</li>
+<li>When md_type = 3, md_tfreq*md_dt is the collision probability in Anderson method.</li>
+<li>If md_tfreq is not set in INPUT, md_tfreq will be autoset to be 1/40/md_dt.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 1/40/md_dt</li>
+</ul>
+<h4 class="mume-header" id="md_mnhc">md_mnhc</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: Number of Nose-Hoover chains.</li>
+<li><strong>Default</strong>: 4</li>
+</ul>
+<h4 class="mume-header" id="lj_rcut">lj_rcut</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Cut-off radius for Leonard Jones potential (angstrom).</li>
+<li><strong>Default</strong>: 8.5 (for He)</li>
+</ul>
+<h4 class="mume-header" id="lj_epsilon">lj_epsilon</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: The value of epsilon for Leonard Jones potential (eV).</li>
+<li><strong>Default</strong>: 0.01032 (for He)</li>
+</ul>
+<h4 class="mume-header" id="lj_sigma">lj_sigma</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: The value of sigma for Leonard Jones potential (angstrom).</li>
+<li><strong>Default</strong>: 3.405 (for He)</li>
+</ul>
+<h4 class="mume-header" id="msst_direction">msst_direction</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: the direction of shock wave for MSST.</li>
+<li><strong>Default</strong>: 2 (z direction)</li>
+</ul>
+<h4 class="mume-header" id="msst_vel">msst_vel</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: the velocity of shock wave (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>A</mi><mo>&#x2DA;</mo></mover></mrow><annotation encoding="application/x-tex">\AA</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9468em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">A</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2361em;"><span class="mord">&#x2DA;</span></span></span></span></span></span></span></span></span></span>/fs) for MSST.</li>
+<li><strong>Default</strong>: 0.0</li>
+</ul>
+<h4 class="mume-header" id="msst_vis">msst_vis</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: artificial viscosity (mass/length/time) for MSST.</li>
+<li><strong>Default</strong>: 0.0</li>
+</ul>
+<h4 class="mume-header" id="msst_tscale">msst_tscale</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: reduction in initial temperature (0~1) used to compress volume in MSST.</li>
+<li><strong>Default</strong>: 0.01</li>
+</ul>
+<h4 class="mume-header" id="msst_qmass">msst_qmass</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Inertia of extended system variable. Used only when md_type is 4, you should set a number which is larger than 0. Note that Qmass of NHC is set by md_tfreq.</li>
+<li><strong>Default</strong>: No default</li>
+</ul>
+<h4 class="mume-header" id="md_damp">md_damp</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: damping parameter (fs) used to add force in Langevin method.</li>
+<li><strong>Default</strong>: 1.0</li>
+</ul>
+<h3 class="mume-header" id="dftu-correction">DFT+U correction</h3>
+
+<p>This part of variables are used to control DFT+U correlated parameters</p>
+<h4 class="mume-header" id="dft_plus_u">dft_plus_u</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to 1, ABCUS will calculate plus U correction, which is especially important for correlated electron.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="orbital_corr">orbital_corr</h4>
+
+<ul>
+<li><strong>Type</strong>: Int</li>
+<li><strong>Description</strong>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>l</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>l</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>l</mi><mn>3</mn></msub><mo separator="true">,</mo><mo>&#x2026;</mo></mrow><annotation encoding="application/x-tex">l_1,l_2,l_3,\ldots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">&#x2026;</span></span></span></span> for atom type 1,2,3 respectively.(usually 2 for d electrons and 3 for f electrons) .Specify which orbits need plus U correction for each atom. If set to -1, the correction would not be calculate for this atom.</li>
+<li><strong>Default</strong>: None</li>
+</ul>
+<h4 class="mume-header" id="hubbard_u">hubbard_u</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Hubbard Coulomb interaction parameter U(ev) in plus U correction,which should be specified for each atom unless Yukawa potential is use. ABACUS use a simplified scheme which only need U and J for each atom.</li>
+<li><strong>Default</strong>: 0.0</li>
+</ul>
+<h4 class="mume-header" id="hund_j">hund_j</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: Hund exchange parameter J(ev) in plus U correction ,which should be specified for each atom unless Yukawa potential is use. ABACUS use a simplified scheme which only need U and J for each atom.</li>
+<li><strong>Default</strong>: 0.0</li>
+</ul>
+<h4 class="mume-header" id="yukawa_potential">yukawa_potential</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: whether use the local screen Coulomb potential method to calculate the value of U and J. If this is set to 1, hubbard_u and hund_j do not need to be specified.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="omc">omc</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: whether turn on occupation matrix control method or not</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h3 class="mume-header" id="vdw-correction">vdW correction</h3>
+
+<p>This part of variables are used to control vdW-corrected related parameters.</p>
+<h4 class="mume-header" id="vdw_method">vdw_method</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: If set to d2 ,d3_0 or d3_bj, ABACUS will calculate corresponding vdW correction, which is DFT-D2, DFT-D3(0) or DFTD3(BJ) method. And this correction includes energy and forces. <code>none</code> means that no vdW-corrected method has been used.</li>
+<li><strong>Default</strong>: none</li>
+</ul>
+<h4 class="mume-header" id="vdw_s6">vdw_s6</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This scale factor is to optimize the interaction energy deviations. For DFT-D2, it is found to be 0.75 (PBE), 1.2 (BLYP), 1.05 (B-P86), 1.0 (TPSS), and 1.05 (B3LYP). For DFT-D3, recommended values of this parameter with different DFT functionals can be found on the <a href="https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/dft-d3">webpage</a>. The default values of this parameter in ABACUS is available for PBE. This variable will be set to default, if no vdW-corrected method has been used.</li>
+<li><strong>Default</strong>: 0.75 if vdw_method is chosen to be d2; 1.0 if vdw_method is chosen to be d3_0 or d3_bj</li>
+</ul>
+<h4 class="mume-header" id="vdw_s8">vdw_s8</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This scale factor is only the parameter of DFTD3 approachs including D3(0) and D3(BJ). Recommended values of this parameter with different DFT functionals can be found on the <a href="https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/dft-d3">webpage</a>. The default values of this parameter in ABACUS is available for PBE. This variable will be set to default, if no vdW-corrected method has been used.</li>
+<li><strong>Default</strong>: 0.722 if vdw_method is chosen to be d3_0; 0.7875 if vdw_method is chosen to be d3_bj</li>
+</ul>
+<h4 class="mume-header" id="vdw_a1">vdw_a1</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This damping function parameter is only the parameter of DFT-D3 approachs including D3(0) and D3(BJ). Recommended values of this parameter with different DFT functionals can be found on the <a href="https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/dft-d3">webpage</a>. The default values of this parameter in ABACUS is available for PBE. This variable will be set to default, if no vdW-corrected method has been used.</li>
+<li><strong>Default</strong>: 1.217 if vdw_method is chosen to be d3_0; 0.4289 if vdw_method is chosen to be d3_bj</li>
+</ul>
+<h4 class="mume-header" id="vdw_a2">vdw_a2</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This damping function arameter is only the parameter of DFT-D3(BJ) approach. Recommended values of this parameter with different DFT functionals can be found on the <a href="https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/dft-d3">webpage</a>. The default values of this parameter in ABACUS is available for PBE. This variable will be set to default, if no vdW-corrected method has been used.</li>
+<li><strong>Default</strong>: 1.0 if vdw_method is chosen to be d3_0; 4.4407 if vdw_method is chosen to be d3_bj</li>
+</ul>
+<h4 class="mume-header" id="vdw_d">vdw_d</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: The variable is to control the dumping speed of dumping function of DFT-D2.</li>
+<li><strong>Default</strong>: 20</li>
+</ul>
+<h4 class="mume-header" id="vdw_abc">vdw_abc</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: The variable is to control the calculation of three-body term of DFT-D3 approachs, including D3(0) and D3(BJ). If set to 1, ABACUS will calculate three-body term, otherwise, the three-body term is not included.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="vdw_c6_file">vdw_C6_file</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This variable which is useful only when set vdw_method to d2 specifies the name of each elemetent&apos;s <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>6</mn></msub></mrow><annotation encoding="application/x-tex">C_6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters file. If you dont setup this, ABACUS will use the default <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>6</mn></msub></mrow><annotation encoding="application/x-tex">C_6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters stored in the programme already. We&apos;ve stored elements from 1_H to 86_Rn. Otherwise, if you want to use some new <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>6</mn></msub></mrow><annotation encoding="application/x-tex">C_6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters, you should provide a file contained all the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>6</mn></msub></mrow><annotation encoding="application/x-tex">C_6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters ordered by periodic table of elements, from 1_H to the last elements you want.</li>
+<li><strong>Default</strong>: default</li>
+</ul>
+<h4 class="mume-header" id="vdw_c6_unit">vdw_C6_unit</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This variable which is useful only when set vdw_method to d2 specifies unit of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>6</mn></msub></mrow><annotation encoding="application/x-tex">C_6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters. Two kinds of unit is available: <code>J&#xB7;nm6/mol</code> (means J&#xB7;nm^{6}/mol) and eVA(means eV&#xB7;Angstrom)</li>
+<li><strong>Default</strong>: Jnm6/mol</li>
+</ul>
+<h4 class="mume-header" id="vdw_r0_file">vdw_R0_file</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This variable which is useful only when set vdw_method to d2 specifies the name of each elemetent&apos;s <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">R_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters file. If you don&apos;t setup this, ABACUS will use the default <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">R_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters stored in the programme already. We&apos;ve stored elements from 1_H to 86_Rn. Otherwise, if you want to use some new <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">R_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters, you should provide a file contained all the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">R_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters ordered by periodic table of elements, from 1_H to the last elements you want.</li>
+<li><strong>Default</strong>: default</li>
+</ul>
+<h4 class="mume-header" id="vdw_r0_unit">vdw_R0_unit</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This variable which is useful only when set vdw_method to d2 specifies unit of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">R_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> Parameters. Two kinds of unit is available: A(means Angstrom) and Bohr.</li>
+<li><strong>Default</strong>: A</li>
+</ul>
+<h4 class="mume-header" id="vdw_model">vdw_model</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: To calculate the periodic structure, you can assign the number of lattice cells calculated. This variable specifies the kind of model to assign. If set to period, ABACUS will calculate a cubic periodic structure as assigned in vdw_period. If set to radius, ABACUS will calculate a cubic periodic structure containing a sphere, whose radius is vdw_radius and centre is origin point.</li>
+<li><strong>Default</strong>: radius</li>
+</ul>
+<h4 class="mume-header" id="vdw_radius">vdw_radius</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: If vdw_model is set to radius, this variable specifies the radius of the calculated sphere. For DFT-D2, the default value is 56.6918 ,while it is 95 for DFT-D3. This variable will be set to default, if no vdW-corrected method has been used.</li>
+<li><strong>Default</strong>: 56.6918 if vdw_method is chosen to be d2; 95 if vdw_method is chosen to be d3_0 or d3_bj</li>
+</ul>
+<h4 class="mume-header" id="vdw_radius_unit">vdw_radius_unit</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: If vdw_model is set to radius, this variable specifies the unit of vdw_radius. Two kinds of unit is available: A(means Angstrom) and Bohr.</li>
+<li><strong>Default</strong>: Bohr</li>
+</ul>
+<h4 class="mume-header" id="vdw_cn_radius">vdw_cn_radius</h4>
+
+<ul>
+<li><strong>Type</strong>: Real</li>
+<li><strong>Description</strong>: This cutoff is chosen for the calculation of the coordination number (CN) in DFT-D3 approachs, including D3(0) and D3(BJ).</li>
+<li><strong>Default</strong>: 40.0</li>
+</ul>
+<h4 class="mume-header" id="vdw_cn_radius_unit">vdw_cn_radius_unit</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: This variable specifies the unit of vdw_cn_radius. Two kinds of unit is available: A(means Angstrom) and Bohr.</li>
+<li><strong>Default</strong>: Bohr</li>
+</ul>
+<h4 class="mume-header" id="vdw_period">vdw_period</h4>
+
+<ul>
+<li><strong>Type</strong>: Int Int Int</li>
+<li><strong>Description</strong>: If vdw_model is set to period, these variables specify the number of x, y and z periodic.</li>
+<li><strong>Default</strong>: 3 3 3</li>
+</ul>
+<h3 class="mume-header" id="berry-phase-and-wannier90-interface">Berry phase and wannier90 interface</h3>
+
+<p>This part of variables are used to control berry phase and wannier90 interfacae parameters.</p>
+<h4 class="mume-header" id="berry_phase">berry_phase</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: 1, calculate berry phase; 0, no calculate berry phase.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="gdir">gdir</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:
+<ul>
+<li>1: calculate the polarization in the direction of the lattice vector a_1 that is defined in STRU file.</li>
+<li>2: calculate the polarization in the direction of the lattice vector a_2 that is defined in STRU file.</li>
+<li>3: calculate the polarization in the direction of the lattice vector a_3 that is defined in STRU file.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 3</li>
+</ul>
+<h4 class="mume-header" id="towannier90">towannier90</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>: 1, generate files for wannier90 code; 0, no generate.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="nnkpfile">nnkpfile</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: the file name when you run &#x201C;wannier90 -pp ...&#x201D;.</li>
+<li><strong>Default</strong>: seedname.nnkp</li>
+</ul>
+<h4 class="mume-header" id="wannier_spin">wannier_spin</h4>
+
+<ul>
+<li><strong>Type</strong>: String</li>
+<li><strong>Description</strong>: If nspin is set to 2,
+<ul>
+<li>up: calculate spin up for wannier function.</li>
+<li>down: calculate spin down for wannier function.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: up</li>
+</ul>
+<h3 class="mume-header" id="tddft-time-dependent-density-functional-theory">TDDFT: time dependent density functional theory</h3>
+
+<h4 class="mume-header" id="tddft">tddft</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:
+<ul>
+<li>1: calculate the real time time dependent density functional theory (TDDFT).</li>
+<li>0: do not calculate TDDFT.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="td_scf_thr">td_scf_thr</h4>
+
+<ul>
+<li><strong>Type</strong>: Double</li>
+<li><strong>Description</strong>: Accuracy of electron convergence when doing time-dependent evolution.</li>
+<li><strong>Default</strong>: 1e-9</li>
+</ul>
+<h4 class="mume-header" id="td_dt">td_dt</h4>
+
+<ul>
+<li><strong>Type</strong>: Double</li>
+<li><strong>Description</strong>: Time-dependent evolution time step. (fs)</li>
+<li><strong>Default</strong>: 0.02</li>
+</ul>
+<h4 class="mume-header" id="td_force_dt">td_force_dt</h4>
+
+<ul>
+<li><strong>Type</strong>: Double</li>
+<li><strong>Description</strong>: Time-dependent evolution force changes time step. (fs)</li>
+<li><strong>Default</strong>: 0.02</li>
+</ul>
+<h4 class="mume-header" id="td_vext">td_vext</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:
+<ul>
+<li>1: add a laser material interaction (extern laser field).</li>
+<li>0: no extern laser field.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="td_vext_dire">td_vext_dire</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:
+<ul>
+<li>1: the direction of external light field is along x axis.</li>
+<li>2: the direction of external light field is along y axis.</li>
+<li>3: the direction of external light field is along z axis.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="td_timescale">td_timescale</h4>
+
+<ul>
+<li><strong>Type</strong>: Double</li>
+<li><strong>Description</strong>: Time range of external electric field application. (fs)</li>
+<li><strong>Default</strong>: 0.5</li>
+</ul>
+<h4 class="mume-header" id="td_vexttype">td_vexttype</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:
+<ul>
+<li>1: Gaussian-type light field.</li>
+<li>2: Delta function form light field.</li>
+<li>3: Trigonometric function form light field.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="td_vextout">td_vextout</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:
+<ul>
+<li>1: Output external electric field.</li>
+<li>0: do not Output external electric field.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="td_dipoleout">td_dipoleout</h4>
+
+<ul>
+<li><strong>Type</strong>: Integer</li>
+<li><strong>Description</strong>:
+<ul>
+<li>1: Output dipole.</li>
+<li>0: do not Output dipole.</li>
+</ul>
+</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="ocp">ocp</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: option for choose whether calcualting constrained DFT or not.<br>
+Only used for TDDFT.</li>
+<li><strong>Default</strong>:0</li>
+</ul>
+<h4 class="mume-header" id="ocp_set">ocp_set</h4>
+
+<ul>
+<li><strong>Type</strong>: string</li>
+<li><strong>Description</strong>: If ocp is true, the ocp_set is a string to set the number of occupancy, like 1 10 * 1 0 1 representing the 13 band occupancy, 12th band occupancy 0 and the rest 1, the code is parsing this string into an array through a regular expression.</li>
+<li><strong>Default</strong>:none</li>
+</ul>
+<h3 class="mume-header" id="variables-useful-for-debugging">Variables useful for debugging</h3>
+
+<h4 class="mume-header" id="nurse">nurse</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to 1, the Hamiltonian matrix and S matrix in each iteration will be written in output.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="t_in_h">t_in_h</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to 0, then kinetic term will not be included in obtaining the Hamiltonian.</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="vl_in_h">vl_in_h</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to 0, then local pseudopotential term will not be included in obtaining the Hamiltonian.</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="vnl_in_h">vnl_in_h</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>:  If set to 0, then non-local pseudopotential term will not be included in obtaining the Hamiltonian.</li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<h4 class="mume-header" id="test_force">test_force</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to 1, then detailed components in forces will be written to output.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="test_stress">test_stress</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to 1, then detailed components in stress will be written to output.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="colour">colour</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to 1, output to terminal will have some color.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<h4 class="mume-header" id="test_just_neighbor">test_just_neighbor</h4>
+
+<ul>
+<li><strong>Type</strong>: Boolean</li>
+<li><strong>Description</strong>: If set to 1, then only perform the neighboring atoms search.</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

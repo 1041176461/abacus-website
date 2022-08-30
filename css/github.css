@@ -1,0 +1,451 @@
+/* modified based on https://github.com/KrauseFx/markdown-to-html-github-style/blob/master/style.css 
+  and https://github.com/PrismJS/prism-themes */
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 5px;
+  }
+
+  body > #content {
+    padding: 0px 20px 20px 20px !important;
+  }
+}
+
+.readme-block hr {
+  color: #bbb;
+  background-color: #bbb;
+  height: 1px;
+  flex: 0 1 auto;
+  margin: 1em 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+   * Links
+   */
+.readme-block a {
+  color: #0366d6;
+  text-decoration: none;
+}
+.readme-block a:visited {
+  color: #0366d6;
+}
+.readme-block a:hover {
+  color: #0366d6;
+  text-decoration: underline;
+}
+
+.readme-block ul a {
+  color: #044c9e;
+  text-decoration: none;
+}
+.readme-block ul a:visited {
+  color: #044c9e;
+}
+.readme-block ul a:hover {
+  color: #044c9e;
+  text-decoration: underline;
+}
+
+.readme-block pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+/**
+    * Code blocks
+    */
+
+.readme-block code {
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  word-wrap: break-word;
+  padding: 0.2em 0.4em;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+}
+
+.readme-block pre > code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+  font-size: 100%;
+}
+
+.readme-block code[class*="language-"],
+.readme-block pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+.readme-block pre[class*="language-"] {
+  padding: 0.8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+.readme-block :not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.readme-block .token.comment,
+.readme-block .token.blockquote {
+  color: #969896;
+}
+
+.readme-block .token.cdata {
+  color: #183691;
+}
+
+.readme-block .token.doctype,
+.readme-block .token.punctuation,
+.readme-block .token.variable,
+.readme-block .token.macro.property {
+  color: #333;
+}
+
+.readme-block .token.operator,
+.readme-block .token.important,
+.readme-block .token.keyword,
+.readme-block .token.rule,
+.readme-block .token.builtin {
+  color: #a71d5d;
+}
+
+.readme-block .token.string,
+.readme-block .token.url,
+.readme-block .token.regex,
+.readme-block .token.attr-value {
+  color: #183691;
+}
+
+.readme-block .token.property,
+.readme-block .token.number,
+.readme-block .token.boolean,
+.readme-block .token.entity,
+.readme-block .token.atrule,
+.readme-block .token.constant,
+.readme-block .token.symbol,
+.readme-block .token.command,
+.readme-block .token.code {
+  color: #0086b3;
+}
+
+.readme-block .token.tag,
+.readme-block .token.selector,
+.readme-block .token.prolog {
+  color: #63a35c;
+}
+
+.readme-block .token.function,
+.readme-block .token.namespace,
+.readme-block .token.pseudo-element,
+.readme-block .token.class,
+.readme-block .token.class-name,
+.readme-block .token.pseudo-class,
+.readme-block .token.id,
+.readme-block .token.url-reference .token.variable,
+.readme-block .token.attr-name {
+  color: #795da3;
+}
+
+.readme-block .token.entity {
+  cursor: help;
+}
+
+.readme-block .token.title,
+.readme-block .token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.readme-block .token.list {
+  color: #ed6a43;
+}
+
+.readme-block .token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.readme-block .token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.readme-block .token.bold {
+  font-weight: bold;
+}
+
+.readme-block .token.italic {
+  font-style: italic;
+}
+
+/* JSON */
+.readme-block .language-json .token.property {
+  color: #183691;
+}
+
+.readme-block .language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+.readme-block code.language-css,
+.readme-block .language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.readme-block .language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+.readme-block code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.readme-block .language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.readme-block .language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.readme-block .language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.readme-block .language-makefile .token.variable {
+  color: #183691;
+}
+
+.readme-block .language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.readme-block .language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+.readme-block pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+.readme-block pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+.readme-block pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%, 0.08);
+  background: linear-gradient(
+    to right,
+    hsla(24, 20%, 50%, 0.1) 70%,
+    hsla(24, 20%, 50%, 0)
+  );
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+.readme-block pre[data-line] .line-highlight:before,
+.readme-block pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: 0.4em;
+  left: 0.6em;
+  min-width: 1em;
+  padding: 0 0.5em;
+  background-color: hsla(24, 20%, 50%, 0.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: 0.3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+.readme-block pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: 0.4em;
+}
+
+/**
+   * Blockquotes
+   */
+.readme-block blockquote {
+  margin-left: 30px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  border-left-width: 3px;
+  padding: 0 1em;
+  color: #828282;
+  border-left: 4px solid #e8e8e8;
+  padding-left: 15px;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+}
+.readme-block blockquote * {
+  font-style: normal !important;
+  letter-spacing: 0;
+  color: #6a737d !important;
+}
+
+/**
+ * Tables
+ */
+.readme-block table {
+  border-spacing: 2px;
+  display: block;
+  font-size: 14px;
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 16px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.readme-block td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.readme-block th {
+  font-weight: 600;
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.readme-block tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.readme-block table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+/**
+   * Others
+   */
+
+.readme-block img {
+  max-width: 100%;
+}
+
+.readme-block p {
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #24292e;
+}
+
+.readme-block ul {
+  margin-top: 0;
+}
+
+.readme-block ul li {
+  list-style-type: disc;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-left: 10px;
+  margin-left: 20px;
+}
+
+.readme-block ol li {
+  list-style-type: disc;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.readme-block li + li {
+  margin-top: 0.25em;
+}
+
+.readme-block * {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #24292e;
+}
+
+.readme-block h1 {
+  border-bottom: 1px solid #eaecef;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  color: #111;
+  font-size: 24px;
+}
+
+.readme-block h2 {
+  border-bottom: 1px solid #eaecef;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  color: #111;
+  font-size: 20px;
+}
+
+.readme-block h3 {
+  border-bottom: 1px solid #eaecef;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  color: #111;
+  font-size: 16px;
+  /* Darker */
+}

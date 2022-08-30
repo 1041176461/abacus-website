@@ -1,0 +1,515 @@
+<!DOCTYPE html><html><head>
+      <title>input-stru</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\liuxi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="stru-file">STRU file</h1>
+
+<ul>
+<li>
+<p><a href="#examples">Examples</a></p>
+<ul>
+<li><a href="#no-latname">no latname</a></li>
+<li><a href="#latname-fcc">latname fcc</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#structure-of-the-file">Structure of the file</a></p>
+<p><a href="../README.html">back to main page</a></p>
+</li>
+</ul>
+<h2 class="mume-header" id="examples">Examples</h2>
+
+<p>The <code>STRU</code> file contains the information about the lattice geometry, the name(s) and/or location(s) of the pseudopotential and numerical orbital files, as well as the structural information about the system.<br>
+We supply two ways of specifying the lattice geometry. Below are two examples of the <code>STRU</code> file for the same system:</p>
+<h3 class="mume-header" id="no-latname">No latname</h3>
+
+<p>For this example, no need to supply any input to the variable <code>latname</code> in the INPUT file. (See <a href="input-main.html#latname">input parameters</a>.)</p>
+<pre data-role="codeBlock" data-info class="language-"><code>ATOMIC_SPECIES
+Si 28.00 Si_ONCV_PBE-1.0.upf // label; mass; pseudo_file
+
+NUMERICAL_ORBITAL
+Si_gga_8au_60Ry_2s2p1d.orb //numerical_orbital_file
+
+LATTICE_CONSTANT
+10.2 // lattice scaling factor (Bohr)
+
+LATTICE_VECTORS
+0.5 0.5 0.0 // latvec1
+0.5 0.0 0.5 // latvec2
+0.0 0.5 0.5 // latvec3
+
+ATOMIC_POSITIONS
+Direct //Cartesian or Direct coordinate.
+Si // Element type
+0.0 // magnetism(Start magnetization could also be defined in INPUT more conveniently.If so,there should not be any input of magnetism here)
+2 // number of atoms
+0.00 0.00 0.00 0 0 0
+0.25 0.25 0.25 1 1 1
+</code></pre><h3 class="mume-header" id="latname-fcc">latname fcc</h3>
+
+<p>We see that this example is a silicon fcc lattice. Apart from setting the lattice vectors manually, we also provide another solution where only the Bravais lattice type is required, and the lattice vectors will be generated automatically. For this example, we need to set <code>latname=&quot;fcc&quot;</code> in the INPUT file. (See <a href="input-main.html#latname">input parameters</a>.)<br>
+And the <code>STRU</code> file becomes:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>ATOMIC_SPECIES
+Si 28.00 Si_ONCV_PBE-1.0.upf // label; mass; pseudo_file
+
+NUMERICAL_ORBITAL
+Si_gga_8au_60Ry_2s2p1d.orb //numerical_orbital_file
+
+LATTICE_CONSTANT
+10.2 // lattice scaling factor (Bohr)
+
+ATOMIC_POSITIONS
+Direct //Cartesian or Direct coordinate.
+Si // Element type
+0.0 // magnetism
+2 // number of atoms
+0.00 0.00 0.00 0 0 0//the position of atoms and other parameter specify by key word
+0.25 0.25 0.25 1 1 1
+</code></pre><p>The LATTICE_VECTORS section is removed.</p>
+<h2 class="mume-header" id="structure-of-the-file">Structure of the file</h2>
+
+<p>The <code>STRU</code> file contains several sections, and each section must start with a keyword like<br>
+<code>ATOMIC_SPECIES</code>, <code>NUMERICAL_ORBITAL</code>, or <code>LATTICE_CONSTANT</code>, etc. to signify what type of<br>
+information that comes below.</p>
+<ul>
+<li>
+<p>ATOMIC_SPECIES</p>
+<p>This section provides information about the type of chemical elements contained the unit cell. Each line defines one type of element. The user should specify the name, the mass, and the pseudopotential file used for each element. The mass of the elment is only used in molecular dynamics simulations. For electronic-structure calculations, the actual mass value isn&#x2019;t important.<br>
+In the above example, we see information is provided for the element <code>Si</code>:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>Si 28.00 Si_ONCV_PBE-1.0.upf // label; mass; pseudo_file
+</code></pre><p>Here <code>Si_ONCV_PBE-1.0.upf</code> is the pseudopotential file. When the path is not specified, the file is assumed to be located in work directory. Otherwise, please explicitly specify the location of the pseudopotential files.</p>
+</li>
+<li>
+<p>NUMERICAL_ORBITAL</p>
+<p>Numerical atomic orbitals are only needed for <code>LCAO</code> calculations. Thus this section will be neglected in calcultions with plane wave basis. In the above example, numerical atomic orbitals is specified for the element <code>Si</code>:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>Si_gga_8au_60Ry_2s2p1d.orb //numerical_orbital_file
+</code></pre><p>&#x2018;Si_gga_8au_60Ry_2s2p1d.orb&#x2019; is name of the numerical orbital file. Again here the path is not specified, which means that this file is located in the work directory.</p>
+</li>
+<li>
+<p>LATTICE_CONSTANT</p>
+<p>The lattice constant of the system in unit of Bohr.</p>
+</li>
+<li>
+<p>LATTICE_VECTORS</p>
+<p>The lattice vectors of the unit cell. It is a 3by3 matrix written in 3 lines. Please note that <em>the lattice vectors given here are scaled by the lattice constant</em>. This section must be removed if the type Bravais lattice is specified using the input parameter <code>latname</code>. (See <a href="input-main.html#latname">input parameters</a>.)</p>
+</li>
+<li>
+<p>LATTICE_PARAMETERS</p>
+<p>This section is only relevant when <code>latname</code> (see <a href="input-main.html#latname">input parameters</a>) is used to specify the Bravais lattice type. The example above is a fcc lattice, where no additional information except the lattice constant is required to determine the geometry of the lattice.</p>
+<p>However, for other types of Bravais lattice, other parameters might be necessary. In that case, the section <code>LATTICE_PARAMETERS</code> must be present. It contains <strong>one single line</strong> with some parameters (separated by blank space if multiple parameters are needed), where the number of parameters required depends on specific type of lattice.</p>
+<p>The three lattice vectors v1, v2, v3 (in units of lattice constant) are generated in the following way:</p>
+<ul>
+<li>
+<p>latname = &quot;sc&quot;: the LATTICE_PARAMETERS section is not required:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (1, 0, 0)
+    v2 = (0, 1, 0)
+    v3 = (0, 0, 1)
+</code></pre></li>
+<li>
+<p>latname = &quot;fcc&quot;: the LATTICE_PARAMETERS section is not required:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (-0.5, 0, 0.5)
+    v2 = (0, 0.5, 0.5)
+    v3 = (-0.5, 0.5, 0)
+</code></pre></li>
+<li>
+<p>latname = &quot;bcc&quot; : the LATTICE_PARAMETERS section is not required:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (0.5, 0.5, 0.5)
+    v2 = (-0.5, 0.5, 0.5)
+    v3 = (-0.5, -0.5, 0.5)
+</code></pre></li>
+<li>
+<p>latname = &quot;hexagonal&quot; : One single parameter is required in the LATTICE_PARAMETERS section, being the ratio between axis length c/a. Denote it by x then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (1.0, 0, 0)
+    v2 = (-0.5, sqrt(3)/2, 0)
+    v3 = (0, 0, x)
+</code></pre></li>
+<li>
+<p>latname = &quot;trigonal&quot; : One single parameter is required in the LATTICE_PARAMETERS section, which specifies cos&#x3B3; with &#x3B3; being the angle between any pair of crystallographic vectors. Denote it by x then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (tx, -ty, tz)
+    v2 = (0, 2ty, tz)
+    v3 = (-tx, -ty, tz)
+</code></pre><p>where tx=sqrt((1-x)/2), ty=sqrt((1-x)/6), and tz=sqrt((1+2x)/3).</p>
+</li>
+<li>
+<p>latname = &quot;st&quot; (simple tetragonal) : One single parameter is required in the LATTICE_PARAMETERS section, which gives ratio between axis length c/a. Denote it by x then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (1, 0, 0)
+    v2 = (0, 1, 0)
+    v3 = (0, 0, x)
+</code></pre></li>
+<li>
+<p>latname = &quot;bct&quot; (body-centered tetragonal) : One single parameter is required in the LATTICE_PARAMETERS section, which gives ratio between axis length c/a. Denote it by x then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (0.5, -0.5, x)
+    v2 = (0.5, 0.5, x)
+    v3 = (-0.5, -0.5, x)
+</code></pre></li>
+<li>
+<p>latname = &quot;so&quot; (simple orthorhombic) : Two parameters are required in the LATTICE_PARAMETERS section, which gives ratios between axis length b/a and c/a. Denote them by x, y then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (1, 0, 0)
+    v2 = (0, x, 0)
+    v3 = (0, 0, y)
+</code></pre></li>
+<li>
+<p>latname = &quot;baco&quot; (base-centered orthorhombic) : Two parameters are required in the LATTICE_PARAMETERS section, which gives ratios between axis length b/a and c/a. Denote them by x, y then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (0.5, x/2, 0)
+    v2 = (-0.5, x/2, 0)
+    v3 = (0, 0, y)
+</code></pre></li>
+<li>
+<p>latname = &quot;fco&quot; (face-centered orthorhombic) : Two parameters are required in the LATTICE_PARAMETERS section, which gives ratios between axis length b/a and c/a. Denote them by x, y then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (0.5, 0, y/2)
+    v2 = (0.5, x/2, 0)
+    v3 = (0, x/2, y/2)
+</code></pre></li>
+<li>
+<p>latname = &quot;bco&quot; (body-centered orthorhombic) : Two parameters are required in the LATTICE_PARAMETERS section, which gives ratios between lattice vector length b/a and c/a. Denote them by x, y then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (0.5, x/2, y/2)
+    v2 = (-0.5, x/2, y/2)
+    v3 = (-0.5, -x/2, y/2)
+</code></pre></li>
+<li>
+<p>latname = &quot;sm&quot; (simple monoclinic) : Three parameters are required in the LATTICE_PARAMETERS section, which are the ratios of lattice vector length b/a, c/a as well as the cosine of angle between axis a and b. Denote them by x, y, z then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (1, 0, 0)
+    v2 = (x*z, x*sqrt(1-z^2, 0)
+    v3 = (0, 0, y)
+</code></pre></li>
+<li>
+<p>latname = &quot;bacm&quot; (base-centered monoclinic) : Three parameters are required in the LATTICE_PARAMETERS section, which are the ratios of lattice vector length b/a, c/a as well as the cosine of angle between axis a and b. Denote them by x, y, z then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (0.5, 0, -y/2)
+    v2 = (x*z, x*sqrt(1-z^2), 0)
+    v3 = (0.5, 0, y/2)
+</code></pre></li>
+<li>
+<p>latname = &quot;triclinic&quot; : Five parameters are required in the LATTICE_PARAMETERS section, namely the ratios b/a, c/a; the cosines of angle ab, ac, bc. Denote them by x,y,m,n,l, then:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    v1 = (1, 0, 0)
+    v2 = (x*m, x*sqrt(1-m^2), 0)
+    v3 = (y*n, y*(l-n*m/sqrt(1-m^2)), y*fac)
+</code></pre><p>where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>a</mi><mi>c</mi><mo>=</mo><mfrac><msqrt><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>&#x2217;</mo><mi>m</mi><mo>&#x2217;</mo><mi>n</mi><mo>&#x2217;</mo><mi>l</mi><mo>&#x2212;</mo><msup><mi>m</mi><mn>2</mn></msup><mo>&#x2212;</mo><msup><mi>n</mi><mn>2</mn></msup><mo>&#x2212;</mo><msup><mi>l</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mrow><mn>1</mn><mo>&#x2212;</mo><msup><mi>m</mi><mn>2</mn></msup></mrow></msqrt></mfrac></mrow><annotation encoding="application/x-tex">fac=\frac{\sqrt{1+2*m*n*l-m^2 -n^2 -l^2 }}{\sqrt{1-m^2}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.5775em;vertical-align:-0.538em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0395em;"><span style="top:-2.5445em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9221em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mtight">1</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.8821em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.1179em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9221em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mtight">1</span><span class="mbin mtight">+</span><span class="mord mtight">2</span><span class="mbin mtight">&#x2217;</span><span class="mord mathnormal mtight">m</span><span class="mbin mtight">&#x2217;</span><span class="mord mathnormal mtight">n</span><span class="mbin mtight">&#x2217;</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mbin mtight">&#x2212;</span><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mbin mtight">&#x2212;</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463em;"><span style="top:-2.786em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.8821em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.1179em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.538em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>ATOMIC_POSITIONS</p>
+<p>This section specifies the positions and other information of individual atoms. The first line signifies whether atom positions are given in <code>Cartesian</code> or <code>Direct</code> coordinates.</p>
+<p>The following three lines tells the elemental type (<code>Si</code>), the initial magnetic moment (<code>0.0</code>), and the number of atoms for this particular element (<code>2</code>) repsectively. Notice this  magnetic moment will be a default value for every atom of this type but will be overrided if one define it for each atom by keyword(see below).</p>
+<p>The last two lines in this example are the coordinates of atomic positions. There are three numbers in each line, which specifies the atomic positions, following by other parameters marked by keywords.</p>
+<p>Several other parameters could be defined after the atom position using key word :</p>
+<ul>
+<li>
+<p><code>m</code> or NO key word: three numbers, which take value in 0 or 1, control how the atom move in geometry relaxation calculations. The numbers <code>0 0 0</code> following the coordinates of the first atom means this atom are <em>not allowed</em> to move in all three directions, and the numbers <code>1 1 1</code> following the coordinates of the second atom means this atom <em>can</em> move in all three directions.</p>
+</li>
+<li>
+<p><code>v</code> or <code>vel</code> or <code>velocity</code>: set the three components of initial velocity of atoms in geometry relaxation calculations.</p>
+</li>
+<li>
+<p><code>mag</code> or <code>magmom</code> : set the start magnetization for each atom. In colinear case only one number should be given. In non-colinear case one have two choice:either set one number for the norm of magnetization here and specify two polar angle later, or set three number for the xyz commponent of magnetization here.</p>
+</li>
+<li>
+<p><code>angle1</code>: in non-colinear case, specify the angle between c-axis and real spin, in angle measure instead of radian measure</p>
+</li>
+<li>
+<p><code>angle2</code>: in non-colinear case, specify angle between a-axis and real spin in projection in ab-plane , in angle measure instead of radian measure</p>
+<p>e.g.:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>Fe
+1
+2
+0.0 0.0 0.0 0 0 0 angle1 90 angle2 0
+0.5 0.5 0.5 0 0 0 angle1 90 angle2 180
+</code></pre></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

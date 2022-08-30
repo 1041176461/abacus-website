@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CONTRIBUTING</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>install</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <script type="module">
+      import { Octokit } from "https://cdn.skypack.dev/octokit?dts";
+
+      const octokit = new Octokit();
+      const { data: data } = await octokit.request(
+        "GET /repos/{owner}/{repo}/contents/{path}",
+        {
+          owner: "deepmodeling",
+          repo: "abacus-develop",
+          path: "docs/CONTRIBUTING.md",
+        }
+      );
+
+      const content =
+        data.encoding === "base64" ? atob(data.content) : undefined;
+      var converter = new showdown.Converter(),
+        text = content,
+        html = converter.makeHtml(text);
+      converter.setFlavor("github");
+      converter.setOption("omitExtraWLInCodeBlocks", true);
+
+      const parse_html = (html, style_string) => {
+        const md_set = new Set(html.match(/[a-zA-Z0-9\-\_]+\.md/g));
+        md_set.forEach(function (value) {
+          const file_label = value.match(/[a-zA-Z0-9\-\_]+\./g);
+          html = html.replaceAll(value, file_label + "html");
+        });
+
+        const html_array = html.split("\n");
+
+        const replace_id = (id_index, href_index) => {
+          const id_regex = /id="([a-zA-Z]+)"/;
+          const href_regex = /href="#([a-zA-Z\-]+)"/;
+
+          const match_id = html_array[id_index].match(id_regex)[1];
+          const match_href = html_array[href_index].match(href_regex)[1];
+
+          html_array[id_index] = html_array[id_index].replace(
+            match_id,
+            match_href
+          );
+        };
+        // correct some error reference
+        const id_indices = [14, 18, 29, 32, 77, 81, 112, 141];
+        const href_indices = [5, 6, 7, 8, 9, 10, 11, 12];
+        for (let i = 0; i < id_indices.length; i++) {
+          replace_id(id_indices[i], href_indices[i]);
+        }
+        return style_string + html_array.join("\n");
+      };
+
+      (function () {
+        const style_string = `<style>
+          @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css)
+        </style>`;
+        let box1 = document.querySelector(".readme-block");
+        let contentNode = document.createElement("div");
+        contentNode.innerHTML = parse_html(html, style_string);
+        box1.appendChild(contentNode);
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="readme-block"></div>
+  </body>
+</html>

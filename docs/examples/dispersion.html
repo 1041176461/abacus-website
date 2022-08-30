@@ -1,0 +1,450 @@
+<!DOCTYPE html><html><head>
+      <title>dispersion</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\liuxi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="dft-dispersion-calculations">DFT + dispersion calculations</h1>
+
+<p><a href="../../README.html">back to main page</a></p>
+<p>LDA and GGAs cannot describe van der Waals (vdW) interactions in a physically correct way. In order to describe materials where vdW interactions are important, one needs to go beyond LDA and GGAs. To this end, one simple and popular approach is to add a Lennard-Jones type term in terms of atom-based pairwise C6=R6 summations to the existing GGA functionals. There are different ways to do this. Currently ABACUS provides three Grimme DFT-D methods, including <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.20495">D2</a>, <a href="https://aip.scitation.org/doi/10.1063/1.3382344">D3(0)</a> and <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.21759">D3(BJ)</a>, to describe van der Waals interactions. Among them, the D3 method has been implemented in ABACUS based on the<br>
+dftd3 <a href="https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/dft-d3">program</a> written by Stefan Grimme, Stephan Ehrlich and Helge Krieg.</p>
+<p>The user can set the vdW-corrected methods in INPUT file with the parameter, vdw_method:</p>
+<ul>
+<li>none: the vdW corrections are not included</li>
+<li>d2: DFT-D2 method</li>
+<li>d3_0: DFT-D3(0) method</li>
+<li>d3_bj: DFT-D3(BJ) method</li>
+</ul>
+<p>For example, if you want to run a DFT-D2 calculation, you should add the following keyword to the INPUT file.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>vdw_method d2
+</code></pre><p>By this way, ABACUS will calculate total energies and forces with DFT-D2 correction. For more parameters please refer to the <a href="../input-main.html#vdw-correction">list of input variables</a>.</p>
+<p>Below is an example using DFT + dispersion calculation:</p>
+<ul>
+<li>INPUT:</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code>INPUT_PARAMETERS
+ntype                         2
+ecutwfc                       20
+scf_thr                           1e-06
+scf_nmax                         400
+basis_type                    lcao
+ks_solver                     genelpa
+smearing_method                      gaussian
+smearing_sigma                         0.02
+mixing_type                   pulay
+mixing_beta                   0.4
+vdw_method                    d2
+calculation                   scf
+cal_force                         1
+cal_stress                        1
+</code></pre><ul>
+<li>STRU:</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code>ATOMIC_SPECIES
+Sn  118.710  Sn_ONCV_PBE-1.0.upf
+Te  127.603  Te_ONCV_PBE-1.0.upf
+
+NUMERICAL_ORBITAL
+Sn_pbe_9.0au_100Ry_2s2p2d
+Te_pbe_9.0au_100Ry_2s2p2d
+
+LATTICE_CONSTANT
+1.89035917
+
+LATTICE_VECTORS
+4.646 0 0 #latvec1
+0 4.561 0 #latvec2
+0 0 16.32 #latvec3
+
+ATOMIC_POSITIONS
+Direct
+
+Sn #label
+0 #magnetism
+1 #number of atoms
+0.5493  0.5000000000000000  0.2 1 1 1
+
+Te #label
+0 #magnetism
+1 #number of atoms
+0.0000000000000000  0.0000000000000000  0.2 1 1 1
+</code></pre><ul>
+<li>KPT:</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code>K_POINTS
+0
+Monkhorst-Pack
+2 2 2 0 0 0
+</code></pre><ul>
+<li>
+<p>Pseudopotential and atomic basis<br>
+The files (<code>Sn_ONCV_PBE-1.0.upf</code>,<code>Te_ONCV_PBE-1.0.upf</code>,<code>Sn_pbe_9.0au_100Ry_2s2p2d</code>,<code>Te_pbe_9.0au_100Ry_2s2p2d</code>) can be found in the directory tests/tools/PP_ORB/</p>
+</li>
+<li>
+<p>Output</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code> *********************************************************
+ *                                                       *
+ *                  WELCOME TO ABACUS                    *
+ *                                                       *
+ *            &apos;Atomic-orbital Based Ab-initio            *
+ *                  Computation at UStc&apos;                 *
+ *                                                       *
+ *          Website: http://abacus.ustc.edu.cn/          *
+ *                                                       *
+ *********************************************************
+ Fri Jul  2 11:46:13 2021
+ MAKE THE DIR         : OUT.ABACUS/
+ DONE(0.127021   SEC) : SETUP UNITCELL
+ DONE(0.128917   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  NBASE       
+ 1       8               1           36          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Sn      2s2p2d-9au      18          1           PBE
+ Te      2s2p2d-9au      18          1           PBE
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ SET NONLOCAL PSEUDOPOTENTIAL PROJECTORS
+ SET NONLOCAL PSEUDOPOTENTIAL PROJECTORS
+ DONE(4.49436    SEC) : INIT PLANEWAVE
+ UNIFORM GRID DIM     : 30 * 30 * 90
+ UNIFORM GRID DIM(BIG): 15 * 15 * 45
+ DONE(4.49762    SEC) : INIT CHARGE
+ DONE(4.4993     SEC) : INIT POTENTIAL
+ START POTENTIAL      : atomic
+ ---------------------------------------------------------
+ SELF-CONSISTENT : 
+ ---------------------------------------------------------
+ ITER   ETOT(eV)       EDIFF(eV)      SCF_THR      TIME(s)    
+ GE1    -4.263615e+03  0.000000e+00   1.030e-01  1.030e+00  
+ GE2    -4.262783e+03  8.325232e-01   6.041e-02  1.010e+00  
+ GE3    -4.262610e+03  1.722243e-01   2.263e-02  1.040e+00  
+ GE4    -4.262486e+03  1.247259e-01   4.662e-03  1.000e+00  
+ GE5    -4.262576e+03  -9.092446e-02  5.323e-04  9.700e-01  
+ GE6    -4.262571e+03  5.648702e-03   1.910e-04  9.700e-01  
+ GE7    -4.262569e+03  1.741079e-03   3.454e-05  9.600e-01  
+ GE8    -4.262569e+03  1.839695e-04   7.188e-06  9.500e-01  
+ GE9    -4.262569e+03  -1.606959e-05  1.728e-06  1.010e+00  
+ GE10   -4.262569e+03  -2.716369e-05  4.516e-07  9.300e-01  
+ &gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;
+ TOTAL-STRESS (KBAR):
+ &gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;
+ -2.121e+02     -8.470e-07     -2.354e-10     
+ -8.470e-07     1.142e+02      -3.656e-13     
+ -5.953e-10     -2.662e-13     -8.366e+01     
+
+  |CLASS_NAME---------|NAME---------------|TIME(Sec)-----|CALLS----|AVG------|PER%-------
+ A Run_lcao            lcao_line           15.77          1         16        1e+02     %
+ B ORB_control         set_orb_tables      4.3448         1         4.3       28        %
+ C LCAO_Orbitals       Read_Orbitals       2.327          1         2.3       15        %
+ C ORB_gen_tables      gen_tables          2.0178         1         2         13        %
+ D ORB_table_phi       init_Table          1.119          1         1.1       7.1       %
+ D ORB_table_beta      init_Table_Beta     0.79881        1         0.8       5.1       %
+ X FFT                 FFT3D               0.17197        175       0.00098   1.1       %
+ E Potential           v_of_rho            0.50032        12        0.042     3.2       %
+ B LOOP_ions           opt_ions            11.079         1         11        70        %
+ C LOOP_elec           solve_elec_stru     4.5258         1         4.5       29        %
+ D LOOP_elec           before_solver       0.53419        1         0.53      3.4       %
+ E LCAO_Hamilt         set_lcao_matrices   0.53412        1         0.53      3.4       %
+ G LCAO_gen_fixedH     build_Nonlocal_mu   1.3624         2         0.68      8.6       %
+ X ORB_gen_tables      snap_psibeta        2.6413         209952    1.3e-05   17        %
+ D LOOP_elec           solver              3.9777         1         4         25        %
+ D ELEC_scf            scf                 3.9775         1         4         25        %
+ E ELEC_cbands_k       cal_bands           1.8355         10        0.18      12        %
+ K Gint_k              vlocal              1.635          10        0.16      10        %
+ G Diago_LCAO_Matrix   genelpa             0.10715        40        0.0027    0.68      %
+ G Diago_LCAO_Matrix   genelpa2            0.10148        80        0.0013    0.64      %
+ E Local_Orbital_Cha   sum_bands           1.6351         10        0.16      10        %
+ F Gint_k              charge              1.6077         10        0.16      10        %
+ E Charge              mix_rho             0.10381        10        0.01      0.66      %
+ F Force_LCAO_k        ftable_k            6.3736         1         6.4       40        %
+ G Force_LCAO_k        cal_fvl_dphi_k      3.8463         1         3.8       24        %
+ G Force_LCAO_k        cal_fvnl_dbeta_k    1.5456         1         1.5       9.8       %
+ ----------------------------------------------------------------------------------------
+
+ START  Time  : Fri Jul  2 11:46:13 2021
+ FINISH Time  : Fri Jul  2 11:46:29 2021
+ TOTAL  Time  : 16
+ SEE INFORMATION IN : OUT.ABACUS/
+
+</code></pre><p><a href="#DFT-+-dispersion-calculations">back to top</a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

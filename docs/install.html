@@ -1,0 +1,478 @@
+<!DOCTYPE html><html><head>
+      <title>install</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\liuxi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="download-and-install">Download and install</h1>
+
+<ul>
+<li>
+<p><a href="#installation">Installation</a></p>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#build-and-install-abacus-with-cmake">Build and install ABACUS with CMake</a></li>
+<li><a href="#build-abacus-with-make">Build ABACUS with make</a>
+<ul>
+<li><a href="#link-libxc">Link LIBXC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#installation-with-deepks">Installation with DeePKS</a></p>
+<ul>
+<li><a href="#extra-prerequisites">Extra prerequisites</a></li>
+<li><a href="#extra-settings-for-building">Extra settings for building</a></li>
+</ul>
+<p><a href="../README.html">back to main page</a></p>
+</li>
+</ul>
+<h2 class="mume-header" id="installation">Installation</h2>
+
+<h3 class="mume-header" id="container-deployment">Container Deployment</h3>
+
+<p>We&apos;ve built a ready-for-use version of ABACUS with docker <a href="https://github.com/deepmodeling/abacus-develop/pkgs/container/abacus">here</a>. For a quick start: pull the image, prepare the data, run container. Instructions on using the image can be accessed in <a href="../Dockerfile">Dockerfile</a>.</p>
+<p>We also offer a pre-built docker image containing all the requirements for development. Please refer to our <a href="https://github.com/deepmodeling/abacus-develop/pkgs/container/abacus-development-kit">Package Page</a>.</p>
+<p>The project is ready for VS Code development container. Please refer to <a href="https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-development-container">Developing inside a Container</a>. Choose <code>Open a Remote Window -&gt; Clone a Repository in Container Volume</code> in VS Code command palette, and put the <a href="https://github.com/deepmodeling/abacus-develop.git">git address</a> of <code>ABACUS</code> when prompted.</p>
+<p>We also support <a href="https://www.gitpod.io/">gitpod</a> to offer an ready-to-use online development environment.<br>
+<a href="https://gitpod.io/#https://github.com/deepmodeling/abacus-develop"><img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod"></a></p>
+<h3 class="mume-header" id="prerequisites">Prerequisites</h3>
+
+<p>ABACUS currently supports Linux. <code>Dockerfile</code>s under the root directory of our repo will come in handy.</p>
+<p>To compile ABACUS, please make sure that the following prerequisites are present:</p>
+<ul>
+<li>C++ compiler, supporting C++11. You can use <a href="https://software.intel.com/enus/c-compilers">Intel&#xAE; C++ compiler</a> or <a href="https://gcc.gnu.org/">GCC</a>.</li>
+<li>MPI compiler. The recommended version are <a href="https://software.intel.com/enus/mpi-library">Intel MPI</a> or <a href="https://www.mpich.org/">MPICH</a>.</li>
+<li>Fortran compiler for building <code>BLAS</code>, <code>LAPACK</code> and <code>ScaLAPACK</code>. You can use<a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/fortran-compiler.html">Intel&#xAE; Fortran Compiler</a> <a href="https://gcc.gnu.org/fortran/">GFortran</a>.</li>
+<li><a href="http://www.netlib.org/blas/">BLAS</a>. You can use <a href="https://www.openblas.net/">OpenBLAS</a>.</li>
+<li><a href="http://www.netlib.org/lapack/">LAPACK</a>.</li>
+<li><a href="http://www.netlib.org/scalapack/">ScaLAPACK</a>.</li>
+<li><a href="http://www.fftw.org/">FFTW3</a>.</li>
+<li><a href="https://elpa.mpcdf.mpg.de/">ELPA</a> &gt;= 2017.</li>
+<li><a href="https://uscilab.github.io/cereal/">CEREAL</a>.</li>
+</ul>
+<p>These packages can be installed with popular package management system, such as <code>apt</code> and <code>yum</code>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> -y libopenblas-dev liblapack-dev libscalapack-mpi-dev libelpa-dev libfftw3-dev libcereal-dev libxc-dev g++ <span class="token function">make</span> cmake <span class="token function">bc</span> <span class="token function">git</span>
+</pre><blockquote>
+<p>Please double-check the installed version of ELPA!</p>
+</blockquote>
+<p>Alternatively, you can choose <a href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/commercial-base-hpc.html">Intel&#xAE; oneAPI toolkit</a> (former Parallel Studio) as toolchain. The <a href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/all-toolkits.html#base-kit">Intel&#xAE; oneAPI Base Toolkit</a> contains Intel&#xAE; oneAPI Math Kernel Library (aka <code>MKL</code>), including <code>BLAS</code>, <code>LAPACK</code>, <code>ScaLAPACK</code> and <code>FFTW3</code>,  - this means that no Fortran compiler required anymore. The <a href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/all-toolkits.html#hpc-kit">Intel&#xAE; oneAPI HPC Toolkit</a> contains Intel&#xAE; MPI Library, and C++ compiler(including MPI compiler). Please noted that building <code>elpa</code> with a different MPI library may cause conflict between MPI libraries. Don&apos;t forget to <a href="https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-intel-oneapi-render-linux/top/configure-your-system.html">set environment variables</a> before you start! <code>cmake</code> will use Intel MKL if the environment variable <code>MKLROOT</code> is set.</p>
+<p>If you have trouble building requirements, our Dockerfiles in root path offer a reference, or read the section below to use a pre-built container.</p>
+<p>And of course, a copy of ABACUS source code is required:</p>
+<ul>
+<li>Clone the whole repo with git: <code>git clone https://github.com/deepmodeling/abacus-develop.git</code></li>
+<li>Clone the minimum required part of repo: <code>git clone https://github.com/deepmodeling/abacus-develop.git --depth=1</code></li>
+<li>Download the latest source code without git: <code>wget https://github.com/deepmodeling/abacus-develop/archive/refs/heads/develop.zip</code></li>
+<li>Get the source code of a stable version <a href="https://github.com/deepmodeling/abacus-develop/releases">here</a></li>
+<li>If you have connection issues accessing GitHub, please try out our official <a href="https://gitee.com/deepmodeling/abacus-develop/">Gitee repo</a>: replacing &apos;<a href="http://github.com">github.com</a>&apos; with &apos;<a href="http://gitee.com">gitee.com</a>&apos; works for all the links above. e.g. <code>git clone https://gitee.com/deepmodeling/abacus-develop.git</code></li>
+</ul>
+<p><a href="#download-and-install">back to top</a></p>
+<h3 class="mume-header" id="build-and-install-abacus-with-cmake">Build and install ABACUS with CMake</h3>
+
+<p>We recommend building ABACUS with <code>cmake</code> to avoid dependency issues. <code>Makefile</code> is deprecated.</p>
+<h4 class="mume-header" id="configure">Configure</h4>
+
+<p>ABACUS requires a minimum <code>cmake</code> version of <code>3.18</code>. Check the version of <code>cmake</code>  on your machine with:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">cmake --version
+</pre><p>You can specify the bin path of ABACUS binary to install by <code>CMAKE_INSTALL_PREFIX</code>. If no install prefix is specified, the binary will be installed to <code>/usr/local/bin/abacus</code> by default.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">cmake -B build -DCMAKE_INSTALL_PREFIX<span class="token operator">=</span><span class="token variable">${ABACUS_BIN_PATH}</span>
+</pre><p>You can provide path of each dependent package if the package cannot be automatically found by cmake.<br>
+Keys <code>LAPACK_DIR</code>, <code>SCALAPACK_DIR</code>, <code>ELPA_DIR</code>, <code>FFTW3_DIR</code>, <code>CEREAL_INCLUDEDIR</code>, <code>MPI_CXX_COMPILER</code> and <code>MKLROOT</code> are currently available to specify.<br>
+For example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">cmake -B build -DFFTW3_ROOT<span class="token operator">=</span>/opt/fftw3
+</pre><p>If environment variable <code>MKLROOT</code> exists, <code>cmake</code> will take MKL as a preference, i.e. not using <code>LAPACK</code> and <code>ScaLAPACK</code>. To disable MKL, unset environment variable <code>MKLROOT</code>, or pass <code>-DMKLROOT=OFF</code> to <code>cmake</code>.</p>
+<p>You can also choose to build with which components.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">cmake -B build -DUSE_LIBXC<span class="token operator">=</span><span class="token number">1</span> -DUSE_CUDA<span class="token operator">=</span><span class="token number">1</span>
+</pre><pre data-role="codeBlock" data-info="bash" class="language-bash">cmake -B build -DUSE_CUSOLVER_LCAO<span class="token operator">=</span><span class="token number">1</span>
+</pre><p>If Libxc is not installed in standard path (i.e. installed with a custom prefix path), you may add the installation prefix of <code>FindLibxc.cmake</code> to <code>CMAKE_MODULE_PATH</code> environment variable, or set <code>Libxc_DIR</code> to the directory containing the file.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">cmake -B build -DLibxc_DIR<span class="token operator">=~</span>/libxc
+</pre><p>To build tests for abacus, define <code>BUILD_TESTING</code> flag. You can also specify path to local installation of <a href="https://github.com/google/googletest">Googletest</a> by setting <code>GTEST_DIR</code> flags. If not found in local, the configuration process will try to download it automatically.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">cmake -B build -DBUILD_TESTING<span class="token operator">=</span><span class="token number">1</span>
+</pre><h4 class="mume-header" id="build-and-install">Build and Install</h4>
+
+<p>After configuring, start build and install by:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">cmake --build build -j9
+cmake --install build
+</pre><p><code>-j9</code> specifies the number of jobs to run simultaneously. You can change the number on your need: set to the number of CPU cores to gain the best performance.</p>
+<p><a href="#download-and-install">back to top</a></p>
+<h3 class="mume-header" id="build-abacus-with-make">Build ABACUS with make</h3>
+
+<p>To compile the ABACUS program using legacy <code>make</code>, first edit the file <code>Makefile.vars</code> under <code>source</code> directory:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token builtin class-name">cd</span> source/
+<span class="token function">vi</span> Makefile.vars
+</pre><p>Specify the location of the compiler and libraries present in your own machine:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">CPLUSPLUS <span class="token operator">=</span>
+CPLUSPLUS_MPI <span class="token operator">=</span>
+FORTRAN <span class="token operator">=</span>
+LAPACK_DIR <span class="token operator">=</span>
+FFTW_DIR <span class="token operator">=</span>
+BOOST_DIR <span class="token operator">=</span>
+ELPA_DIR <span class="token operator">=</span>
+CEREAL_DIR <span class="token operator">=</span>
+</pre><p>For example, below is a case where the Intel C++ compiler, Intel MPI are used, along with Intel MKL library. The file Makefile.vars can be set as<br>
+follows:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">CPLUSPLUS <span class="token operator">=</span> icpc
+CPLUSPLUS_MPI <span class="token operator">=</span> mpiicpc
+FORTRAN <span class="token operator">=</span> ifort
+LAPACK_DIR <span class="token operator">=</span> /opt/intel/<span class="token punctuation">..</span>./mkl/lib/intel64/
+FFTW_DIR <span class="token operator">=</span> /opt/fftw-3.3.8/
+BOOST_DIR <span class="token operator">=</span> /opt/boost/1.64.0/
+ELPA_DIR <span class="token operator">=</span> /opt/elpa/2016.05.004/
+CEREAL_DIR <span class="token operator">=</span> /opt/cereal/
+</pre><p>Another example is where GCC, GFORTRAN, MPICH and ScaLAPACK are used:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">CPLUSPLUS <span class="token operator">=</span> g++
+CPLUSPLUS_MPI <span class="token operator">=</span> mpicxx
+FORTRAN <span class="token operator">=</span> gfortran
+SCALAPACK_DIR <span class="token operator">=</span> /opt/scalapack/
+FFTW3_DIR <span class="token operator">=</span> /opt/fftw-3.3.8/
+BOOST_DIR <span class="token operator">=</span> /opt/boost/1.64.0/
+ELPA_DIR <span class="token operator">=</span> /opt/elpa/2016.05.004/
+CEREAL_DIR <span class="token operator">=</span> /opt/cereal/
+</pre><p>For this option, it is further required to set the parameter <code>LIBS</code> in <code>Makefile.system</code>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">LIBS <span class="token operator">=</span> <span class="token punctuation">\</span>
+  -lgfortran -lm <span class="token punctuation">\</span>
+  -openmp -lpthread <span class="token punctuation">\</span>
+  <span class="token variable">${SCALAPACK_DIR}</span>/lib/libscalapack.a <span class="token punctuation">\</span>
+  /opt/lapack/lib/liblapack.a <span class="token punctuation">\</span>
+  /opt/blas/lib/libblas.a <span class="token punctuation">\</span>
+  /opt/blacs/lib/libblacs.a <span class="token punctuation">\</span>
+  <span class="token variable">${FFTW_LIB}</span> <span class="token punctuation">\</span>
+  <span class="token variable">${ELPA_LIB}</span> <span class="token punctuation">\</span>
+
+</pre><p>After modifying the <code>Makefile.vars</code> file, execute <code>make</code> to build the program.</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">make</span> -j
+</pre><p>After the compilation finishes without error messages (except perhaps for some warnings), an executable program <code>ABACUS.mpi</code> will be created in directory <code>bin/</code>.</p>
+<p><a href="#download-and-install">back to top</a></p>
+<h4 class="mume-header" id="link-libxc">Link LIBXC</h4>
+
+<p>The program compiled using the above instructions do not link with LIBXC and use exchange-correlation functionals as written in the ABACUS program. However, for some functionals (such as HSE hybrid functional), LIBXC is required.</p>
+<p>To compile ABACUS with LIBXC, modifications should be made in three files:</p>
+<p>First of all, in the file <code>Makefile.vars</code>, apart from the variables above, further provide the location of LIBXC:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">LIBXC_DIR <span class="token operator">=</span>
+</pre><p>Then, in the file &apos;Makefile.system&apos;, add &quot;${LIBXC_LIB}&quot; to the <code>LIBS</code> flag, for example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">LIBS <span class="token operator">=</span> -lifcore -lm -lpthread <span class="token variable">${LAPACK_LIB}</span> <span class="token variable">${FFTW_LIB}</span> <span class="token variable">${ELPA_LIB}</span> <span class="token variable">${LIBXC_LIB}</span>
+</pre><p>Finally, in <code>Makefile</code>, add &quot;-DUSE_LIBXC&quot; to the <code>HONG</code> flag, for example:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">HONG_MPI_SELINV_20210523 <span class="token operator">=</span> -D__FP <span class="token variable">${HONG_FFTW}</span> <span class="token variable">${HONG_LAPACK}</span> -D__LCAO -D__MPI -D__OPENMP -D__SELINV -DMETIS -DEXX_DM<span class="token operator">=</span><span class="token number">3</span> -DEXX_H_COMM<span class="token operator">=</span><span class="token number">2</span> -DTEST_EXX_LCAO<span class="token operator">=</span><span class="token number">0</span> -DTEST_EXX_RADIAL<span class="token operator">=</span><span class="token number">1</span> -DUSE_CEREAL_SERIALIZATION -D__EXX -DUSE_LIBXC
+<span class="token assign-left variable">HONG</span><span class="token operator">=</span><span class="token variable">${HONG_MPI_SELINV_20210523}</span>
+</pre><p><a href="#download-and-install">back to top</a></p>
+<h2 class="mume-header" id="installation-with-deepks">Installation with DeePKS</h2>
+
+<p>This part of installation is based on <a href="#installation">Installation</a>. If DeePKS feature is requied for <a href="https://github.com/deepmodeling/deepks-kit">DeePKS-kit</a>, the following prerequisites and steps are needed:</p>
+<h3 class="mume-header" id="extra-prerequisites">Extra prerequisites</h3>
+
+<ul>
+<li>C++ compiler, supporting <strong>C++14</strong>. For example, Intel C++ compiler 18</li>
+<li><a href="https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.9.0%2Bcpu.zip">LibTorch</a> for cpu, with c++11 ABI;</li>
+<li><a href="https://github.com.cnpmjs.org/llohse/libnpy/">Libnpy</a>;</li>
+</ul>
+<h3 class="mume-header" id="extra-settings-for-building">Extra settings for building</h3>
+
+<h3 class="mume-header" id="using-cmake">Using Cmake</h3>
+
+<pre data-role="codeBlock" data-info="bash" class="language-bash">cmake -B build -DENABLE_DEEPKS<span class="token operator">=</span><span class="token number">1</span>
+</pre><h3 class="mume-header" id="using-makefile">Using Makefile</h3>
+
+<p>Set <code>LIBTORCH_DIR</code>and <code>LIBNPY_DIR</code>in <code>Makefile.vars</code>. For example:</p>
+<pre data-role="codeBlock" data-info="Makefile" class="language-makefile">LIBTORCH_DIR <span class="token operator">=</span> /opt/libtorch/
+LIBNPY_DIR <span class="token operator">=</span> /opt/libnpy/
+</pre><p>In <code>Makefile.system</code>, add <code>LIBTORCH_LIB</code> to  <code>LIBS</code>, then set <code>-std=c++14</code> in <code>OPTS</code>:</p>
+<pre data-role="codeBlock" data-info="Makefile" class="language-makefile">LIBS <span class="token operator">=</span> -lifcore -lm -lpthread <span class="token variable">$</span><span class="token punctuation">{</span>LIBTORCH_LIB<span class="token punctuation">}</span> <span class="token variable">$</span><span class="token punctuation">{</span>LAPACK_LIB<span class="token punctuation">}</span> <span class="token variable">$</span><span class="token punctuation">{</span>FFTW_LIB<span class="token punctuation">}</span> <span class="token variable">$</span><span class="token punctuation">{</span>ELPA_LIB<span class="token punctuation">}</span> <span class="token comment"># for DeePKS</span>
+<span class="token comment">#LIBS = -lifcore -lm -lpthread ${LAPACK_LIB} ${FFTW_LIB} ${ELPA_LIB}</span>
+</pre><pre data-role="codeBlock" data-info="Makefile" class="language-makefile">OPTS <span class="token operator">=</span> <span class="token variable">$</span><span class="token punctuation">{</span>INCLUDES<span class="token punctuation">}</span> -Ofast -traceback -std<span class="token operator">=</span>c++14 -simd -march<span class="token operator">=</span>native -xHost -m64 -qopenmp -Werror -Wall -pedantic -g
+</pre><ul>
+<li>module_base</li>
+<li>module_cell</li>
+<li>module_grid</li>
+<li>module_md</li>
+<li>module_neighbor</li>
+<li>module_orbital</li>
+<li>obj</li>
+<li>src_external</li>
+<li>src_global</li>
+<li>src_io</li>
+<li>src_ions</li>
+<li>src_lcao</li>
+<li>src_parallel</li>
+<li>src_pdiag</li>
+<li>src_pw</li>
+<li>src_ri</li>
+</ul>
+<p>In <code>Makefile</code>, set the Macro as <code>HONG_DEEPKS</code>:</p>
+<pre data-role="codeBlock" data-info="Makefile" class="language-makefile"><span class="token comment">#!!!!!!!!!!!!!!!!!!!! CHANE HERE IF YOU LIKE !!!!!!!!!!!!!!</span>
+<span class="token comment">#! change series version or parallel version~~~</span>
+<span class="token comment">#HONG=${HONG_MPI_SELINV_20210523}</span>
+<span class="token comment">#HONG=${HONG_SER_SELINV}</span>
+HONG<span class="token operator">=</span><span class="token variable">$</span><span class="token punctuation">{</span>HONG_DEEPKS<span class="token punctuation">}</span>
+</pre><p><a href="#download-and-install">back to top</a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
