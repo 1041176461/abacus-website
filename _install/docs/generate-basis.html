@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>CONTRIBUTING</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>generate-basis</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
     <script type="module">
       import { Octokit } from "https://cdn.skypack.dev/octokit?dts";
@@ -15,7 +15,7 @@
         {
           owner: "deepmodeling",
           repo: "abacus-develop",
-          path: "docs/CONTRIBUTING.md",
+          path: "docs/generate-basis.md",
         }
       );
 
@@ -34,7 +34,10 @@
           html = html.replaceAll(value, file_label + "html");
         });
 
+        // html = html.replaceAll("docs/", "/_upload/tpl/0c/d8/3288/template3288/test/docs/");
         const html_array = html.split("\n");
+        // const regex = /id="[a-zA-Z]+"/g;
+        console.log(html);
 
         const replace_id = (id_index, href_index) => {
           const id_regex = /id="([a-zA-Z]+)"/;
@@ -49,8 +52,8 @@
           );
         };
         // correct some error reference
-        const id_indices = [14, 18, 29, 32, 77, 81, 112, 141];
-        const href_indices = [5, 6, 7, 8, 9, 10, 11, 12];
+        const id_indices = [];
+        const href_indices = [];
         for (let i = 0; i < id_indices.length; i++) {
           replace_id(id_indices[i], href_indices[i]);
         }
@@ -59,8 +62,11 @@
 
       (function () {
         const style_string = `<style>
-          @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css)
+          @import url(/css/github.css)
         </style>`;
+        // const style_string = `<style>
+        //   @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css)
+        // </style>`;
         let box1 = document.querySelector(".readme-block");
         let contentNode = document.createElement("div");
         contentNode.innerHTML = parse_html(html, style_string);
