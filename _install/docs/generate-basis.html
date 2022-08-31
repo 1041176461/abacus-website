@@ -61,12 +61,12 @@
       };
 
       (function () {
-        const style_string = `<style>
-          @import url(/css/github.css)
-        </style>`;
         // const style_string = `<style>
-        //   @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css)
+        //   @import url(/css/github.css)
         // </style>`;
+        const style_string = `<style>
+          @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css)
+        </style>`;
         let box1 = document.querySelector(".readme-block");
         let contentNode = document.createElement("div");
         contentNode.innerHTML = parse_html(html, style_string);

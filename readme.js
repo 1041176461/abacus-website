@@ -24,8 +24,11 @@ const parse_html = (html, style_string) => {
     html = html.replaceAll(value, file_label + "html");
   });
 
-  html = html.replaceAll("docs/", "_install/docs/");
-  // html = html.replaceAll("docs/", "/_upload/tpl/0c/d8/3288/template3288/test/docs/");
+  // html = html.replaceAll("docs/", "_install/docs/");
+  html = html.replaceAll(
+    "docs/",
+    "/_upload/tpl/0c/d8/3288/template3288/test/docs/"
+  );
   const html_array = html.split("\n");
   // const regex = /id="[a-zA-Z]+"/g;
 
@@ -47,18 +50,22 @@ const parse_html = (html, style_string) => {
   }
 
   const new_html =
-    style_string + html_array.slice(11, html_array.length).join("\n");
+    style_string +
+    html_array
+      .slice(0, 2)
+      .concat(html_array.slice(11, html_array.length))
+      .join("\n");
 
   return new_html;
 };
 
 (function () {
-  const style_string = `<style>    
-      @import url(css/github.css)
-    </style>`;
   // const style_string = `<style>
-  //   @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css)
-  // </style>`;
+  //     @import url(css/github.css)
+  //   </style>`;
+  const style_string = `<style>
+    @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css)
+  </style>`;
   let box1 = document.querySelector(".readme-block");
   let contentNode = document.createElement("div");
   contentNode.innerHTML = parse_html(html, style_string);
