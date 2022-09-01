@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>install</title>
+    <title>input-kpt</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
     <script type="module">
       import { Octokit } from "https://cdn.skypack.dev/octokit?dts";
@@ -15,7 +15,7 @@
         {
           owner: "deepmodeling",
           repo: "abacus-develop",
-          path: "docs/install.md",
+          path: "docs/input-kpt.md",
         }
       );
 
@@ -36,7 +36,8 @@
 
         // html = html.replaceAll("docs/", "/_upload/tpl/0c/d8/3288/template3288/test/docs/");
         const html_array = html.split("\n");
-        // const regex = /id="[a-zA-Z]+"/g;
+        console.log(html);
+        const regex = /id="[a-zA-Z]+"/g;
 
         const replace_id = (id_index, href_index) => {
           const id_regex = /id="([a-zA-Z]+)"/;
@@ -51,8 +52,8 @@
           );
         };
         // correct some error reference
-        const id_indices = [0, 58, 89, 147, 161, 163, 169];
-        const href_indices = [57, 4, 5, 7, 8, 9, 10];
+        const id_indices = [8, 28, 44, 0];
+        const href_indices = [2, 3, 4, 61];
         for (let i = 0; i < id_indices.length; i++) {
           replace_id(id_indices[i], href_indices[i]);
         }
@@ -60,7 +61,7 @@
       };
 
       (function () {
-        //     const style_string = `<style>
+        // const style_string = `<style>
         //   @import url(/css/github.css)
         // </style>`;
         const style_string = `<style>
