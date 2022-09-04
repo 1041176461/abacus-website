@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>input-stru</title>
+    <title>input-main</title>
     <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
     <script type="module">
       import { Octokit } from "https://cdn.skypack.dev/octokit?dts";
@@ -15,7 +15,7 @@
         {
           owner: "deepmodeling",
           repo: "abacus-develop",
-          path: "docs/input-stru.md",
+          path: "docs/input-main.md",
         }
       );
 
@@ -35,12 +35,15 @@
         });
 
         // html = html.replaceAll("docs/", "/_upload/tpl/0c/d8/3288/template3288/test/docs/");
+        html = html.replaceAll("<em>", "_");
+        html = html.replaceAll("</em>", "_");
+
         const html_array = html.split("\n");
         const regex = /id="[a-zA-Z]+"/g;
 
         const replace_id = (id_index, href_index) => {
-          const id_regex = /id="([a-zA-Z]+)"/;
-          const href_regex = /href="#([a-zA-Z\-]+)"/;
+          const id_regex = /id="([a-zA-Z09]+)"/;
+          const href_regex = /href="#([a-zA-Z09\-]+)"/;
 
           const match_id = html_array[id_index].match(id_regex)[1];
           const match_href = html_array[href_index].match(href_regex)[1];
@@ -51,19 +54,29 @@
           );
         };
         // correct some error reference
-        const id_indices = [11, 35, 56];
-        const href_indices = [3, 4, 5];
+        const id_indices = [
+          45, 70, 71, 267, 299, 337, 390, 528, 587, 693, 839, 911, 951, 1063,
+          1241, 1345, 1383, 1470, 1513,
+        ];
+        const href_indices = [
+          2, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 39, 23, 25, 27, 29, 31, 35, 41,
+        ];
+
         for (let i = 0; i < id_indices.length; i++) {
           replace_id(id_indices[i], href_indices[i]);
         }
+        html_array[33] = html_array[33].replace(
+          "#DFT_U-correction",
+          "#dftucorrection"
+        );
 
         return style_string + html_array.join("\n");
       };
 
       (function () {
         // const style_string = `<style>
-        //   @import url(/css/github.css)
-        // </style>`;
+        //     @import url(/css/github.css)
+        //   </style>`;
         const style_string = `<style>
           @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css)
         </style>`;
