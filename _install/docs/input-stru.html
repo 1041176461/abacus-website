@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>CONTRIBUTING</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>input-stru</title>
     <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
     <script type="module">
       import { Octokit } from "https://cdn.skypack.dev/octokit?dts";
 
@@ -15,7 +21,7 @@
         {
           owner: "deepmodeling",
           repo: "abacus-develop",
-          path: "docs/CONTRIBUTING.md",
+          path: "docs/input-stru.md",
         }
       );
 
@@ -34,7 +40,9 @@
           html = html.replaceAll(value, file_label + "html");
         });
 
+        // html = html.replaceAll("docs/", "/_upload/tpl/0c/d8/3288/template3288/test/docs/");
         const html_array = html.split("\n");
+        const regex = /id="[a-zA-Z]+"/g;
 
         const replace_id = (id_index, href_index) => {
           const id_regex = /id="([a-zA-Z]+)"/;
@@ -49,15 +57,19 @@
           );
         };
         // correct some error reference
-        const id_indices = [14, 18, 29, 32, 77, 81, 112, 141];
-        const href_indices = [5, 6, 7, 8, 9, 10, 11, 12];
+        const id_indices = [11, 35, 56];
+        const href_indices = [3, 4, 5];
         for (let i = 0; i < id_indices.length; i++) {
           replace_id(id_indices[i], href_indices[i]);
         }
+
         return style_string + html_array.join("\n");
       };
 
       (function () {
+        // const style_string = `<style>
+        //   @import url(/css/github.css)
+        // </style>`;
         const style_string = `<style>
           @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css)
         </style>`;
