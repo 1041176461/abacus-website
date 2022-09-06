@@ -1,0 +1,575 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <p align="center">
+      <img
+        src="/_upload/tpl/0c/d8/3288/template3288/test/docs/abacus-logo.jpg"
+      />
+    </p>
+    <p><a id="readme-top"></a></p>
+    <p>
+      ABACUS is an electronic structure package based on density functional
+      theory(DFT), adopting either plane wave basis or numerical atomic
+      orbitals. Please refer to our
+      <a href="https://github.com/deepmodeling/abacus-develop"
+        >GitHub repository</a
+      >
+      for more information and support.
+    </p>
+    <h1 id="table-of-contents">Table of contents</h1>
+    <ul>
+      <li><a href="#table-of-contents">Table of contents</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#download-and-install">Download and install</a></li>
+      <li><a href="#quickstart-guide">Quickstart guide</a></li>
+      <li><a href="#input-files">Input files</a></li>
+      <li><a href="#run-abacus">Run ABACUS</a></li>
+      <li><a href="#output-files">Output files</a></li>
+      <li><a href="#hands-on-examples">Hands-on examples</a></li>
+      <li><a href="#citations">Citations</a></li>
+      <li><a href="#development-team">Development team</a></li>
+      <li>
+        <a href="#communicating-and-making-contributions"
+          >Communicating and making contributions</a
+        >
+      </li>
+      <li><a href="#miscellaneous">Miscellaneous</a></li>
+    </ul>
+    <h1 id="features">Features</h1>
+    <p>ABACUS provides the following features and functionalities:</p>
+    <ol>
+      <li>Three types of supported basis sets: pw, LCAO, and LCAO-in-pw.</li>
+      <li>
+        Ground-state total energy calculations using Kohn-Sham (KS) density
+        functional theory (DFT) with local-density, generalized gradient
+        approximations (LDA/GGAs), Meta-GGA(requires LIBXC, only for PW), and
+        hybrid functionals (PBE0 and HSE06, only for LCAO and currently under
+        test).
+      </li>
+      <li>
+        Geometry relaxations with Conjugated Gradient (CG), BFGS, and FIRE
+        methods.
+      </li>
+      <li>
+        Semi-empirical van der Waals energy correction using the Grimme
+        DFT-D2/D3 scheme.
+      </li>
+      <li>
+        NVT and NVE molecular dynamics simulation. AIMD, DP potential, LJ
+        potential are supported.
+      </li>
+      <li>Stress calculations and cell relaxations.</li>
+      <li>Electric polarization calculation using Berry Phase theory.</li>
+      <li>Interface to the Wannier90 package.</li>
+      <li>Real-time time dependent density functional theory (TDDFT).</li>
+      <li>Print-out of the electrostatic potential.</li>
+      <li>Mulliken charge analysis (only for LCAO).</li>
+      <li>Projected density of states (PDOS) (only for LCAO).</li>
+      <li>DFT+U calculation (only for LCAO).</li>
+      <li>Solvation model method for solvation energy.</li>
+      <li>Stochastic DFT (only for PW).</li>
+      <li>DeePKS method (under development, only for LCAO).</li>
+      <li>Electric field and dipole correction.</li>
+      <li>Orbital-free DFT.</li>
+      <li>(subsidiary tool)Plot_tools for plot PDOS and PBANDS.</li>
+      <li>
+        (subsidiary tool)Generator for second generation numerical orbital
+        basis.
+      </li>
+      <li>Interface with DPGEN</li>
+      <li>Interface with phonopy</li>
+    </ol>
+    <p><a href="#readme-top">back to top</a></p>
+    <h1 id="download-and-install">Download and install</h1>
+    <p>
+      ABACUS can be downloaded from our
+      <a href="http://abacus.ustc.edu.cn/">official website</a> or
+      <a href="https://github.com/deepmodeling/abacus-develop/releases"
+        >GitHub release page</a
+      >
+      for stable versions. You can also get the developing version from our
+      <a href="https://github.com/deepmodeling/abacus-develop"
+        >GitHub repository</a
+      >.
+    </p>
+    <p>
+      Please refer to the
+      <a href="/_upload/tpl/0c/d8/3288/template3288/test/docs/install.html"
+        >installation guide</a
+      >
+      for instruction on the structure of the package and how to install ABACUS.
+    </p>
+    <p><a href="#readme-top">back to top</a></p>
+    <h1 id="quickstart-guide">Quickstart guide</h1>
+    <h2 id="input-files">Input files</h2>
+    <p>
+      The following files are the central input files for ABACUS. Before
+      executing the program, please make sure these files are prepared and
+      stored in the working directory.
+    </p>
+    <ul>
+      <li>
+        <p><code>INPUT</code></p>
+        <p>
+          This is the main input file that contains the setting parameters used
+          in the calculation. For a complete list of the input parameters,
+          please consult this
+          <a
+            href="/_upload/tpl/0c/d8/3288/template3288/test/docs/input-main.html"
+            >instruction</a
+          >.
+        </p>
+        <p>
+          <em
+            >Attention: Users cannot change the filename âINPUTâ to other
+            names.</em
+          >
+        </p>
+      </li>
+      <li>
+        <p><code>STRU</code></p>
+        <p>
+          This is the structure file that contains the structural information
+          about the system, e.g., lattice constant, lattice vectors, and
+          positions of the atoms within a unit cell. The positions can be given
+          either in direct or Cartesian coordinates. Moreover, the name of the
+          atom (and location of the pseudopotential and numerical orbital files,
+          see below) needs to be specified in the STRU file. The name of the
+          structure file can be changed to a different name by explicitly
+          specifying the name in the INPUT file.
+        </p>
+        <p>
+          Specifications of the STRU file can be found in this
+          <a
+            href="/_upload/tpl/0c/d8/3288/template3288/test/docs/input-stru.html"
+            >short instruction</a
+          >.
+        </p>
+      </li>
+      <li>
+        <p><code>KPT</code></p>
+        <p>
+          This is the k-point file that contains the information of the k-grid
+          setting for the Brillouin zone sampling. Specification of the k-point
+          file can be found in this
+          <a
+            href="/_upload/tpl/0c/d8/3288/template3288/test/docs/input-kpt.html"
+            >short instruction</a
+          >.
+        </p>
+      </li>
+      <li>
+        <p>The pseudopotential files</p>
+        <p>
+          Norm-conserving pseudopotentials are used in ABACUS, in the UPF file
+          format.The filename of each elementâs pseudopotential needs to be
+          specified in the STRU file, together with the directory of the
+          pseudopotential files unless they are already present in the working
+          directory.
+        </p>
+        <p>
+          More information on pseudopotentials is given
+          <a
+            href="/_upload/tpl/0c/d8/3288/template3288/test/docs/features.html#pseudopotentials"
+            >here</a
+          >.
+        </p>
+      </li>
+      <li>
+        <p>The numerical orbital files</p>
+        <p>
+          This part is only required in LCAO calculations. The filename for each
+          elementâs numerical orbital basis needs to be specified in the STRU
+          file, together with the directory of the orbital files unless they are
+          already present in the working directory. ABACUS provides numerical
+          atomic basis sets of different accuracy levels for most elements
+          commonly used. Users can download these basis sets from the
+          <a href="http://abacus.ustc.edu.cn/pseudo/list.htm">website</a>.
+          Moreover, users can generate numerical atomic orbitals by themselves,
+          and the procedure is provided in this
+          <a
+            href="/_upload/tpl/0c/d8/3288/template3288/test/docs/generate-basis.html"
+            >short introduction</a
+          >.
+        </p>
+      </li>
+    </ul>
+    <p><a href="#readme-top">back to top</a></p>
+    <h2 id="run-abacus">Run ABACUS</h2>
+    <p>
+      After putting all required input files under one folder, enter this
+      folder.
+    </p>
+    <pre><code class="bash language-bash">cd input_folder
+</code></pre>
+    <p>Perform calculation by:</p>
+    <pre><code class="bash language-bash">mpirun -np 4 abacus
+</code></pre>
+    <p>
+      You can replace <code>4</code> with your desired number of process,
+      typically the result of the command <code>nproc</code>.
+    </p>
+    <p><a href="#readme-top">back to top</a></p>
+    <h2 id="output-files">Output files</h2>
+    <p>
+      When the calculation finishes, the program will create an output directory
+      (default: OUT.ABACUS/), into which the following output files will be
+      generated:
+    </p>
+    <ol>
+      <li>
+        <code>INPUT</code>: contains all input parameters, userâs input and
+        default.
+      </li>
+      <li><code>istate.info</code>: information of energy eigenvalues.</li>
+      <li>
+        <code>running_${calculation}.log</code>: contains the running details.
+        Information on the variable calculation is found in the
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/input-main.html#calculation"
+          >list of keywords</a
+        >. For example, if we are doing a SCF calculation, the log files will be
+        named running_scf.log.
+      </li>
+      <li>
+        <code>STRU_READIN_ADJUST.cif</code>: structure file in the cif
+        formatter.
+      </li>
+      <li><code>warning.log</code>: errors and warning messages.</li>
+      <li>
+        directories containing element information. For example, Si/:
+        <ul>
+          <li>
+            <code>Si.NONLOCAL</code>: non-local pseudopotential projectors.
+          </li>
+          <li><code>Si-P.ORBITAL</code>: pseudo atomic orbitals, p orbital</li>
+          <li><code>Si-S.ORBITAL</code>: pseudo atomic orbitals, s orbital</li>
+          <li><code>v_loc_g.dat</code>: vlocal in G space</li>
+        </ul>
+      </li>
+    </ol>
+    <p><a href="#readme-top">back to top</a></p>
+    <h2 id="hands-on-examples">Hands-on examples</h2>
+    <p>
+      The following provides basic sample jobs in ABACUS. More can be found in
+      the directories <code>examples/</code> and <code>tests/</code>, and the
+      corresponding reference outputs can be found in the file
+      <code>result.ref</code> under each subdirectory.
+    </p>
+    <p>
+      <em
+        >Note that the examples there are intended as quick hands-on jobs, and
+        the results are NOT converged with regard to basis set or k point
+        sampling.</em
+      >
+    </p>
+    <ul>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/basic-pw.html"
+          >Basic electronic structure calculation with PW basis set</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/basic-lcao.html"
+          >Basic electronic structure calculation with LCAO basis set</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/dispersion.html"
+          >DFT + dispersion calculations</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/dos.html"
+          >Density of states</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/band-struc.html"
+          >Band structure</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/magnetic.html"
+          >Magnetic properties</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/force.html"
+          >Force calculation and structure relaxation</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/stress.html"
+          >Stress calculation and cell relaxation</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/md.html"
+          >Molecular dynamics</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/berry-phase.html"
+          >Macroscopic polarization calculation</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/wannier90.html"
+          >ABACUS-wannier90 interface</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/tddft.html"
+          >Real-time time dependent density functional theory</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/potential.html"
+          >Electrostatic potential</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/mulliken.html"
+          >Mulliken charge</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/hybrid.html"
+          >Hybrid functional</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/electric_dipole.html"
+          >Electric field and dipole correction</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/stochastic.html"
+          >Stochastic DFT and mix stochastic-deterministic DFT</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/wavefunction.html"
+          >Wave functions</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/BSSE.html"
+          >BSSE for molecular formation energy</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/dpgen.html"
+          >ABACUS-DPGEN interface</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/examples/phonopy.html"
+          >ABACUS-phonopy interface</a
+        >
+      </li>
+    </ul>
+    <p><a href="#readme-top">back to top</a></p>
+    <h1 id="citations">Citations</h1>
+    <p>
+      The following references are required to be cited when using ABACUS.
+      Specifically:
+    </p>
+    <ul>
+      <li>
+        <p><strong>For general purpose:</strong></p>
+        <p>
+          [1]. Mohan Chen, G. C. Guo, and Lixin He. "Systematically improvable
+          optimized atomic basis sets for ab initio calculations." Journal of
+          Physics: Condensed Matter 22.44 (2010): 445501.
+        </p>
+        <p>
+          [2]. Pengfei Li, et al. "Large-scale ab initio simulations based on
+          systematically improvable atomic basis." Computational Materials
+          Science 112 (2016): 503-517.
+        </p>
+      </li>
+      <li>
+        <p><strong>If Stochastic DFT is used:</strong></p>
+        <p>
+          [1]. Qianrui Liu, and Mohan Chen. "Plane-Wave-Based
+          Stochastic-Deterministic Density Functional Theory for Extended
+          Systems." https://arxiv.org/abs/2204.05662.
+        </p>
+      </li>
+      <li>
+        <p><strong>If DFT+U is used:</strong></p>
+        <p>
+          [1]. Xin Qu, et al. "DFT+ U within the framework of linear combination
+          of numerical atomic orbitals." The Journal of Chemical Physics (2022).
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>If second generation numerical orbital basis is used:</strong>
+        </p>
+        <p>
+          [1]. Peize Lin, Xinguo Ren, and Lixin He. "Strategy for constructing
+          compact numerical atomic orbital basis sets by incorporating the
+          gradients of reference wavefunctions." Physical Review B 103.23
+          (2021): 235131.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>If berry curvature calculation is used in LCAO base:</strong>
+        </p>
+        <p>
+          [1]. Gan Jin, Daye Zheng, and Lixin He. "Calculation of Berry
+          curvature using non-orthogonal atomic orbitals." Journal of Physics:
+          Condensed Matter 33.32 (2021): 325503.
+        </p>
+      </li>
+      <li>
+        <p><strong>If DeePKS is used:</strong></p>
+        <p>
+          [1]. Wenfei Li, Qi Ou, et al. "DeePKS+ABACUS as a Bridge between
+          Expensive Quantum Mechanical Models and Machine Learning Potentials."
+          https://arxiv.org/abs/2206.10093.
+        </p>
+      </li>
+      <li>
+        <p><strong>If hybrid functional is used:</strong></p>
+        <p>
+          [1]. Peize Lin, Xinguo Ren, and Lixin He. "Efficient Hybrid Density
+          Functional Calculations for Large Periodic Systems Using Numerical
+          Atomic Orbitals." Journal of Chemical Theory and Computation 2021,
+          17(1), 222â239.
+        </p>
+        <p>
+          [2]. Peize Lin, Xinguo Ren, and Lixin He. "Accuracy of Localized
+          Resolution of the Identity in Periodic Hybrid Functional Calculations
+          with Numerical Atomic Orbitals." Journal of Physical Chemistry Letters
+          2020, 11, 3082-3088.
+        </p>
+      </li>
+    </ul>
+    <p><a href="#readme-top">back to top</a></p>
+    <h1 id="development-team">Development team</h1>
+    <p>
+      The current development team consists the following research
+      groups/affiliations:
+    </p>
+    <ul>
+      <li>University of Science and Technology of China (Dr. Lixin He)</li>
+      <li>Peking University (Dr. Mohan Chen)</li>
+      <li>
+        Institute of Physics, Chinese Academy of Sciences (Dr. Xinguo Ren)
+      </li>
+      <li>AI for Science Institute</li>
+    </ul>
+    <p><a href="#readme-top">back to top</a></p>
+    <h1 id="communicating-and-making-contributions">
+      Communicating and making contributions
+    </h1>
+    <p>
+      If you find a bug or have some questions, please refer to our GitHub
+      <a href="https://github.com/deepmodeling/abacus-develop/issues"
+        >issue tracker</a
+      >, and our developers are willing to help. We also provide guidelines on
+      how to make contributions to ABACUS.
+    </p>
+    <ul>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/CONTRIBUTING.html#structure-of-the-package"
+          >Structure of the package</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/CONTRIBUTING.html#submitting-an-issue"
+          >Submitting an Issue</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/CONTRIBUTING.html#comment-style-for-documentation"
+          >Comment Style for documentation</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/CONTRIBUTING.html#code-formatting-style"
+          >Code formatting style</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/CONTRIBUTING.html#submitting-a-pull-request"
+          >Submitting a Pull Request</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/CONTRIBUTING.html#commit-message-guidelines"
+          >Commit Message Guidelines</a
+        >
+        <a href="#readme-top">back to top</a>
+      </li>
+    </ul>
+    <h1 id="miscellaneous">Miscellaneous</h1>
+    <ul>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/features.html#basis-sets"
+          >Basis sets</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/features.html#pseudopotentials"
+          >Pseudopotentials</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/features.html#boundary-conditions-and-k-points"
+          >Boundary conditions and k-points</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/features.html#kohn-sham-solver"
+          >Kohn-Sham solver</a
+        >
+      </li>
+      <li>
+        <a
+          href="/_upload/tpl/0c/d8/3288/template3288/test/docs/features.html#exchange-correlation-functionals"
+          >Exchange-correlation functionals</a
+        >
+      </li>
+    </ul>
+    <p><a href="#readme-top">back to top</a></p>
+  </div>
+</div>

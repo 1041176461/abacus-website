@@ -70,4 +70,5 @@ const parse_html = (html, style_string) => {
   let contentNode = document.createElement("div");
   contentNode.innerHTML = parse_html(html, style_string);
   box1.appendChild(contentNode);
+  console.log(box1);
 })();
