@@ -1,0 +1,77 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="mullikencharge">Mulliken charge</h1>
+    <p><a href="../../README.html">back to main page</a></p>
+    <p>
+      From version 2.1.0, ABACUS has the function of Mulliken population
+      analysis. To use this function, set âout_mulâ to â1â in the INPUT file.
+      After calculation, there will be an output file named mulliken.txt in the
+      output directory. In the file, there are contents like:
+    </p>
+    <pre><code> CALCULATE THE MULLIkEN ANALYSIS FOR EACH ATOM
+8 (Total charge all spin 1)
+8 (Total charge of the system)
+Decomposed Mulliken populations
+0                       Si                       Up spin                     Down spin                           Sum                          Diff
+               multiple
+s                       0                      0.51810998                    0.51810998                       1.03622                           0
+sum over m                                  0.51810998                    0.51810998                            1.03622                        0
+s                       1                     0.053661483                   0.053661483                    0.10732297                           0
+sum over m                                 0.053661483                   0.053661483                         0.10732297                        0
+sum over m+mul                           0.57177146                    0.57177146                        1.1435429                            0
+px                      0                      0.43730519                    0.43730519                    0.87461038                           0
+py                      0                      0.43730519                    0.43730519                    0.87461038                           0
+pz                      0                      0.43730519                    0.43730519                    0.87461038                           0
+sum over m                                   1.3119156                     1.3119156                          2.6238311                        0
+px                      1                    0.0065031719                  0.0065031719                   0.013006344                           0
+py                      1                    0.0065031719                  0.0065031719                   0.013006344                           0
+pz                      1                    0.0065031719                  0.0065031719                   0.013006344                           0
+sum over m                                 0.019509516                   0.019509516                        0.039019031                        0
+sum over m+mul                            1.3314251                     1.3314251                        2.6628502                            0
+d3z^2-r^2               0                     0.011750855                   0.011750855                   0.023501711                           0
+dxy                     0                     0.024433913                   0.024433913                   0.048867826                           0
+dxz                     0                     0.024433913                   0.024433913                   0.048867826                           0
+dx^2-y^2                0                     0.011750855                   0.011750855                   0.023501711                           0
+dyz                     0                     0.024433913                   0.024433913                   0.048867826                           0
+sum over m                                 0.096803451                   0.096803451                          0.1936069                        0
+sum over m+mul                          0.096803451                   0.096803451                        0.1936069                            0
+Total Charge on atom  Si                   4
+...
+</code></pre>
+    <p>
+      The file gives Mulliken charge in turn according to the order of atoms in
+      the system. For example, the following block is for the first atom in
+      system,
+    </p>
+    <pre><code>0 Si Up spin Down spin Sum Diff
+...
+Total Charge on atom Si 4.0241712
+</code></pre>
+    <p>And the next block is for the second atom in system, and so on.</p>
+    <pre><code>1 Si Up spin Down spin Sum Diff
+...
+</code></pre>
+    <p>
+      For each atom, the file gives detailed Mulliken population analysis at
+      different levels,
+    </p>
+    <ul>
+      <li>
+        magnetic quantum number level: such as lines beigin with âs,px,py,pz,…â
+      </li>
+      <li>
+        azimuthal quantum number level: such as lines begin with âsum over mâ.
+      </li>
+      <li>
+        principal quantum number level: such as lines begin with âsum over
+        m+mulâ. Here âmulâ equals âmultipleâ in the file, which means how many
+        radial atomic orbitals there are for a given orbital angular momentum.
+      </li>
+      <li>atomic level: such as lines begin with âTotal Charge on atomâ.</li>
+    </ul>
+    <p><a href="#mulliken-charge">back to top</a></p>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="stresscalculationandcellrelaxation">
+      Stress calculation and cell relaxation
+    </h1>
+    <p><a href="../../README.html">back to main page</a></p>
+    <p>
+      To calculate the stress for a given structure, set input parameter
+      âcal_stressâ to 1. The stress can be calculated in all types of
+      âcalculationâ.
+    </p>
+    <pre><code>cal_stress 1
+</code></pre>
+    <p>
+      To optimize the cell shape, one needs to setup a few parameters in the
+      INPUT file. First, the parameter âcalculationâ should be set to
+      cell-relaxâ. The ion relaxation is automatically done in the cell shape
+      optimization. To optimize the cell shape under external pressures, setup
+      âpress1, press2, press3â which are the external pressures along the a, b,
+      c axes in KBar. The default values is zero. You may optimize the cell
+      shape with some of axes are fixed. To do so, use âfixed<em
+        >axesâ as described below. The default value is None. The parameter
+        âstress</em
+      >thrâ is the threshold for stress.
+    </p>
+    <p>Here is an example for the Si crystal.</p>
+    <pre><code>suffix Si
+calculation cell-relax
+relax_nmax 100
+force_thr_ev 0.01
+relax_method cg
+out_stru 1
+relax_bfgs_init 0.5
+press1 0
+press2 0
+press3 0
+fixed_axes None
+stress_thr 1
+</code></pre>
+    <ul>
+      <li>
+        <p>press1,2,3</p>
+        <p>
+          the external pressures along three axes in KBar, the compressive
+          stress is taken to be positive.
+        </p>
+      </li>
+      <li>
+        <p>fixed_axes</p>
+        <p>
+          which axes are fixed when do cell relaxation. Possible choices are:
+        </p>
+        <ul>
+          <li>None : default; all can relax</li>
+          <li>volume : relaxation with fixed volume</li>
+          <li>a : fix a axis during relaxation</li>
+          <li>b : fix b axis during relaxation</li>
+          <li>c : fix c axis during relaxation</li>
+          <li>ab : fix both a and b axes during relaxation</li>
+          <li>ac : fix both a and c axes during relaxation</li>
+          <li>bc : fix both b and c axes during relaxation</li>
+          <li>abc : fix all three axes during relaxation</li>
+        </ul>
+      </li>
+      <li><p>stress_thr</p></li>
+    </ul>
+    <p>
+      the threshold for stress, below which the cell relaxation is considered to
+      be converged. The unit is KBar. The default threshold is 10 KBar.
+    </p>
+    <p>
+      Another example for cell relaxation calculation can be found in
+      tests/109<em>PW</em>CR/.
+    </p>
+    <p><a href="#stress-calculation-and-cell-relaxation">back to top</a></p>
+  </div>
+</div>

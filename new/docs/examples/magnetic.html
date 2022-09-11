@@ -1,0 +1,42 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="magneticproperties">Magnetic properties</h1>
+    <p><a href="../../README.html">back to main page</a></p>
+    <p>
+      For spin polarized calculations, the users should turn out the spin option
+      and give an initial magnetism. The input parameter that controls spin
+      options is:
+    </p>
+    <pre><code>nspin 2
+</code></pre>
+    <p>The variable nspin takes values 1 or 2</p>
+    <ul>
+      <li>nspin=1, the default value, meaning spin-unpolarized calculation.</li>
+      <li>nspin=2, collinear spin polarized calculation.</li>
+    </ul>
+    <p>
+      Initial magnetic moments are set in the STRU file, in the third line of
+      âATOMIC_POSITIONSâ part. For example,
+    </p>
+    <pre><code>...
+ATOMIC_POSITIONS
+Direct //Cartesian or Direct coordinate.
+Si // Element type
+0.0 //initial magnetism
+2 // number of atoms
+...
+</code></pre>
+    <p>
+      For each element in the system, users should give their initial magnetism
+      when nspin=2.
+    </p>
+    <p>
+      An example where nspin=2 is used can be found in
+      tests/104<em>PW</em>AF_magnetic/.
+    </p>
+    <p><a href="#magnetic-properties">back to top</a></p>
+  </div>
+</div>

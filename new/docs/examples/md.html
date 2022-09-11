@@ -1,0 +1,212 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="moleculardynamics">Molecular dynamics</h1>
+    <p><a href="../../README.html">back to main page</a></p>
+    <p>
+      A typical INPUT file for MD simulation is given below, which contains
+      additional keywords that need to added.
+    </p>
+    <pre><code>INPUT_PARAMETERS
+#Parameters (1.General)
+pseudo_dir          ./
+ntype               1
+nbands              600
+pseudo_type         upf
+gamma_only          1
+calculation         md
+symmetry            0
+out_level           m
+
+#Parameters (2.SCF)
+ecutwfc             60
+scf_thr             1e-6
+scf_nmax            100
+
+#Parameters (3.Basis)
+basis_type          lcao
+ks_solver           genelpa
+
+#Parameters (4.Smearing)
+smearing_method     gaussian
+smearing_sigma      0.02
+
+#Parameters (5.Mixing)
+mixing_type         pulay
+mixing_beta         0.4
+chg_extrap          second-order
+
+#Parameters (6.MD)
+md_nstep            10   // md steps
+md_type             1    // choose ensemble
+md_dt               1    // time step
+md_tfirst           700  // the first target temperature
+md_restart          0    // whether restart md
+md_dumpfreq         10   // The period to dump MD information
+</code></pre>
+    <p>
+      These MD parameters means that ABACUS will use NVT ensemble with
+      NosÃ©-hoover chain themostat; the time step is 1fs, and target temperature
+      is 700K; start new MD without restart file.
+    </p>
+    <p>Note: <em>Please turn off symmetry during MD simulations.</em></p>
+    <ul>
+      <li>md_type :</li>
+      <li>-1, FIRE : an ionic relaxation method using MD;</li>
+      <li>0, NVE : microcanonical ensemble;</li>
+      <li>
+        1, NHC : canonical ensemble (NVT) with NosÃ©-hoover chain themostat ;
+      </li>
+      <li>
+        2, LGV : ion dynamics is over-damped Langevin, modeling an interaction
+        with a background implicit solvent.;
+      </li>
+      <li>
+        3, ADS : NVT, control ionic temperature using Andersen thermostat;
+      </li>
+      <li>
+        4, MSST : Multi-Scale Shock Technique (MSST) integration to mimic a
+        compressive shock wave passing over the system.
+      </li>
+      <li>md_dt : time step in md simulation (fs)</li>
+      <li>
+        md<em
+          >tfirst : target temperature in md simulation (K), you should set
+          parameter md</em
+        >tlast when you want to change temperature during md simulation.
+      </li>
+      <li>
+        md<em
+          >restart : 0, no need of restart ; 1, restart with restart file, you
+          must repalce STRU file with STRU</em
+        >MD before you run the restart task.
+      </li>
+      <li>md_dumpfreq : frequency for output consequence of md simulations.</li>
+    </ul>
+    <p>The STRU file is:</p>
+    <pre><code>ATOMIC_SPECIES
+Sn 118.71  ./Sn.pz-bhs.UPF 
+
+LATTICE_CONSTANT
+23.45378
+
+NUMERICAL_ORBITAL
+./Sn_pz-bhs_8.0au_16Ry_2s2p1d
+
+LATTICE_VECTORS
+1.00     0.00     0.00
+0.00     1.00     0.00
+0.00     0.00     1.00
+
+ATOMIC_POSITIONS
+Direct 
+
+Sn
+0.0
+64
+0    0   0   1   1   1
+0    0.25    0.25    1   1   1
+0.25    0   0.25    1   1   1
+0.25    0.25    0   1   1   1
+0.375    0.125   0.375   1   1   1
+0.125    0.125   0.125   1   1   1
+0.125    0.375   0.375   1   1   1
+0.375    0.375   0.125   1   1   1
+0.5    0   0   1   1   1
+0.5    0.25    0.25    1   1   1
+0.75    0   0.25    1   1   1
+0.75    0.25    0   1   1   1
+0.875    0.125   0.375   1   1   1
+0.625    0.125   0.125   1   1   1
+0.625    0.375   0.375   1   1   1
+0.875    0.375   0.125   1   1   1
+0    0.5 0   1   1   1
+0    0.75    0.25    1   1   1
+0.25    0.5 0.25    1   1   1
+0.25    0.75    0   1   1   1
+0.375    0.625   0.375   1   1   1
+0.125    0.625   0.125   1   1   1
+0.125    0.875   0.375   1   1   1
+0.375    0.875   0.125   1   1   1
+0.5    0.5 0   1   1   1
+0.5    0.75    0.25    1   1   1
+0.75    0.5 0.25    1   1   1
+0.75    0.75    0   1   1   1
+0.875    0.625   0.375   1   1   1
+0.625    0.625   0.125   1   1   1
+0.625    0.875   0.375   1   1   1
+0.875    0.875   0.125   1   1   1
+0    0   0.5 1   1   1
+0    0.25    0.75    1   1   1
+0.25    0   0.75    1   1   1
+0.25    0.25    0.5 1   1   1
+0.375    0.125   0.875   1   1   1
+0.125    0.125   0.625   1   1   1
+0.125    0.375   0.875   1   1   1
+0.375    0.375   0.625   1   1   1
+0.5    0   0.5 1   1   1
+0.5    0.25    0.75    1   1   1
+0.75    0   0.75    1   1   1
+0.75    0.25    0.5 1   1   1
+0.875    0.125   0.875   1   1   1
+0.625    0.125   0.625   1   1   1
+0.625    0.375   0.875   1   1   1
+0.875    0.375   0.625   1   1   1
+0    0.5 0.5 1   1   1
+0    0.75    0.75    1   1   1
+0.25    0.5 0.75    1   1   1
+0.25    0.75    0.5 1   1   1
+0.375    0.625   0.875   1   1   1
+0.125    0.625   0.625   1   1   1
+0.125    0.875   0.875   1   1   1
+0.375    0.875   0.625   1   1   1
+0.5    0.5 0.5 1   1   1
+0.5    0.75    0.75    1   1   1
+0.75    0.5 0.75    1   1   1
+0.75    0.75    0.5 1   1   1
+0.875    0.625   0.875   1   1   1
+0.625    0.625   0.625   1   1   1
+0.625    0.875   0.875   1   1   1
+0.875    0.875   0.625   1   1   1
+</code></pre>
+    <p>The KPT file is:</p>
+    <pre><code>K_POINTS
+0
+Gamma
+1 1 1 0 0 0
+</code></pre>
+    <p>
+      Run the program, and see results in the output directory. The following
+      files are about MD:
+    </p>
+    <ul>
+      <li>
+        STRU/STRU<em>MD</em>$num: optimized structures in direct coordinate
+      </li>
+      <li>Restart_md.dat: output the information of md for restart</li>
+      <li>
+        If you want to restart md, you must replace the STRU with
+        STRU/STRU<em>MD</em>$num.
+      </li>
+    </ul>
+    <p>MD information can be found in file running_md.log.</p>
+    <pre><code>------------------------------------------------------------------------------------------------
+Energy              Potential           Kinetic             Temperature         Pressure (KBAR)     
+-7.7824215          -7.782469           +4.7502231e-05      +10                 +124.19599          
+------------------------------------------------------------------------------------------------
+</code></pre>
+    <p>All energy values are in atomic unit (Ry), and temperature is Kelvin.</p>
+    <p>
+      Check these information to confirm whether temperature and conservation is
+      steady.
+    </p>
+    <p>The MD post-processing tools can be found as follows:</p>
+    <ul>
+      <li>Candela : https://github.com/MCresearch/Candela</li>
+      <li>dpdata : https://github.com/deepmodeling/dpdata</li>
+    </ul>
+    <p><a href="#molecular-dynamics">back to top</a></p>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="wavefunctions">Wave functions</h1>
+    <p><a href="../../README.html">back to main page</a></p>
+    <p>
+      ABACUS is able to output electron wave functions in both PW and LCAO basis
+      calculations. One only needs to do a ground-state energy calculation
+      <strong><em>with one additional keyword in the INPUT file</em></strong
+      >:
+    </p>
+    <pre><code>out_wfc_pw              1
+</code></pre>
+    <p>for PW basis calculation, and</p>
+    <pre><code>out_wfc_lcao            1
+</code></pre>
+    <p>for LCAO basis calculation.</p>
+    <p>
+      In the PW basis case, the wave function is output in a file called
+      <code>WAVEFUNC1.txt</code>. In the LCAO basis case, several
+      <code>LOWF_K_#.dat</code> files will be output in multi-k calculation and
+      <code>LOWF_GAMMA_S1.dat</code> in gamma-only calculation. One can also
+      choose to output real-space wave function in PW basis calculation with the
+      <strong><em>key word</em></strong
+      >:
+    </p>
+    <pre><code>out_wfc_r               1
+</code></pre>
+    <p>
+      After calculation, an additional directory named
+      <code>wfc_realspace</code> will appear in the
+      <code>OUT.$system</code> directory.
+    </p>
+    <p><a href="#Wavefunction">back to top</a></p>
+  </div>
+</div>
