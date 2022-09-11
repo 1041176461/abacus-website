@@ -43,8 +43,8 @@ const parse_html = (html, style_string) => {
   };
 
   // correct some error reference
-  const id_indices = [14, 56, 60, 61, 82, 91, 107, 155, 164];
-  const href_indices = [16, 18, 19, 20, 21, 22, 23, 25, 26];
+  const id_indices = []; //85, 105, 106, 200, 215, 254, 483, 497];
+  const href_indices = []; //24, 25, 26, 27, 28, 29, 31, 33];
   for (let i = 0; i < id_indices.length; i++) {
     replace_id(id_indices[i], href_indices[i]);
   }

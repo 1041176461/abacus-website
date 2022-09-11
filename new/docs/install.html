@@ -1,0 +1,475 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="download-and-install">Download and install</h1>
+    <ul>
+      <li>
+        <p><a href="#installation">Installation</a></p>
+      </li>
+      <li>
+        <p><a href="#prerequisites">Prerequisites</a></p>
+      </li>
+      <li>
+        <p>
+          <a href="#build-and-install-abacus-with-cmake"
+            >Build and install ABACUS with CMake</a
+          >
+        </p>
+      </li>
+      <li>
+        <p><a href="#build-abacus-with-make">Build ABACUS with make</a></p>
+        <ul>
+          <li><a href="#link-libxc">Link LIBXC</a></li>
+        </ul>
+      </li>
+      <li>
+        <p><a href="#installation-with-deepks">Installation with DeePKS</a></p>
+      </li>
+      <li>
+        <p><a href="#extra-prerequisites">Extra prerequisites</a></p>
+      </li>
+      <li>
+        <p>
+          <a href="#extra-settings-for-building">Extra settings for building</a>
+        </p>
+        <p><a href="../README.html">back to main page</a></p>
+      </li>
+    </ul>
+    <h2 id="installation">Installation</h2>
+    <h3 id="containerdeployment">Container Deployment</h3>
+    <p>
+      We've built a ready-for-use version of ABACUS with docker
+      <a
+        href="https://github.com/deepmodeling/abacus-develop/pkgs/container/abacus"
+        >here</a
+      >. For a quick start: pull the image, prepare the data, run container.
+      Instructions on using the image can be accessed in
+      <a href="../Dockerfile">Dockerfile</a>. A mirror is available by
+      <code>docker pull registry.dp.tech/deepmodeling/abacus</code>.
+    </p>
+    <p>
+      We also offer a pre-built docker image containing all the requirements for
+      development. Please refer to our
+      <a
+        href="https://github.com/deepmodeling/abacus-develop/pkgs/container/abacus-development-kit"
+        >Package Page</a
+      >.
+    </p>
+    <p>
+      The project is ready for VS Code development container. Please refer to
+      <a
+        href="https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-development-container"
+        >Developing inside a Container</a
+      >. Choose
+      <code
+        >Open a Remote Window -&gt; Clone a Repository in Container Volume</code
+      >
+      in VS Code command palette, and put the
+      <a href="https://github.com/deepmodeling/abacus-develop.git"
+        >git address</a
+      >
+      of <code>ABACUS</code> when prompted.
+    </p>
+    <p>
+      We also support <a href="https://www.gitpod.io/">Gitpod</a> to offer an
+      ready-to-use online development environment.
+      <a
+        href="https://gitpod.io/#https://github.com/deepmodeling/abacus-develop"
+        ><img
+          src="https://gitpod.io/button/open-in-gitpod.svg"
+          alt="Open in Gitpod"
+      /></a>
+    </p>
+    <p>
+      Please note that containers target at developing and testing, but not
+      massively parallel computing. Docker has a bad support to MPI; for
+      production, please compile ABACUS from source code to avoid compatibility
+      issues and gain a better performace.
+    </p>
+    <h3 id="prerequisites">Prerequisites</h3>
+    <p>
+      ABACUS currently supports Linux. <code>Dockerfile</code>s under the root
+      directory of our repo will come in handy.
+    </p>
+    <p>
+      To compile ABACUS, please make sure that the following prerequisites are
+      present:
+    </p>
+    <ul>
+      <li>
+        C++ compiler, supporting C++11. You can use
+        <a href="https://software.intel.com/enus/c-compilers"
+          >IntelÂ® C++ compiler</a
+        >
+        or <a href="https://gcc.gnu.org/">GCC</a>.
+      </li>
+      <li>
+        MPI compiler. The recommended version are
+        <a href="https://software.intel.com/enus/mpi-library">Intel MPI</a> or
+        <a href="https://www.mpich.org/">MPICH</a>.
+      </li>
+      <li>
+        Fortran compiler if you are building <code>BLAS</code>,
+        <code>LAPACK</code>, <code>ScaLAPACK</code>, and <code>ELPA</code> from
+        source file. You can use<a
+          href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/fortran-compiler.html"
+          >IntelÂ® Fortran Compiler</a
+        >
+        <a href="https://gcc.gnu.org/fortran/">GFortran</a>.
+      </li>
+      <li>
+        <a href="http://www.netlib.org/blas/">BLAS</a>. You can use
+        <a href="https://www.openblas.net/">OpenBLAS</a>.
+      </li>
+      <li><a href="http://www.netlib.org/lapack/">LAPACK</a>.</li>
+      <li><a href="http://www.netlib.org/scalapack/">ScaLAPACK</a>.</li>
+      <li><a href="http://www.fftw.org/">FFTW3</a>.</li>
+      <li><a href="https://elpa.mpcdf.mpg.de/">ELPA</a> &gt;= 2017.</li>
+      <li><a href="https://uscilab.github.io/cereal/">CEREAL</a>.</li>
+    </ul>
+    <blockquote>
+      <p>
+        GCC version 5.1 or later is required: Intel compilers also use GCC
+        headers and libraries<a
+          href="https://www.intel.com/content/www/us/en/develop/documentation/cpp-compiler-developer-guide-and-reference/top/compatibility-and-portability/gcc-compatibility-and-interoperability.html#gcc-compatibility-and-interoperability_GUID-52CB6FE0-83DA-4028-9EF4-0DFAF1652736"
+          >(ref)</a
+        >.
+      </p>
+    </blockquote>
+    <p>
+      These packages can be installed with popular package management system,
+      such as <code>apt</code> and <code>yum</code>:
+    </p>
+    <pre><code class="bash language-bash">sudo apt update &amp;&amp; sudo apt install -y libopenblas-dev liblapack-dev libscalapack-mpi-dev libelpa-dev libfftw3-dev libcereal-dev libxc-dev g++ make cmake bc git
+</code></pre>
+    <blockquote>
+      <p>
+        Installing ELPA by apt only matches requirements on Ubuntu 22.04. For
+        earlier linux distributions, you may install elpa from source.
+      </p>
+    </blockquote>
+    <p>
+      Alternatively, you can choose
+      <a
+        href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/commercial-base-hpc.html"
+        >IntelÂ® oneAPI toolkit</a
+      >
+      (former Parallel Studio) as toolchain. The
+      <a
+        href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/all-toolkits.html#base-kit"
+        >IntelÂ® oneAPI Base Toolkit</a
+      >
+      contains IntelÂ® oneAPI Math Kernel Library (aka <code>MKL</code>),
+      including <code>BLAS</code>, <code>LAPACK</code>,
+      <code>ScaLAPACK</code> and <code>FFTW3</code>. The
+      <a
+        href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/all-toolkits.html#hpc-kit"
+        >IntelÂ® oneAPI HPC Toolkit</a
+      >
+      contains IntelÂ® MPI Library, and C++ compiler(including MPI compiler).
+      Please noted that building <code>elpa</code> with a different MPI library
+      may cause conflict between MPI libraries. Don't forget to
+      <a
+        href="https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-intel-oneapi-render-linux/top/configure-your-system.html"
+        >set environment variables</a
+      >
+      before you start! <code>cmake</code> will use Intel MKL if the environment
+      variable <code>MKLROOT</code> is set.
+    </p>
+    <blockquote>
+      <p>
+        Please refer to our
+        <a
+          href="https://github.com/deepmodeling/abacus-develop/wiki/Building-and-Running-ABACUS"
+          >guide</a
+        >
+        on requirements.
+      </p>
+    </blockquote>
+    <p>
+      If you have trouble building requirements, our Dockerfiles in root path
+      offer a reference, or read the section below to use a pre-built container.
+    </p>
+    <p>And of course, a copy of ABACUS source code is required:</p>
+    <ul>
+      <li>
+        Clone the whole repo with git:
+        <code
+          >git clone https://github.com/deepmodeling/abacus-develop.git</code
+        >
+      </li>
+      <li>
+        Clone the minimum required part of repo:
+        <code
+          >git clone https://github.com/deepmodeling/abacus-develop.git
+          --depth=1</code
+        >
+      </li>
+      <li>
+        Download the latest source code without git:
+        <code
+          >wget
+          https://github.com/deepmodeling/abacus-develop/archive/refs/heads/develop.zip</code
+        >
+      </li>
+      <li>
+        Get the source code of a stable version
+        <a href="https://github.com/deepmodeling/abacus-develop/releases"
+          >here</a
+        >
+      </li>
+      <li>
+        If you have connection issues accessing GitHub, please try out our
+        official
+        <a href="https://gitee.com/deepmodeling/abacus-develop/">Gitee repo</a>:
+        replacing 'github.com' with 'gitee.com' works for all the links above.
+        e.g.
+        <code>git clone https://gitee.com/deepmodeling/abacus-develop.git</code>
+      </li>
+    </ul>
+    <p><a href="#download-and-install">back to top</a></p>
+    <h3 id="build-and-install-abacus-with-cmake">
+      Build and install ABACUS with CMake
+    </h3>
+    <p>
+      We recommend building ABACUS with <code>cmake</code> to avoid dependency
+      issues. <code>Makefile</code> is deprecated.
+    </p>
+    <h4 id="configure">Configure</h4>
+    <p>
+      ABACUS requires a minimum <code>cmake</code> version of <code>3.16</code>,
+      and <code>3.18</code> with advanced features like the integration with
+      DeePKS or utilizing GPU. Check the version of <code>cmake</code> on your
+      machine with:
+    </p>
+    <pre><code class="bash language-bash">cmake --version
+</code></pre>
+    <p>
+      You can specify the bin path of ABACUS binary to install by
+      <code>CMAKE_INSTALL_PREFIX</code>. If no install prefix is specified, the
+      binary will be installed to <code>/usr/local/bin/abacus</code> by default.
+    </p>
+    <pre><code class="bash language-bash">cmake -B build -DCMAKE_INSTALL_PREFIX=${ABACUS_BIN_PATH}
+</code></pre>
+    <p>
+      You can provide path of each dependent package if the package cannot be
+      automatically found by cmake. Keys <code>LAPACK_DIR</code>,
+      <code>SCALAPACK_DIR</code>, <code>ELPA_DIR</code>, <code>FFTW3_DIR</code>,
+      <code>CEREAL_INCLUDE_DIR</code>, <code>MPI_CXX_COMPILER</code> and
+      <code>MKLROOT</code> are currently available to specify. For example:
+    </p>
+    <pre><code class="bash language-bash">cmake -B build -DFFTW3_ROOT=/opt/fftw3
+</code></pre>
+    <p>
+      If environment variable <code>MKLROOT</code> exists,
+      <code>cmake</code> will take MKL as a preference, i.e. not using
+      <code>LAPACK</code> and <code>ScaLAPACK</code>. To disable MKL, unset
+      environment variable <code>MKLROOT</code>, or pass
+      <code>-DMKLROOT=OFF</code> to <code>cmake</code>.
+    </p>
+    <p>You can also choose to build with which components, e.g.:</p>
+    <pre><code class="bash language-bash">cmake -B build -DENABLE_LIBXC=1 -DUSE_CUDA=1
+</code></pre>
+    <p>
+      If Libxc is not installed in standard path (i.e. installed with a custom
+      prefix path), you can set <code>Libxc_DIR</code> to the corresponding
+      directory.
+    </p>
+    <pre><code class="bash language-bash">cmake -B build -DLibxc_DIR=~/libxc
+</code></pre>
+    <p>
+      To build tests for ABACUS, define <code>BUILD_TESTING</code> flag. You can
+      also specify path to local installation of
+      <a href="https://github.com/google/googletest">Googletest</a> by setting
+      <code>GTEST_DIR</code> flags. If not found in local, the configuration
+      process will try to download it automatically.
+    </p>
+    <pre><code class="bash language-bash">cmake -B build -DBUILD_TESTING=1
+</code></pre>
+    <h4 id="buildandinstall">Build and Install</h4>
+    <p>After configuring, start build and install by:</p>
+    <pre><code class="bash language-bash">cmake --build build -j`nproc`
+cmake --install build
+</code></pre>
+    <p>
+      You can change the number after <code>-j</code> on your need: set to the
+      number of CPU cores(<code>nproc</code>) to gain the best performance.
+    </p>
+    <p><a href="#download-and-install">back to top</a></p>
+    <h3 id="build-abacus-with-make">Build ABACUS with make</h3>
+    <!-- Before starting to build the program, note that if you are using Intel MKL library, please set the following environmental variable:
+<pre><code class="bash language-bash">export MKL_NUM_THREAD=1
+</code></pre> -->
+    <blockquote>
+      <p>
+        Note: compiling with Makefile is deprecated. We suggest using CMake to
+        configure and compile.
+      </p>
+    </blockquote>
+    <p>
+      To compile the ABACUS program using legacy <code>make</code>, first edit
+      the file <code>Makefile.vars</code> under <code>source</code> directory:
+    </p>
+    <pre><code class="bash language-bash">cd source/
+vi Makefile.vars
+</code></pre>
+    <p>
+      Specify the location of the compiler and libraries present in your own
+      machine:
+    </p>
+    <pre><code class="bash language-bash">CPLUSPLUS =
+CPLUSPLUS_MPI =
+FORTRAN =
+LAPACK_DIR =
+FFTW_DIR =
+BOOST_DIR =
+ELPA_DIR =
+CEREAL_DIR =
+</code></pre>
+    <p>
+      For example, below is a case where the Intel C++ compiler, Intel MPI are
+      used, along with Intel MKL library. The file Makefile.vars can be set as
+      follows:
+    </p>
+    <pre><code class="bash language-bash">CPLUSPLUS = icpc
+CPLUSPLUS_MPI = mpiicpc
+FORTRAN = ifort
+LAPACK_DIR = /opt/intel/.../mkl/lib/intel64/
+FFTW_DIR = /opt/fftw-3.3.8/
+BOOST_DIR = /opt/boost/1.64.0/
+ELPA_DIR = /opt/elpa/2016.05.004/
+CEREAL_DIR = /opt/cereal/
+</code></pre>
+    <p>Another example is where GCC, GFORTRAN, MPICH and ScaLAPACK are used:</p>
+    <pre><code class="bash language-bash">CPLUSPLUS = g++
+CPLUSPLUS_MPI = mpicxx
+FORTRAN = gfortran
+SCALAPACK_DIR = /opt/scalapack/
+FFTW3_DIR = /opt/fftw-3.3.8/
+BOOST_DIR = /opt/boost/1.64.0/
+ELPA_DIR = /opt/elpa/2016.05.004/
+CEREAL_DIR = /opt/cereal/
+</code></pre>
+    <p>
+      For this option, it is further required to set the parameter
+      <code>LIBS</code> in <code>Makefile.system</code>:
+    </p>
+    <pre><code class="bash language-bash">LIBS = \
+-lgfortran -lm \
+-openmp -lpthread \
+${SCALAPACK_DIR}/lib/libscalapack.a \
+/opt/lapack/lib/liblapack.a \
+/opt/blas/lib/libblas.a \
+/opt/blacs/lib/libblacs.a \
+${FFTW_LIB} \
+${ELPA_LIB} \
+</code></pre>
+    <p>
+      After modifying the <code>Makefile.vars</code> file, execute
+      <code>make</code> to build the program.
+    </p>
+    <pre><code class="bash language-bash">make -j
+</code></pre>
+    <p>
+      After the compilation finishes without error messages (except perhaps for
+      some warnings), an executable program <code>ABACUS.mpi</code> will be
+      created in directory <code>bin/</code>.
+    </p>
+    <p><a href="#download-and-install">back to top</a></p>
+    <h4 id="link-libxc">Link LIBXC</h4>
+    <p>
+      The program compiled using the above instructions do not link with LIBXC
+      and use exchange-correlation functionals as written in the ABACUS program.
+      However, for some functionals (such as HSE hybrid functional), LIBXC is
+      required.
+    </p>
+    <p>
+      To compile ABACUS with LIBXC, modifications should be made in three files:
+    </p>
+    <p>
+      First of all, in the file <code>Makefile.vars</code>, apart from the
+      variables above, further provide the location of LIBXC:
+    </p>
+    <pre><code class="bash language-bash">LIBXC_DIR =
+</code></pre>
+    <p>
+      Then, in the file 'Makefile.system', add "${LIBXC_LIB}" to the
+      <code>LIBS</code> flag, for example:
+    </p>
+    <pre><code class="bash language-bash">LIBS = -lifcore -lm -lpthread ${LAPACK_LIB} ${FFTW_LIB} ${ELPA_LIB} ${LIBXC_LIB}
+</code></pre>
+    <p>
+      Finally, in <code>Makefile</code>, add "-DUSE_LIBXC" to the
+      <code>HONG</code> flag, for example:
+    </p>
+    <pre><code class="bash language-bash">HONG_MPI_SELINV_20210523 = -D__FP ${HONG_FFTW} ${HONG_LAPACK} -D__LCAO -D__MPI -D__OPENMP -D__SELINV -DMETIS -DEXX_DM=3 -DEXX_H_COMM=2 -DTEST_EXX_LCAO=0 -DTEST_EXX_RADIAL=1 -DUSE_CEREAL_SERIALIZATION -D__EXX -DUSE_LIBXC
+HONG=${HONG_MPI_SELINV_20210523}
+</code></pre>
+    <p><a href="#download-and-install">back to top</a></p>
+    <h2 id="installation-with-deepks">Installation with DeePKS</h2>
+    <p>
+      This part of installation is based on
+      <a href="#installation">Installation</a>. If DeePKS feature is requied for
+      <a href="https://github.com/deepmodeling/deepks-kit">DeePKS-kit</a>, the
+      following prerequisites and steps are needed:
+    </p>
+    <h3 id="extra-prerequisites">Extra prerequisites</h3>
+    <ul>
+      <li>C++ compiler, supporting <strong>C++14</strong></li>
+      <li>
+        <a href="https://pytorch.org/">LibTorch</a> with cxx11 ABI supporting
+        CPU
+      </li>
+      <li><a href="https://github.com/llohse/libnpy/">Libnpy</a></li>
+    </ul>
+    <h3 id="extra-settings-for-building">Extra settings for building</h3>
+    <h3 id="usingcmake">Using Cmake</h3>
+    <pre><code class="bash language-bash">cmake -B build -DENABLE_DEEPKS=1
+</code></pre>
+    <h3 id="usingmakefile">Using Makefile</h3>
+    <p>
+      Set <code>LIBTORCH_DIR</code>and <code>LIBNPY_DIR</code>in
+      <code>Makefile.vars</code>. For example:
+    </p>
+    <pre><code class="Makefile language-Makefile">LIBTORCH_DIR = /opt/libtorch/
+LIBNPY_DIR = /opt/libnpy/
+</code></pre>
+    <p>
+      In <code>Makefile.system</code>, add <code>LIBTORCH_LIB</code> to
+      <code>LIBS</code>, then set <code>-std=c++14</code> in <code>OPTS</code>:
+    </p>
+    <pre><code class="Makefile language-Makefile">LIBS = -lifcore -lm -lpthread ${LIBTORCH_LIB} ${LAPACK_LIB} ${FFTW_LIB} ${ELPA_LIB} # for DeePKS
+#LIBS = -lifcore -lm -lpthread ${LAPACK_LIB} ${FFTW_LIB} ${ELPA_LIB}
+</code></pre>
+    <pre><code class="Makefile language-Makefile">OPTS = ${INCLUDES} -Ofast -traceback -std=c++14 -simd -march=native -xHost -m64 -qopenmp -Werror -Wall -pedantic -g
+</code></pre>
+    <ul>
+      <li>module_base</li>
+      <li>module_cell</li>
+      <li>module_grid</li>
+      <li>module_md</li>
+      <li>module_neighbor</li>
+      <li>module_orbital</li>
+      <li>obj</li>
+      <li>src_external</li>
+      <li>src_global</li>
+      <li>src_io</li>
+      <li>module_relaxation</li>
+      <li>src_lcao</li>
+      <li>src_parallel</li>
+      <li>src_pdiag</li>
+      <li>src_pw</li>
+      <li>src_ri</li>
+    </ul>
+    <p>In <code>Makefile</code>, set the Macro as <code>HONG_DEEPKS</code>:</p>
+    <pre><code class="Makefile language-Makefile">#!!!!!!!!!!!!!!!!!!!! CHANE HERE IF YOU LIKE !!!!!!!!!!!!!!
+#! change series version or parallel version~~~
+#HONG=${HONG_MPI_SELINV_20210523}
+#HONG=${HONG_SER_SELINV}
+HONG=${HONG_DEEPKS}
+</code></pre>
+    <p><a href="#download-and-install">back to top</a></p>
+  </div>
+</div>

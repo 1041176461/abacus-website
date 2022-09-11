@@ -37,7 +37,6 @@
         // html = html.replaceAll("docs/", "/_upload/tpl/0c/d8/3288/template3288/test/docs/");
         const html_array = html.split("\n");
         // const regex = /id="[a-zA-Z]+"/g;
-        console.log(html);
 
         const replace_id = (id_index, href_index) => {
           const id_regex = /id="([a-zA-Z]+)"/;
@@ -71,6 +70,7 @@
         let contentNode = document.createElement("div");
         contentNode.innerHTML = parse_html(html, style_string);
         box1.appendChild(contentNode);
+        console.log(box1);
       })();
     </script>
   </head>

@@ -1,0 +1,110 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="kpt-file">KPT file</h1>
+    <ul>
+      <li>
+        <p>
+          <a href="#generate-k-mesh-automatically"
+            >Generate k-mesh automatically</a
+          >
+        </p>
+      </li>
+      <li>
+        <p><a href="#set-k-points-explicitly">Set k-points explicitly</a></p>
+      </li>
+      <li>
+        <p>
+          <a href="#band-structure-calculations">Band structure calculations</a>
+        </p>
+        <p><a href="../README.html">back to main page</a></p>
+      </li>
+    </ul>
+    <p>
+      ABACUS uses periodic boundary conditions for both crystals and finite
+      systems. For isolated systems, such as atoms, molecules, clusters, etc.,
+      one uses the so-called supercell model. Lattice vectors of the supercell
+      are set in the <code>STRU</code> file. For the input k-point
+      (<code>KPT</code>) file, the file should either contain the k-point
+      coordinates and weights or the mesh size for creating the k-point gird.
+      Both options are allowed in <code>ABACUS</code>.
+    </p>
+    <h2 id="generate-k-mesh-automatically">Generate k-mesh automatically</h2>
+    <p>
+      To generate k-mesh automatically, it requires the input subdivisions of
+      the Brillouin zone in each direction and the origin for the k-mesh. ABACUS
+      uses the Monkhorst-Pack method to generate k-mesh, and the following is an
+      example input k-point (<code>KPT</code>) file used in <code>ABACUS</code>.
+    </p>
+    <pre><code>K_POINTS //keyword for start
+0 //total number of k-point, `0' means generate automatically
+Gamma //which kind of Monkhorst-Pack method, `Gamma' or `MP'
+2 2 2 0 0 0 //first three number: subdivisions along recpri. vectors
+      //last three number: shift of the mesh
+</code></pre>
+    <p>
+      In the above example, the first line is a keyword, and it can be set as
+      <code>K_POINTS</code>, or <code>KPOINTS</code> or just <code>K</code>. The
+      second line is an integer, and its value determines how to get k-points.
+      In this example, <code>0</code> means using Monkhorst-Pack (MP) method to
+      generate k-points automatically.
+    </p>
+    <p>
+      The third line tells the input type of k-points, <code>Gamma</code> or
+      <code>MP</code>, different Monkhorst Pack (MP) method. Monkhorst-Pack (MP)
+      is a method which uses the uniform k-points sampling in Brillouin-zone,
+      while <code>Gamma</code> means the Γ-centered Monkhorst-Pack method. The
+      first three numbers of the last line are integers, which give the MP k
+      grid dimensions, and the rest three are real numbers, which give the
+      offset of the k grid. In this example, the numbers
+      <code>0 0 0</code> means that there is no offset, and this is the a
+      standard 2by2by2 k grid.
+    </p>
+    <p><a href="#kpt-file">back to top</a></p>
+    <h2 id="set-k-points-explicitly">Set k-points explicitly</h2>
+    <p>
+      If the user wants to set up the k-points explicitly, the input k-point
+      file should contain the k-point coordinates and weights. An example is
+      given as follows:
+    </p>
+    <pre><code>K_POINTS //keyword for start
+8 //total number of k-point
+Direct //`Direct' or `Cartesian' coordinate
+0.0 0.0 0.0 0.125 //coordinates and weights
+0.5 0.0 0.0 0.125
+0.0 0.5 0.0 0.125
+0.5 0.5 0.0 0.125
+0.0 0.0 0.5 0.125
+0.5 0.0 0.5 0.125
+0.0 0.5 0.5 0.125
+0.5 0.5 0.5 0.125
+</code></pre>
+    <p><a href="#kpt-file">back to top</a></p>
+    <h2 id="band-structure-calculations">Band structure calculations</h2>
+    <p>
+      ABACUS uses specified high-symmetry directions of the Brillouin zone for
+      band structure calculations. The third line of k-point file should start
+      with âLineâ or âLine<em
+        >Cartesianâ for line mode. âLineâ means the positions below are in
+        Direct coordinates, while âLine</em
+      >Cartesianâ means in Cartesian coordinates:
+    </p>
+    <pre><code>K_POINTS // keyword for start
+6 // number of high symmetry lines
+Line // line-mode
+0.5 0.0 0.5 20 // X
+0.0 0.0 0.0 20 // G
+0.5 0.5 0.5 20 // L
+0.5 0.25 0.75 20 // W
+0.375 0.375 0.75 20 // K
+0.0 0.0 0.0 1 // G
+</code></pre>
+    <p>
+      The fourth line and the following are special k-point coordinates and
+      number of k-points between this special k-point and the next.
+    </p>
+    <p><a href="#kpt-file">back to top</a></p>
+  </div>
+</div>

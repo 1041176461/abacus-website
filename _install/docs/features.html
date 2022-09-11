@@ -51,8 +51,8 @@
           );
         };
         // correct some error reference
-        const id_indices = [10, 39, 45, 61];
-        const href_indices = [3, 5, 6, 7];
+        const id_indices = [];
+        const href_indices = [];
         for (let i = 0; i < id_indices.length; i++) {
           replace_id(id_indices[i], href_indices[i]);
         }
@@ -70,6 +70,7 @@
         let contentNode = document.createElement("div");
         contentNode.innerHTML = parse_html(html, style_string);
         box1.appendChild(contentNode);
+        console.log(box1);
       })();
     </script>
   </head>

@@ -1,0 +1,226 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="features">Features</h1>
+    <p>Here we summarize several features of ABACUS:</p>
+    <ul>
+      <li>
+        <p><a href="#basis-sets">Basis sets</a></p>
+      </li>
+      <li>
+        <p><a href="#pseudopotentials">Pseudopotentials</a></p>
+      </li>
+      <li>
+        <p>
+          <a href="#boundary-conditions-and-k-points"
+            >Boundary conditions and k-points</a
+          >
+        </p>
+      </li>
+      <li>
+        <p><a href="#kohn-sham-solver">Kohn-Sham solver</a></p>
+      </li>
+      <li>
+        <p>
+          <a href="#exchange-correlation-functionals"
+            >Exchange-correlation functionals</a
+          >
+        </p>
+        <p><a href="../README.html">back to main page</a></p>
+      </li>
+    </ul>
+    <h2 id="basissets">Basis sets</h2>
+    <p>In ABACUS, there are 3 types of basis set choices:</p>
+    <ol>
+      <li>
+        <p>PW</p>
+        <p>Plane wave basis.</p>
+      </li>
+      <li>
+        <p>LCAO</p>
+        <p>
+          Localized atomic-orbital basis; these systematically improvable atomic
+          basis are generated with a tool called
+          <a href="generate-basis.html">SIAB</a>.
+        </p>
+      </li>
+      <li>
+        <p>LCAO<em>in</em>PW</p>
+        <p>
+          Expand the atomic basis in terms of plane waves, and use plane-waves
+          techniques to construct the Hamiltonian matrix, but solve the
+          eigenvalue problem within the LCAO basis set.
+        </p>
+      </li>
+    </ol>
+    <p>
+      In the INPUT file, the keyword basis_type controls what basis type to use:
+    </p>
+    <ol>
+      <li>PW: basis_type = pw</li>
+      <li>LCAO: basis_type = lcao</li>
+      <li>LCAO<em>in</em>PW: basis<em>type = lcao</em>in_pw</li>
+    </ol>
+    <p>
+      The default value of basis<em>type is pw. When choosing lcao or lcao</em
+      >in_pw, the user should prepare atomic orbitals first.
+    </p>
+    <p>
+      Information on the keyword basis_type can also be found in
+      <a href="input-main.html#basis_type">the list of input keywords</a>.
+    </p>
+    <p>
+      We also provide a
+      <a href="generate-basis.html">detailed instruction</a> on generating basis
+      functions.
+    </p>
+    <p><a href="#features">back to top</a></p>
+    <h2 id="pseudopotentials">Pseudopotentials</h2>
+    <p>
+      Currently ABACUS uses norm-conserving pseudopotentials in the (old) format
+      of UPF, which is the standard pseudopotential format for Quantum ESPRESSO.
+      To run a calculation, the pseudopotential needs to be set in STRU file.
+      For example:
+    </p>
+    <pre><code>ATOMIC_SPECIES
+Si 28.00 Si_ONCV_PBE-1.0.upf
+</code></pre>
+    <p>
+      You can download the pseudopotential files from our
+      <a href="http://abacus.ustc.edu.cn/pseudo/list.htm">website</a>.
+    </p>
+    <p>
+      There are pseudopotential files in these websites which are also supported
+      by ABACUS:
+    </p>
+    <ol>
+      <li>
+        <a href="http://www.quantum-espresso.org/pseudopotentials/"
+          >Quantum ESPRESSO</a
+        >.
+      </li>
+      <li>
+        <a href="http://quantum-simulation.org/potentials/sg15_oncv/upf/"
+          >SG15-ONCV</a
+        >.
+      </li>
+      <li><a href="http://www.pseudo-dojo.org/">DOJO</a>.</li>
+    </ol>
+    <p>
+      If LCAO base is used, the numerical orbital files should match the
+      pseudopotential files. The
+      <a href="http://abacus.ustc.edu.cn/pseudo/list.htm"
+        >official orbitals package</a
+      >
+      only matches SG15-ONCV pseudopotentials.
+    </p>
+    <p><a href="#features">back to top</a></p>
+    <h2 id="boundaryconditionsandkpoints">Boundary conditions and k-points</h2>
+    <p>
+      ABACUS uses periodic boundary conditions for both crystals and finite
+      systems. For isolated systems, such as atoms, molecules, clusters, etc.,
+      one uses the so-called supercell model. Lattice vectors of the supercell
+      are set in the STRU file.
+    </p>
+    <p>
+      For the input k-point (KPT) file, the file should either contain the
+      k-point coordinates and weights or the mesh size for creating the k-point
+      gird. Both options are allowed in ABACUS.
+    </p>
+    <p>
+      More information on k-points is provided in this
+      <a href="input-kpt.html">instruction</a>
+    </p>
+    <p><a href="#features">back to top</a></p>
+    <h2 id="kohnshamsolver">Kohn-Sham solver</h2>
+    <p>
+      For different types of basis set choice, different methods are used to
+      solve the Kohn-Sham equation. For PW basis, there are CG and Blocked
+      Davidson methods for solving the eigenvalue problem. For LCAO
+      basis/LCAO<em>in</em>PW basis, one uses direct diagnolization method. In
+      the INPUT file, the parameter âks_solverâ controls what method to use for
+      solveing the Kohn-Sham equation for each basis.
+    </p>
+    <ul>
+      <li>PW: ks_solver = âcgâ or âdavâ</li>
+      <li>
+        LCAO: ks<em>solver = âhpsepsâ , âgenelpaâ , âscalapack</em>gvxâ or
+        'cusolver'
+      </li>
+      <li>LCAO<em>in</em>PW: ks_solver = âlapackâ</li>
+    </ul>
+    <p>
+      If you set ks<em>solver=âhpsepsâ for basis</em>type=âpwâ, the program will
+      be stopped with an error message:
+    </p>
+    <pre><code>hpseps can not be used with plane wave basis.
+</code></pre>
+    <p>
+      Then the user has to correct the input file and restart the calculation.
+    </p>
+    <p>
+      Information on the keyword ks_solver is also given in the
+      <a href="input-main.html#ks_solver">list of input variables</a>.
+    </p>
+    <p><a href="#features">back to top</a></p>
+    <h2 id="exchangecorrelationfunctionals">
+      Exchange-correlation functionals
+    </h2>
+    <p>
+      In our package, the XC functional can either be set explicitly using the
+      dft_functional keyword as explained below, or set implicitly according to
+      the XC functional information read from pseudopotential file. The user
+      should ensure that the XC functional set in the INPUT file and the
+      pseudopotential file are consistent.
+      <strong>Currently only LDA and GGA are supported.</strong>
+    </p>
+    <p>
+      To be specific, we briefly explain the format of the pseudopotential file
+      and the key information it contains. There are a few lines in Siâs GGA
+      pseudopotential file Si<em>ONCV</em>PBE-1.0.upf:
+    </p>
+    <pre><code>&lt;PP_HEADER
+generated="Generated using ONCVPSP code by D. R. Hamann"
+author="Martin Schlipf and Francois Gygi"
+date="150105"
+comment=""
+element="Si"
+pseudo_type="NC"
+relativistic="scalar"
+is_ultrasoft="F"
+is_paw="F"
+is_coulomb="F"
+has_so="F"
+has_wfc="F"
+has_gipaw="F"
+core_correction="F"
+functional="PBE"
+z_valence=" 4.00"
+total_psenergy=" -3.74274958433E+00"
+rho_cutoff=" 6.01000000000E+00"
+</code></pre>
+    <p>
+      The user can set the XC functional type in INPUT file with the parameter,
+      dft_functional:
+    </p>
+    <ul>
+      <li>
+        none: the functional is specified implicity by the input pseudopotential
+        file
+      </li>
+      <li>lda: Perdew-Zunger local density approximation</li>
+      <li>pbe: Perdew-Burke-Ernzerhof general gradient approximation</li>
+    </ul>
+    <p>
+      If the functional specified by the user is not consistent with the
+      pseudopotential file, the program will stop with an error message.
+    </p>
+    <p>
+      Information on the keyword ks_solver is also given in the
+      <a href="input-main.html#dft_functional">list of input variables</a>.
+    </p>
+    <p><a href="#features">back to top</a></p>
+  </div>
+</div>
