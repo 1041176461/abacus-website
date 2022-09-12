@@ -1,0 +1,92 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="forcecalculationandstructurerelaxation">
+      Force calculation and structure relaxation
+    </h1>
+    <p><a href="../../README.html">back to main page</a></p>
+    <p>
+      To calculate the atomic forces for a given structure without ion
+      relaxation, set âcalculationâ to âscfâ, set input parameter âcal_forceâ to
+      1.
+    </p>
+    <pre><code>calculation scf
+cal_force 1
+</code></pre>
+    <p>
+      To relax the atom position without change cell shape, one needs to add a
+      few more parameters in the INPUT file. Here is an example for the Si
+      dimer. In this case, the forces are calculated by default.
+    </p>
+    <pre><code>calculation relax
+gamma_only 1
+relax_nmax 100
+force_thr_ev 0.01
+relax_method cg
+out_stru 1
+relax_bfgs_init 0.5
+</code></pre>
+    <ul>
+      <li>
+        <p><code>calculation</code> relax</p>
+        <p>relax atom positions with fixed lattice vectors.</p>
+      </li>
+      <li>
+        <p><code>relax_nmax</code></p>
+        <p>the maximal number of ionic iteration steps.</p>
+      </li>
+      <li>
+        <p><code>force_thr_ev</code></p>
+        <p>
+          the threshold for the force, below which the geometry relaxation is
+          considered to be converged. The unit is eV/Angstrom.
+        </p>
+      </li>
+      <li>
+        <p><code>relax_method</code></p>
+        <p>
+          the algorithm used for geometry optimization. Possible choices are:
+        </p>
+      </li>
+      <li>
+        <p><code>cg</code></p>
+        <p>conjugate gradient (CG) algorithm</p>
+      </li>
+      <li>
+        <p><code>bfgs</code></p>
+        <p>Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm</p>
+      </li>
+      <li>
+        <p><code>cg_bfgs</code></p>
+        <p>
+          A mixed cg-bfgs method. For detail description, check out the variable
+          relax<em>cg</em>thr in the
+          <a href="../input-main.html#cg-threshold">list of input keywords</a>.
+        </p>
+      </li>
+      <li>
+        <p><code>sd</code></p>
+        <p>steepest descend algorithm. The CG method is recommended.</p>
+      </li>
+      <li>
+        <p><code>out_stru</code></p>
+        <p>output the structure of each step or not.</p>
+      </li>
+      <li>
+        <p><code>relax_bfgs_init</code></p>
+        <p>
+          the initial radius of the relaxation. We advise you not to change this
+          parameter, unless you are sure that the initial structure is close to
+          the final structure.
+        </p>
+      </li>
+    </ul>
+    <p>
+      An example for structure relaxation calculation can be found at
+      tests/108<em>PW</em>RE.
+    </p>
+    <p><a href="#force-calculation-and-structure-relaxation">back to top</a></p>
+  </div>
+</div>

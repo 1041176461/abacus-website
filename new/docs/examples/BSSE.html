@@ -1,0 +1,165 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="bsse">BSSE</h1>
+    <p><a href="../../README.html">back to main page</a></p>
+    <p>
+      An empty atom is defined in the <code>STRU</code> file when an element
+      name contains the "empty" suffix, such as "H<em
+        >empty" in the following example: calculating the molecular formation
+        energy of H$</em
+      >2$O by using the BSSE (Basis Set Superposition Errors) method.
+    </p>
+    <p>
+      $$ \Delta E(\text{H}<em>2\text{O}) = E(\text{H}</em>2\text{O}) -
+      E(\text{O}) - E(\text{H}^1) - E(\text{H}^2) $$
+    </p>
+    <h2 id="detexth_2textod">$E(\text{H}_2\text{O})$</h2>
+    <pre><code>ntype   2
+</code></pre>
+    <pre><code>ATOMIC_SPECIES
+H    1.008   H_ONCV_PBE-1.0.upf
+O    15.9994 O_ONCV_PBE-1.0.upf
+
+NUMERICAL_ORBITAL
+H_gga_8au_60Ry_2s1p.orb
+O_gga_6au_60Ry_2s2p1d.orb
+
+LATTICE_CONSTANT
+1.889725989
+
+LATTICE_VECTORS
+20 0 0
+0 20 0
+0 0 20
+
+ATOMIC_POSITIONS
+Cartesian    # Cartesian(Unit is LATTICE_CONSTANT)
+
+H
+0.5
+2
+0.9584    0.0000  0.0000  0 0 0
+-0.2392    0.9281  0.0000  0 0 0
+
+O
+0.5
+1
+0.0000 0.0000 0.0000 0 0 0
+</code></pre>
+    <h2 id="detextod">$E(\text{O})$</h2>
+    <pre><code>ntype   2
+</code></pre>
+    <pre><code>ATOMIC_SPECIES
+H_empty    1.008   H_ONCV_PBE-1.0.upf
+O        15.9994 O_ONCV_PBE-1.0.upf
+
+NUMERICAL_ORBITAL
+H_gga_8au_60Ry_2s1p.orb
+O_gga_6au_60Ry_2s2p1d.orb
+
+LATTICE_CONSTANT
+1.889725989
+
+LATTICE_VECTORS
+20 0 0
+0 20 0
+0 0 20
+
+ATOMIC_POSITIONS
+Cartesian    # Cartesian(Unit is LATTICE_CONSTANT)
+
+H_empty
+0.5
+2
+0.9584    0.0000  0.0000  0 0 0
+-0.2392    0.9281  0.0000  0 0 0
+
+O
+0.5
+1
+0.0000 0.0000 0.0000 0 0 0
+</code></pre>
+    <h2 id="detexth1d">$E(\text{H}^1)$</h2>
+    <pre><code>ntype   3
+</code></pre>
+    <pre><code>ATOMIC_SPECIES
+H            1.008   H_ONCV_PBE-1.0.upf
+H_empty_2    1.008   H_ONCV_PBE-1.0.upf
+O_empty        15.9994 O_ONCV_PBE-1.0.upf
+
+NUMERICAL_ORBITAL
+H_gga_8au_60Ry_2s1p.orb
+H_gga_8au_60Ry_2s1p.orb
+O_gga_6au_60Ry_2s2p1d.orb
+
+LATTICE_CONSTANT
+1.889725989
+
+LATTICE_VECTORS
+20 0 0
+0 20 0
+0 0 20
+
+ATOMIC_POSITIONS
+Cartesian    # Cartesian(Unit is LATTICE_CONSTANT)
+
+H
+0.5
+1
+0.9584    0.0000  0.0000  0 0 0
+
+H_empty_2
+0.5
+1
+-0.2392    0.9281  0.0000  0 0 0
+
+O_empty
+0.5
+1
+0.0000 0.0000 0.0000 0 0 0
+</code></pre>
+    <h2 id="detexth2d">$E(\text{H}^2)$</h2>
+    <pre><code>ntype   3
+</code></pre>
+    <pre><code>ATOMIC_SPECIES
+H_empty_1    1.008   H_ONCV_PBE-1.0.upf
+H            1.008   H_ONCV_PBE-1.0.upf
+O_empty        15.9994 O_ONCV_PBE-1.0.upf
+
+NUMERICAL_ORBITAL
+H_gga_8au_60Ry_2s1p.orb
+H_gga_8au_60Ry_2s1p.orb
+O_gga_6au_60Ry_2s2p1d.orb
+
+LATTICE_CONSTANT
+1.889725989
+
+LATTICE_VECTORS
+20 0 0
+0 20 0
+0 0 20
+
+ATOMIC_POSITIONS
+Cartesian    # Cartesian(Unit is LATTICE_CONSTANT)
+
+H_empty_1
+0.5
+1
+0.9584    0.0000  0.0000  0 0 0
+
+H
+0.5
+1
+-0.2392    0.9281  0.0000  0 0 0
+
+O_empty
+0.5
+1
+0.0000 0.0000 0.0000 0 0 0
+</code></pre>
+    <p><a href="#BSSE">back to top</a></p>
+  </div>
+</div>

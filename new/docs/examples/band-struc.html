@@ -1,0 +1,119 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="bandstructure">Band structure</h1>
+    <p><a href="../../README.html">back to main page</a></p>
+    <p>
+      This example shows how to calculate the energy band structure. Similar to
+      the <a href="#dos.html">DOS case</a>, we first, do a ground-state energy
+      calculation as in <a href="#basic-lcao.html">this example</a>
+      <strong><em>with one additional keyword in the INPUT file</em></strong
+      >:
+    </p>
+    <pre><code>out_chg              1
+</code></pre>
+    <p>
+      this will produce the converged charge density, which is contained in the
+      file SPIN1_CHG. Copy the file along with the <code>STRU</code> file, the
+      pseudopotential file and the atomic orbital file (and the local density
+      matrix file onsite.dm if DFT+U is used) to the new working directory where
+      we will do a non-self-consistent calculation. In this example, the
+      potential is constructed from the ground-state charge density from the
+      proceeding calculation. Now the INPUT file is like:
+    </p>
+    <pre><code>INPUT_PARAMETERS
+#Parameters (General)
+ntype 1
+nbands 8
+calculation nscf
+basis_type lcao
+read_file_dir   ./
+
+#Parameters (Accuracy)
+ecutwfc 60
+scf_nmax 50
+scf_thr 1.0e-9
+pw_diag_thr 1.0e-7
+
+#Parameters (File)
+init_chg file
+out_band 1
+out_proj_band 1
+
+#Parameters (Smearing)
+smearing_method gaussian
+smearing_sigma 0.02
+</code></pre>
+    <p>Here the the relevant k-point file KPT looks like,</p>
+    <pre><code>K_POINTS # keyword for start
+6 # number of high symmetry lines
+Line # line-mode
+0.5 0.0 0.5 20 # X
+0.0 0.0 0.0 20 # G
+0.5 0.5 0.5 20 # L
+0.5 0.25 0.75 20 # W
+0.375 0.375 0.75 20 # K
+0.0 0.0 0.0 1 # G
+</code></pre>
+    <p>This means we are using:</p>
+    <ul>
+      <li>
+        <p>
+          6 number of k points, here means 6 k points: (0.5, 0.0, 0.5) (0.0,
+          0.0, 0.0) (0.5, 0.5, 0.5) (0.5, 0.25, 0.75) (0.375, 0.375, 0.75) (0.0,
+          0.0, 0.0)
+        </p>
+      </li>
+      <li>
+        <p>
+          20/1 number of k points along the segment line, which is constructed
+          by two adjacent k points.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Run the program, and you will see a file named BANDS_1.dat in the output
+      directory. Plot it to get energy band structure.
+    </p>
+    <p>
+      If "out<em>proj</em>band" set 1, it will also produce the projected band
+      structure in a file called PBAND_1 in xml format.
+    </p>
+    <p>
+      The PBAND<em
+        >1 file starts with number of atomic orbitals in the system, the text
+        contents of element
+        <band structure=""> is the same as data in the BANDS</band></em
+      >1.dat file, such as:
+    </p>
+    <pre><code>&lt;pband&gt;
+&lt;nspin&gt;1&lt;/nspin&gt;
+&lt;norbitals&gt;153&lt;/norbitals&gt;
+&lt;band_structure nkpoints="96" nbands="50" units="eV"&gt;
+...
+</code></pre>
+    <p>
+      The rest of the files arranged in sections, each section with a header
+      such as below:
+    </p>
+    <pre><code>&lt;orbital
+index="                                       1"
+atom_index="                                       1"
+species="Si"
+l="                                       0"
+m="                                       0"
+z="                                       1"
+&gt;
+&lt;data&gt;
+...
+&lt;/data&gt;
+</code></pre>
+    <p>
+      The shape of text contents of element
+      <data> is (Number of k-points, Number of bands) </data>
+    </p>
+    <p><a href="#band-structure">back to top</a></p>
+  </div>
+</div>
