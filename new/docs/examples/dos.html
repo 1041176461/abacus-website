@@ -1,0 +1,153 @@
+<div class="readme-block">
+  <div>
+    <style>
+      @import url(/_upload/tpl/0c/d8/3288/template3288/css/github.css);
+    </style>
+    <h1 id="density_of_states">Density<em>of</em>states</h1>
+    <p><a href="../../README.html">back to main page</a></p>
+    <h1 id="dos">DOS</h1>
+    <p>
+      The main task of this example is to calculate the density of states (DOS)
+      of the system. At first, do a ground-state energy calculation
+      <strong><em>with one additional keyword in the INPUT file</em></strong
+      >:
+    </p>
+    <pre><code>out_chg              1
+</code></pre>
+    <p>
+      this will produce the converged charge density, which is contained in the
+      file SPIN1_CHG. Copy the file along with the <code>STRU</code> file, the
+      pseudopotential file and the atomic orbital file (and the local density
+      matrix file onsite.dm if DFT+U is used) to the new working directory where
+      we will do a non-self-consistent calculation. In this example, the
+      potential is constructed from the ground-state charge density from the
+      proceeding calculation. Now the INPUT file is like:
+    </p>
+    <pre><code>INPUT_PARAMETERS
+#Parameters (General)
+suffix Si2_diamond
+ntype 1
+nbands 8
+calculation nscf
+basis_type lcao
+read_file_dir   ./
+
+#Parameters (Accuracy)
+ecutwfc 60
+symmetry 1
+scf_nmax 50
+scf_thr 1.0e-9
+pw_diag_thr 1.0e-7
+
+#Parameters (File)
+init_chg file
+out_dos 1
+dos_sigma 0.07
+
+#Parameters (Smearing)
+smearing_method gaussian
+smearing_sigma 0.02
+</code></pre>
+    <p>Some parameters in the INPUT file are explained:</p>
+    <ul>
+      <li>
+        <p>calculation</p>
+        <p>
+          choose which kind of calculation: scf calculation, nscf calculation,
+          structure relaxation or Molecular Dynamics. Now we need to do one step
+          of nscf calculation. Attention: This is a main variable of ABACUS, and
+          for its more information please see the
+          <a href="../input-main.html">list of input variables</a>.
+        </p>
+      </li>
+      <li>
+        <p>pw<em>diag</em>thr</p>
+        <p>
+          threshold for the CG method which diagonalizes the Hamiltonian to get
+          eigenvalues and eigen wave functions. If one wants to do nscf
+          calculation, pw<em>diag</em>thr needs to be changed to a smaller
+          account, typically smaller than 1.0e-3. Note that this parameter only
+          apply to plane-wave calculations that employ the CG method to
+          diagonalize the Hamiltonian.
+        </p>
+        <p>For LCAO calculations, this parameter will be neglected !</p>
+      </li>
+      <li>
+        <p>init_chg</p>
+        <p>
+          the type of starting density. When doing scf calculation, this
+          variable can be set âatomicâ. When doing nscf calculation, the charge
+          density already exists(eg. in SPIN1<em
+            >CHG), and the variable should be set as âfileâ. It means the
+            density will be read from the existing file SPIN1</em
+          >CHG. For more information please see the
+          <a href="../input-main.html">list of input variables</a>.
+        </p>
+      </li>
+      <li>
+        <p>out_dos</p>
+        <p>output density of state(DOS).</p>
+      </li>
+      <li>
+        <p>dos_sigma</p>
+        <p>the gaussian smearing parameter(DOS).</p>
+      </li>
+      <li>
+        <p>read<em>file</em>dir</p>
+        <p>the location of electron density file.</p>
+      </li>
+    </ul>
+    <p>
+      To have an accurate DOS, one needs to have a denser k-point mesh. For
+      example, the KPT file can be set as:
+    </p>
+    <pre><code>K_POINTS
+0
+Gamma
+8 8 8 0 0 0
+</code></pre>
+    <p>
+      Run the program, and you will see a file named DOS1<em
+        >smearing.dat in the output directory. The first two columns in the file
+        are the energy and DOS, respectively.Plot file DOS1</em
+      >smearing.dat with graphing software, and youâll get the DOS.
+    </p>
+    <h1 id="pdos">PDOS</h1>
+    <p>
+      Along with the DOS1_smearing.dat file, we also produce the projected
+      density of states (PDOS) in a file called PDOS.
+    </p>
+    <p>
+      The PDOS file starts with number of atomic orbitals in the system, then a
+      list of energy values, such as:
+    </p>
+    <pre><code>&lt;pdos&gt;
+&lt;nspin&gt;1&lt;/nspin&gt;
+&lt;norbitals&gt;26&lt;/norbitals&gt;
+&lt;energy_values units="eV"&gt;
+...
+</code></pre>
+    <p>
+      The rest of the fileis arranged in sections, each section with a header
+      such as below:
+    </p>
+    <pre><code>&lt;orbital
+index="                                       1"
+atom_index="                                       1"
+species="Si"
+l="                                       0"
+m="                                       0"
+z="                                       1"
+&gt;
+&lt;data&gt;
+...
+&lt;/data&gt;
+</code></pre>
+    <p>
+      which tells the atom and symmetry of the current atomic orbital, and
+      followed by the PDOS values. The values can thus be plotted against the
+      energies.
+    </p>
+    <p><a href="#Density_of_states">back to top</a></p>
+  </div>
+</div>
