@@ -38,9 +38,13 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
                 <dl>
                   <img align="right" src="images/Show_Case2.png" height="80" />
                 </dl>
-                <div id="download_button" class="download_button" style="background-color: rgb(77, 77, 77); color: rgb(255, 255, 255);">
-                  Download
-                 </div>
+                <div id='download_button' class='download_button'>Download</div>
+                <script>
+                  button = document.getElementById('download_button')
+                  button.addEventListener('mouseover', function () {button.style.backgroundColor = '#027b34'})
+                  button.addEventListener('mouseout', function () {button.style.backgroundColor = '#4d4d4d'})
+
+                </script>
                 <div class="selection_bar">
                   <table style="color:#FFFFFF;margin-top:0px; font-size: 14px;">
           <tbody><tr>
@@ -70,26 +74,26 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
           </div>
           </td>
           <td>
-            <div class="styled-select" onchange="localStorage.setItem('selectedPP', document.getElementById('PP').value); load_set_info(animate=0);">
+            <div class="styled-select">
                 <select id="PP">
                 <option value="sg15">SG15</option><option value="dojo">Dojo</option></select>
             </div>
             </td>
           <td>
-          <div class="styled-select" onchange="localStorage.setItem('selectedXCF', document.getElementById('XCF').value); load_set_info(animate=0);">
+          <div class="styled-select">
               <select id="XCF">
               <option value="pbe">PBE</option><option value="pw">LDA</option></select>
           </div>
           </td>
           <td>
-          <div class="styled-select" onchange="localStorage.setItem('selectedACC', document.getElementById('ACC').value); load_set_info(animate=0);">
+          <div class="styled-select">
               <select id="ACC">
               <option value="dzp_e100">DZP_E100</option><option value="dzp_e60">DZP_E60</option><option value="tzdp_e100">TZDP_E100</option></select>
           </div>
           </td>
           <td>
           <div class="styled-select">
-              <select id="SIZE" onchange="localStorage.setItem('selectedSIZE', document.getElementById('SIZE').value);">
+              <select id="SIZE">
               <option value="standard">standard</option><option value="full">full</option></select>
           </div>
           </td>
@@ -2575,6 +2579,8 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
             <tr class="row-8">
               <td colspan="2"/>
               <dl class="filler"/>
+            </tr>
+          </div>
             </td>
             
             <td class="cell element"><dl class="row-8 column-5" itemscope itemid="Ce">
