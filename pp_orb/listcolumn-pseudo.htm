@@ -98,33 +98,6 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
           </td>
           </tr>
           </tbody></table>
-          <script>
-            const button = document.getElementById('download_button')
-            button.addEventListener('mouseover', function () {button.style.backgroundColor = '#027b34'})
-            button.addEventListener('mouseout', function () {button.style.backgroundColor = '#4d4d4d'})
-            
-            const set_options = (element) => {
-              selected_name = `selected${element}`
-              const options = document.getElementById(element).options;
-              if (localStorage.getItem(selected_name)){
-                for (i in options){
-                  if (options[i].value==localStorage.getItem(selected_name)){
-                    options[i].selected = true;
-                  }
-                }
-              }
-              return options[options.selectedIndex].value
-            }
-
-            function load_set_info() {
-              const typ = set_options('TYP')
-              const pp = set_options('PP')
-              const xcf = set_options('XCF')
-              const acc = set_options('ACC')
-              const size = set_options('SIZE')
-              console.log(`${typ}_${pp}_${xcf}_${acc}_${size}`)
-            }
-          </script>
           </div>
             </td>
               
@@ -3332,7 +3305,54 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
 </tr>
 </table>
 
+<script>
+  const button = document.getElementById('download_button')
+  button.addEventListener('mouseover', function () {button.style.backgroundColor = '#027b34'})
+  button.addEventListener('mouseout', function () {button.style.backgroundColor = '#4d4d4d'})
+  
+  const set_options = (element) => {
+    selected_name = `selected${element}`
+    const options = document.getElementById(element).options;
+    if (localStorage.getItem(selected_name)){
+      for (i in options){
+        if (options[i].value==localStorage.getItem(selected_name)){
+          options[i].selected = true;
+        }
+      }
+    }
+    return options[options.selectedIndex].value
+  }
 
+  function set_info(file, callback){
+      const xobj = new XMLHttpRequest();
+      xobj.overrideMimeType("application/txt");
+      xobj.open('GET', file, true);
+      xobj.onreadystatechange = function () {
+      if (xobj.readyState == 4 && xobj.status == 200) {
+        callback(xobj.responseText)
+      }
+    }
+    xobj.send(null);
+  };
+
+  function load_set_info() {
+    const typ = set_options('TYP')
+    const pp = set_options('PP')
+    const xcf = set_options('XCF')
+    const acc = set_options('ACC')
+    const size = set_options('SIZE')
+    set_info(`${typ}_${pp}_${xcf}_${acc}_${size}.txt`, function(response){
+      const lines = response.split('\n');
+      for (line of lines){
+        const items = line.replace(/\r/g,"").split(' ');
+        const itemid = items[0];
+        const rcut = items[1];
+        const delta = items.slice(2, 4);
+        const item_dl = document.querySelector(`#periodic-table td.element dl[itemid=${itemid}]`);
+      }
+    })
+  }
+</script>
 <script type="text/javascript" src="js/nav.js"></script>
 </body>
 </html>
