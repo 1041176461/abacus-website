@@ -15,18 +15,148 @@
       content="
 ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source computer code package aiming for large-scale electronic-structure simulations from first principles, developed at the Key Laboratory of Quantum Information and Supercomputing Center, University of Science and Technology of China (USTC) - Computer Network and Information Center, Chinese of Academy (CNIC of CAS)."
     />
-    <link type="text/css" rel="stylesheet" href="css/style.css?v=21" />
-    <link href="css/Periodic-Table.css" type="text/css" rel="stylesheet" />
     <link
-      href="css/Periodic-Table-Colors.css"
+      type="text/css"
+      rel="stylesheet"
+      href="/_upload/tpl/0c/d8/3288/template3288/css/style.css?v=21"
+    />
+    <link
+      href="/_upload/tpl/0c/d8/3288/template3288/css/Periodic-Table.css"
       type="text/css"
       rel="stylesheet"
     />
-    <script type="text/javascript" src="js/rem.js"></script>
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    <script src="js/Periodic-Table.js" type="text/javascript"></script>
+    <link
+      href="/_upload/tpl/0c/d8/3288/template3288/css/Periodic-Table-Colors.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="/_upload/tpl/0c/d8/3288/template3288/js/rem.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/_upload/tpl/0c/d8/3288/template3288/js/jquery-1.8.3.min.js"
+    ></script>
+    <script
+      src="/_upload/tpl/0c/d8/3288/template3288/js/Periodic-Table.js"
+      type="text/javascript"
+    ></script>
   </head>
   <body>
+    <!--top-->
+    <table
+      border="0"
+      align="center"
+      cellpadding="0"
+      cellspacing="0"
+      class="mian_bg"
+    >
+      <tr>
+        <td>
+          <table
+            border="0"
+            align="center"
+            cellpadding="0"
+            cellspacing="0"
+            class="top"
+          >
+            <tr>
+              <td class="top_l">
+                <a href="/_s681/main.psp" title="ABACUS"
+                  ><img
+                    src="/_upload/tpl/0c/d8/3288/template3288/images/logo.png"
+                    alt="ABACUS"
+                /></a>
+                <div class="navico"></div>
+              </td>
+              <td class="top_r">
+                Today is:
+                <script
+                  src="/_upload/tpl/0c/d8/3288/template3288/js/time.js"
+                  type="text/javascript"
+                ></script>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <!--nav-->
+    <table
+      border="0"
+      align="center"
+      cellpadding="0"
+      cellspacing="0"
+      class="menusub"
+    >
+      <tr>
+        <td>
+          <table
+            class="w1002"
+            border="0"
+            align="center"
+            cellpadding="0"
+            cellspacing="0"
+          >
+            <tr>
+              <td class="menu">
+                <ul id="nav">
+                  <li class="top1">
+                    <a href="/_s681/main.psp" class="top1_link">HOME</a>
+                  </li>
+                  <li class="top1">
+                    <a href="/_s681/features/list.psp" class="top1_link"
+                      >FEATURES</a
+                    >
+                  </li>
+                  <li class="top1">
+                    <a href="/_s681/team/list.psp" class="top1_link">TEAM</a>
+                  </li>
+                  <li class="top1">
+                    <a href="/_s681/publication/list.psp" class="top1_link"
+                      >PUBLICATIONS</a
+                    >
+                  </li>
+                  <li class="top1">
+                    <a href="/_s681/manual/list.psp" class="top1_link">
+                      <em class="down">RESOURCES</em>
+                    </a>
+                    <ul class="sub">
+                      <a href="/_s681/manual/list.psp">MANUAL </a>
+                      <br />
+                      <a href="/_s681/pseudo/list.psp"
+                        >PSEUDOPOTENTIALS AND ORBITALS</a
+                      >
+                      <br />
+                      <a href="/_s681/examples/list.psp">EXAMPLES</a>
+                      <br />
+                    </ul>
+                  </li>
+                  <li class="top1">
+                    <a href="/_s681/download/list.psp" class="top1_link"
+                      >DOWNLOAD</a
+                    >
+                  </li>
+                  <li class="top1">
+                    <a href="/_s681/faqs/list.psp" class="top1_link">FAQS</a>
+                  </li>
+                  <li class="top1">
+                    <a
+                      href="/_s681/contact/list.psp"
+                      class="top1_link"
+                      style="padding-right: 0px"
+                      >CONTACT US</a
+                    >
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
     <!--content-->
     <table border="0" align="center" cellpadding="0" cellspacing="0">
       <td
@@ -58,7 +188,11 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
                               height="80"
                             />
                           </dl>
-                          <div id="download_button" class="download_button">
+                          <div
+                            id="download_button"
+                            class="download_button"
+                            data-link="dpsi_sg15_pbe_dzp_e100_standard.txt"
+                          >
                             Download
                           </div>
                           <div class="selection_bar">
@@ -112,7 +246,7 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
                                     >
                                       <select id="XCF">
                                         <option value="pbe">PBE</option>
-                                        <option value="pw">LDA</option>
+                                        <option value="lda">LDA</option>
                                       </select>
                                     </div>
                                   </td>
@@ -4170,61 +4304,46 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
         </table>
       </td>
     </table>
-
-    <script>
-      const button = document.getElementById("download_button");
-      button.addEventListener("mouseover", function () {
-        button.style.backgroundColor = "#027b34";
-      });
-      button.addEventListener("mouseout", function () {
-        button.style.backgroundColor = "#4d4d4d";
-      });
-
-      const set_options = (element) => {
-        selected_name = `selected${element}`;
-        const options = document.getElementById(element).options;
-        if (localStorage.getItem(selected_name)) {
-          for (i in options) {
-            if (options[i].value == localStorage.getItem(selected_name)) {
-              options[i].selected = true;
-            }
-          }
-        }
-        return options[options.selectedIndex].value;
-      };
-
-      function set_info(file, callback) {
-        const xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/txt");
-        xobj.open("GET", file, true);
-        xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == 200) {
-            callback(xobj.responseText);
-          }
-        };
-        xobj.send(null);
-      }
-
-      function load_set_info() {
-        const typ = set_options("TYP");
-        const pp = set_options("PP");
-        const xcf = set_options("XCF");
-        const acc = set_options("ACC");
-        const size = set_options("SIZE");
-        set_info(`${typ}_${pp}_${xcf}_${acc}_${size}.txt`, function (response) {
-          const lines = response.split("\n");
-          for (line of lines) {
-            const items = line.replace(/\r/g, "").split(" ");
-            const itemid = items[0];
-            const rcut = items[1];
-            const delta = items.slice(2, 4);
-            const item_dl = document.querySelector(
-              `#periodic-table td.element dl[itemid=${itemid}]`
-            );
-          }
-        });
-      }
-    </script>
-    <script type="text/javascript" src="js/nav.js"></script>
+    <!--bottom-->
+    <table
+      border="0"
+      align="center"
+      cellpadding="0"
+      cellspacing="0"
+      class="footbg"
+    >
+      <tr frag="面板3">
+        <td class="foot" frag="窗口3" portletmode="simpleSiteAttri">
+          <div class="footer">
+            <div class="foot-left" style="display: inline-block; width: 300px">
+              <script
+                type="text/javascript"
+                id="clustrmaps"
+                src="//clustrmaps.com/map_v2.js?d=LIU-eeuhjUBC58YuSQFlmS7MYp-8USnjNZNGPTdiLU8"
+              ></script>
+            </div>
+            <div frag="窗口内容">
+              <div class="foot-right">
+                {站点版权} <br />
+                <a
+                  href="http://www.ahweilai.com/"
+                  target="_blank"
+                  title="合肥网站制作公司"
+                  >Website Production：Provided by Weilai Technology</a
+                >
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <script
+      src="/_upload/tpl/0c/d8/3288/template3288/js/table_tools.js"
+      type="text/javascript"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/_upload/tpl/0c/d8/3288/template3288/js/nav.js"
+    ></script>
   </body>
 </html>
