@@ -60,35 +60,40 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
           </tr>
           <tr>
           <td>
-          <div class="styled-select">
-            <select id="TYP" onchange="get_option()">
+          <div class="styled-select", onchange="localStorage.setItem('selectedTYP', document.getElementById('TYP').value);load_set_info()">
+            <select id="TYP">
               <option value="dpsi" selected="">DPSI</option>
               <option value="psi">PSI</option>
             </select>
           </div>
           </td>
           <td>
-            <div class="styled-select">
-                <select id="PP", onchange="get_option()">
-                <option value="sg15">SG15</option><option value="dojo">Dojo</option></select>
+            <div class="styled-select", onchange="localStorage.setItem('selectedPP', document.getElementById('PP').value);load_set_info()">
+                <select id="PP">
+                <option value="sg15">SG15</option>
+                <option value="dojo">Dojo</option></select>
             </div>
             </td>
           <td>
-          <div class="styled-select">
-              <select id="XCF", onchange="get_option()">
-              <option value="pbe">PBE</option><option value="pw">LDA</option></select>
+          <div class="styled-select", onchange="localStorage.setItem('selectedXCF', document.getElementById('XCF').value);load_set_info()">
+              <select id="XCF">
+              <option value="pbe">PBE</option>
+              <option value="pw">LDA</option></select>
           </div>
           </td>
           <td>
-          <div class="styled-select">
-              <select id="ACC", onchange="get_option()">
-              <option value="dzp_e100">DZP_E100</option><option value="dzp_e60">DZP_E60</option><option value="tzdp_e100">TZDP_E100</option></select>
+          <div class="styled-select", onchange="localStorage.setItem('selectedACC', document.getElementById('ACC').value);load_set_info()">
+              <select id="ACC">
+              <option value="dzp_e100">DZP_E100</option>
+              <option value="dzp_e60">DZP_E60</option>
+              <option value="tzdp_e100">TZDP_E100</option></select>
           </div>
           </td>
           <td>
-          <div class="styled-select">
-              <select id="SIZE", onchange="get_option()">
-              <option value="standard">standard</option><option value="full">full</option></select>
+          <div class="styled-select", onchange="localStorage.setItem('selectedSIZE', document.getElementById('SIZE').value);load_set_info()">
+              <select id="SIZE">
+              <option value="standard">standard</option>
+              <option value="full">full</option></select>
           </div>
           </td>
           </tr>
@@ -97,10 +102,27 @@ ABACUS (Atomic-orbital Based Ab-initio Computation at UStc) is an open-source co
             const button = document.getElementById('download_button')
             button.addEventListener('mouseover', function () {button.style.backgroundColor = '#027b34'})
             button.addEventListener('mouseout', function () {button.style.backgroundColor = '#4d4d4d'})
-            function get_option(element){
-              const sel = document.getElementById(element);
-              const sid = sel.selectedIndex;
-              alert(sel[sid].innerHTML)
+            
+            const set_options = (element) => {
+              selected_name = `selected${element}`
+              const options = document.getElementById(element).options;
+              if (localStorage.getItem(selected_name)){
+                for (i in options){
+                  if (options[i].value==localStorage.getItem(selected_name)){
+                    options[i].selected = true;
+                  }
+                }
+              }
+              return options[options.selectedIndex].value
+            }
+
+            function load_set_info() {
+              const typ = set_options('TYP')
+              const pp = set_options('PP')
+              const xcf = set_options('XCF')
+              const acc = set_options('ACC')
+              const size = set_options('SIZE')
+              console.log(`${typ}_${pp}_${xcf}_${acc}_${size}`)
             }
           </script>
           </div>
