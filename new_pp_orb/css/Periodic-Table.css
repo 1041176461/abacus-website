@@ -1,0 +1,236 @@
+#periodic-table {
+  margin: 0px;
+  font-size: 14px;
+}
+#periodic-table tr.row-7 td {
+  padding-bottom: 3em;
+}
+#periodic-table td {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+#periodic-table tr.header td.cell {
+  padding-bottom: 0em;
+}
+#periodic-table td.showcase dl {
+  margin: 0em auto;
+  border: 0px solid black;
+  position: relative;
+  width: 22em;
+  height: 6em;
+  background-color: #ffffff;
+}
+#periodic-table td.showcase dd {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  width: 100%;
+  line-height: 1em;
+  text-align: center;
+  overflow: visible;
+}
+#periodic-table td.showcase dd[data-id="symbol"] {
+  top: 20%;
+  font-size: 2em;
+  font-weight: bold;
+}
+#periodic-table td.showcase dd[data-id="atomic_number"] {
+  top: 0.2em;
+  right: 0.2em;
+  font-size: 1em;
+  text-align: right;
+}
+#periodic-table td.showcase dd[data-id="name"] {
+  bottom: 2.8em;
+  font-size: 1em;
+  font-weight: bold;
+}
+#periodic-table td.showcase dd.property {
+  bottom: 0em;
+  font-size: 1em;
+}
+#periodic-table td.properties dt {
+  cursor: pointer;
+}
+#periodic-table td.properties dt.active {
+  text-decoration: underline;
+}
+#periodic-table td.properties dt:hover {
+  text-decoration: underline;
+}
+#periodic-table td.properties span[data-id="electronic_configuration"] {
+  font-size: 0.75em;
+  overflow: hidden;
+}
+#periodic-table td.properties dl {
+  margin: auto;
+  border: 1px solid black;
+  position: relative;
+  width: 20em;
+  height: 18em;
+  overflow: visible;
+}
+#periodic-table td.properties dl * {
+  height: 1.15em;
+  font-size: 0.85em;
+  padding-left: 0.2em;
+}
+#periodic-table td.properties dt {
+  margin: 0px;
+  margin-right: 0.8em;
+  clear: left;
+  float: left;
+  width: 12em;
+}
+#periodic-table td.properties dd {
+  margin: 0px;
+  float: left;
+  text-align: right;
+}
+#periodic-table td.element dl:hover {
+  background-color: #777;
+  color: #fff;
+  cursor: pointer;
+}
+#periodic-table td.element dl.active {
+  margin: 1px;
+  border: 2px solid black;
+  padding: 0px;
+  color: #fff;
+  background-color: #777;
+}
+#periodic-table td.cell dl {
+  margin: 0px;
+  border: 0px solid black;
+  padding: 0px;
+  width: 2.6em;
+  height: 3.2em;
+  position: relative;
+}
+#periodic-table td.cell dl.filler {
+  margin: 0px;
+  border: 0px;
+}
+#periodic-table td.element dd {
+  display: none;
+  margin: 0px;
+  padding: 0px;
+  line-height: 1.03em;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  font-size: 0.55em;
+}
+#periodic-table td.element dd[itemprop="symbol"] {
+  display: block;
+  padding: 0px;
+  top: 0.9em;
+  font-size: 0.9em;
+  font-weight: bold;
+  overflow: visible;
+}
+#periodic-table td.element dd[itemprop="atomic_number"] {
+  display: block;
+  top: 0em;
+  left: 0em;
+  font-size: 0.7em;
+  text-align: left;
+  display: none;
+}
+#periodic-table td.element dd[itemprop="rcut"] {
+  display: block;
+  top: 0.1em;
+  right: 0.2em;
+  font-size: 0.7em;
+  text-align: right;
+}
+#periodic-table td.element dd[itemprop="delta"] {
+  display: block;
+  bottom: 0em;
+  font-size: 0.7em;
+  text-align: center;
+}
+#periodic-table td.element dd.active {
+  display: block;
+  bottom: 0em;
+  letter-spacing: 0em;
+  display: none;
+}
+#periodic-table td.element dd[itemprop="oxidation_states"] {
+  font-size: 0.65em;
+}
+#periodic-table td.element dd[itemprop="electronic_configuration"] {
+  display: none;
+}
+#periodic-table td.element dd[itemprop="thermal_conductivity"] {
+  font-size: 0.65em;
+}
+@media (max-width: 1100px) {
+  #periodic-table td.showcase dl {
+    width: 10em;
+  }
+  #periodic-table td.showcase dd.property {
+    font-size: 0.9em;
+  }
+}
+
+.download_button {
+  width: 180px;
+  height: 35px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  float: left;
+  margin: 6px 6px 4px 3px;
+  padding: 0px;
+  background: #4d4d4d;
+  border: 1px solid #a2a4a5;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  cursor: pointer;
+}
+
+.selection_bar {
+  border: 0px dashed #fbfcfd;
+  z-index: 5;
+  width: 380px;
+  height: 108px;
+  background: #7d7d7d;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  -moz-border-top-right-radius: 2px;
+  -moz-border-bottom-right-radius: 2px;
+  -moz-border-bottom-left-radius: 2px;
+  -moz-border-top-left-radius: 2px;
+}
+
+@media screen and (max-width: 1000px) {
+  .team_t1 {
+    width: 100%;
+  }
+}
